@@ -1,6 +1,6 @@
 ﻿Public Class Form1
 
-    'Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher()
+    Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher()
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
 
     Enum SearchByType
@@ -12,7 +12,9 @@
     Dim searchByChosen As SearchByType = SearchByType.CompanyName
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
-
+        DisableSearchItems()
+        SearchTextBox.Text = ""
+        ResultsLabel.Text = ""
     End Sub
 
     Private Sub BrowseListButton_Click(sender As Object, e As EventArgs) Handles BrowseListButton.Click, SearchByCompanyNameButton.Click,
@@ -27,6 +29,12 @@
 
         Select Case (buttonSelected.Name)
             Case BrowseListButton.Name
+                ResultsLabel.Text = "Last Name List"
+                DisableSearchItems()
+                BrowseDataGridView.Visible = True
+
+                PopulateDataGridViaDataSet("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName", "sd_header")
+
                 'ResultsLabel.Text = "Company Name List"
                 'DisableSearchItems()
                 'BrowseDataGridView.Visible = True
@@ -34,11 +42,7 @@
                 'PopulateDataGrid("SELECT CompanyName, CompanyID FROM Companies ORDER BY CompanyName") '8888888888888888888888888888888888888
 
             'Case BrowseByLastNameButton.Name
-            '    ResultsLabel.Text = "Last Name List"
-            '    DisableSearchItems()
-            '    BrowseDataGridView.Visible = True
 
-            '    PopulateDataGridViaDataSet("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName", "sd_header")
 
             Case SearchByCompanyNameButton.Name
                 SearchLabel.Text = "Enter Name of Company"
@@ -64,6 +68,23 @@
                 'PopulateScarlInteger("SELECT COUNT CompanyName FROM sd_header")
 
         End Select
+    End Sub
+
+    Private Sub PopulateDataGridViaDataSet(ByVal searchString As String, ByVal tableName As String)
+
+        'BrowseDataGridView.DataSource = dataBaseFetcher.getSqlDataSet(searchString, connectionString)
+        BrowseDataGridView.DataSource = DataBaseFetcher.getSqlDataSet(searchString, tableName, connectionString).Tables(0)
+    End Sub
+
+    Private Sub PopulateDataGrid(ByVal searchString As String)
+
+        BrowseDataGridView.DataSource = DataBaseFetcher.getDataTable(searchString, connectionString)
+
+    End Sub
+
+    Private Sub PopulateScarlInteger(ByVal searchString As String)
+        ResultsLabel.Text = DataBaseFetcher.IntegerScalarOleDbCommand(searchString, connectionString)
+
     End Sub
 
     Private Sub EnableSeachItems()
