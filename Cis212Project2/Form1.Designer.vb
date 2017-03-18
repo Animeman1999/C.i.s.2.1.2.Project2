@@ -27,6 +27,9 @@ Partial Class Form1
         Me.PictureBox1 = New System.Windows.Forms.PictureBox()
         Me.TitleLabel = New System.Windows.Forms.Label()
         Me.ControlPanelGroupBox = New System.Windows.Forms.GroupBox()
+        Me.SearchButton = New System.Windows.Forms.Button()
+        Me.SearchTextBox = New System.Windows.Forms.TextBox()
+        Me.SearchLabel = New System.Windows.Forms.Label()
         Me.TotalNumberOfContactsButton = New System.Windows.Forms.Button()
         Me.AddNewCompanyButton = New System.Windows.Forms.Button()
         Me.SearchByPhoneNumberButton = New System.Windows.Forms.Button()
@@ -34,9 +37,7 @@ Partial Class Form1
         Me.SearchByCompanyNameButton = New System.Windows.Forms.Button()
         Me.BrowseListButton = New System.Windows.Forms.Button()
         Me.BrowseDataGridView = New System.Windows.Forms.DataGridView()
-        Me.SearchLabel = New System.Windows.Forms.Label()
-        Me.SearchTextBox = New System.Windows.Forms.TextBox()
-        Me.SearchButton = New System.Windows.Forms.Button()
+        Me.ResultsLabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -104,11 +105,44 @@ Partial Class Form1
         Me.ControlPanelGroupBox.TabStop = False
         Me.ControlPanelGroupBox.Text = "ControlPanelGroupBox"
         '
+        'SearchButton
+        '
+        Me.SearchButton.BackColor = System.Drawing.Color.SteelBlue
+        Me.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.SearchButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchButton.ForeColor = System.Drawing.SystemColors.Window
+        Me.SearchButton.Location = New System.Drawing.Point(29, 566)
+        Me.SearchButton.Name = "SearchButton"
+        Me.SearchButton.Size = New System.Drawing.Size(386, 50)
+        Me.SearchButton.TabIndex = 8
+        Me.SearchButton.Text = "SearchButton"
+        Me.SearchButton.UseVisualStyleBackColor = False
+        '
+        'SearchTextBox
+        '
+        Me.SearchTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchTextBox.Location = New System.Drawing.Point(29, 510)
+        Me.SearchTextBox.Name = "SearchTextBox"
+        Me.SearchTextBox.Size = New System.Drawing.Size(386, 37)
+        Me.SearchTextBox.TabIndex = 7
+        Me.SearchTextBox.Text = "SearchTextBox"
+        '
+        'SearchLabel
+        '
+        Me.SearchLabel.AutoSize = True
+        Me.SearchLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchLabel.Location = New System.Drawing.Point(32, 460)
+        Me.SearchLabel.Name = "SearchLabel"
+        Me.SearchLabel.Size = New System.Drawing.Size(166, 31)
+        Me.SearchLabel.TabIndex = 6
+        Me.SearchLabel.Text = "SearchLabel"
+        '
         'TotalNumberOfContactsButton
         '
         Me.TotalNumberOfContactsButton.BackColor = System.Drawing.Color.SteelBlue
         Me.TotalNumberOfContactsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.TotalNumberOfContactsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.TotalNumberOfContactsButton.ForeColor = System.Drawing.SystemColors.Window
         Me.TotalNumberOfContactsButton.Location = New System.Drawing.Point(29, 391)
         Me.TotalNumberOfContactsButton.Name = "TotalNumberOfContactsButton"
         Me.TotalNumberOfContactsButton.Size = New System.Drawing.Size(386, 50)
@@ -121,6 +155,7 @@ Partial Class Form1
         Me.AddNewCompanyButton.BackColor = System.Drawing.Color.SteelBlue
         Me.AddNewCompanyButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.AddNewCompanyButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.AddNewCompanyButton.ForeColor = System.Drawing.SystemColors.Window
         Me.AddNewCompanyButton.Location = New System.Drawing.Point(29, 322)
         Me.AddNewCompanyButton.Name = "AddNewCompanyButton"
         Me.AddNewCompanyButton.Size = New System.Drawing.Size(386, 50)
@@ -133,6 +168,7 @@ Partial Class Form1
         Me.SearchByPhoneNumberButton.BackColor = System.Drawing.Color.SteelBlue
         Me.SearchByPhoneNumberButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByPhoneNumberButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchByPhoneNumberButton.ForeColor = System.Drawing.SystemColors.Window
         Me.SearchByPhoneNumberButton.Location = New System.Drawing.Point(29, 253)
         Me.SearchByPhoneNumberButton.Name = "SearchByPhoneNumberButton"
         Me.SearchByPhoneNumberButton.Size = New System.Drawing.Size(386, 50)
@@ -145,6 +181,7 @@ Partial Class Form1
         Me.SearchByLastNameButton.BackColor = System.Drawing.Color.SteelBlue
         Me.SearchByLastNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByLastNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchByLastNameButton.ForeColor = System.Drawing.SystemColors.Window
         Me.SearchByLastNameButton.Location = New System.Drawing.Point(29, 184)
         Me.SearchByLastNameButton.Name = "SearchByLastNameButton"
         Me.SearchByLastNameButton.Size = New System.Drawing.Size(386, 50)
@@ -157,6 +194,7 @@ Partial Class Form1
         Me.SearchByCompanyNameButton.BackColor = System.Drawing.Color.SteelBlue
         Me.SearchByCompanyNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByCompanyNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SearchByCompanyNameButton.ForeColor = System.Drawing.SystemColors.Window
         Me.SearchByCompanyNameButton.Location = New System.Drawing.Point(29, 115)
         Me.SearchByCompanyNameButton.Name = "SearchByCompanyNameButton"
         Me.SearchByCompanyNameButton.Size = New System.Drawing.Size(386, 50)
@@ -169,6 +207,7 @@ Partial Class Form1
         Me.BrowseListButton.BackColor = System.Drawing.Color.SteelBlue
         Me.BrowseListButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BrowseListButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.BrowseListButton.ForeColor = System.Drawing.SystemColors.Window
         Me.BrowseListButton.Location = New System.Drawing.Point(29, 46)
         Me.BrowseListButton.Name = "BrowseListButton"
         Me.BrowseListButton.Size = New System.Drawing.Size(386, 50)
@@ -188,43 +227,23 @@ Partial Class Form1
         Me.BrowseDataGridView.Size = New System.Drawing.Size(730, 564)
         Me.BrowseDataGridView.TabIndex = 5
         '
-        'SearchLabel
+        'ResultsLabel
         '
-        Me.SearchLabel.AutoSize = True
-        Me.SearchLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchLabel.Location = New System.Drawing.Point(32, 460)
-        Me.SearchLabel.Name = "SearchLabel"
-        Me.SearchLabel.Size = New System.Drawing.Size(166, 31)
-        Me.SearchLabel.TabIndex = 6
-        Me.SearchLabel.Text = "SearchLabel"
-        '
-        'SearchTextBox
-        '
-        Me.SearchTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchTextBox.Location = New System.Drawing.Point(29, 510)
-        Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(386, 37)
-        Me.SearchTextBox.TabIndex = 7
-        Me.SearchTextBox.Text = "SearchTextBox"
-        '
-        'SearchButton
-        '
-        Me.SearchButton.BackColor = System.Drawing.Color.SteelBlue
-        Me.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.SearchButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchButton.Location = New System.Drawing.Point(29, 566)
-        Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.Size = New System.Drawing.Size(386, 50)
-        Me.SearchButton.TabIndex = 8
-        Me.SearchButton.Text = "SearchButton"
-        Me.SearchButton.UseVisualStyleBackColor = False
+        Me.ResultsLabel.AutoSize = True
+        Me.ResultsLabel.ForeColor = System.Drawing.SystemColors.Window
+        Me.ResultsLabel.Location = New System.Drawing.Point(34, 856)
+        Me.ResultsLabel.Name = "ResultsLabel"
+        Me.ResultsLabel.Size = New System.Drawing.Size(124, 25)
+        Me.ResultsLabel.TabIndex = 6
+        Me.ResultsLabel.Text = "ResultsLabel"
         '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(2059, 890)
+        Me.ClientSize = New System.Drawing.Size(2059, 921)
+        Me.Controls.Add(Me.ResultsLabel)
         Me.Controls.Add(Me.BrowseDataGridView)
         Me.Controls.Add(Me.ControlPanelGroupBox)
         Me.Controls.Add(Me.TitleLabel)
@@ -259,4 +278,5 @@ Partial Class Form1
     Friend WithEvents SearchButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents SearchLabel As Label
+    Friend WithEvents ResultsLabel As Label
 End Class
