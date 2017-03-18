@@ -65,7 +65,7 @@
 
             Case TotalNumberOfContactsButton.Name
                 ResultsLabel.Text = "Number of contacts"
-                'PopulateScarlInteger("SELECT COUNT CompanyName FROM sd_header")
+                PopulateScarlInteger("SELECT COUNT(CompanyName) FROM sd_header")
 
         End Select
     End Sub
@@ -83,7 +83,7 @@
     End Sub
 
     Private Sub PopulateScarlInteger(ByVal searchString As String)
-        ResultsLabel.Text = DataBaseFetcher.IntegerScalarOleDbCommand(searchString, connectionString)
+        DetailInformatinLabel.Text = dataBaseFetcher.IntegerScalarOleDbCommand(searchString, connectionString)
 
     End Sub
 
@@ -107,5 +107,11 @@
         SearchByPhoneNumberButton.ForeColor = Color.White
         AddNewCompanyButton.ForeColor = Color.White
         TotalNumberOfContactsButton.ForeColor = Color.White
+    End Sub
+
+    Private Sub BrowseDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles BrowseDataGridView.CellClick
+
+        DetailInformatinLabel.Text = BrowseDataGridView.SelectedCells(0).Value.ToString() & " " & BrowseDataGridView.CurrentCell.RowIndex.ToString
+
     End Sub
 End Class

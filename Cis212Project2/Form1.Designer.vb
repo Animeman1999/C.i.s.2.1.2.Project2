@@ -38,6 +38,7 @@ Partial Class Form1
         Me.BrowseListButton = New System.Windows.Forms.Button()
         Me.BrowseDataGridView = New System.Windows.Forms.DataGridView()
         Me.ResultsLabel = New System.Windows.Forms.Label()
+        Me.DetailInformatinLabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -237,12 +238,22 @@ Partial Class Form1
         Me.ResultsLabel.TabIndex = 6
         Me.ResultsLabel.Text = "ResultsLabel"
         '
+        'DetailInformatinLabel
+        '
+        Me.DetailInformatinLabel.AutoSize = True
+        Me.DetailInformatinLabel.Location = New System.Drawing.Point(1401, 185)
+        Me.DetailInformatinLabel.Name = "DetailInformatinLabel"
+        Me.DetailInformatinLabel.Size = New System.Drawing.Size(194, 25)
+        Me.DetailInformatinLabel.TabIndex = 7
+        Me.DetailInformatinLabel.Text = "DetailInformatinLabel"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
         Me.ClientSize = New System.Drawing.Size(2059, 921)
+        Me.Controls.Add(Me.DetailInformatinLabel)
         Me.Controls.Add(Me.ResultsLabel)
         Me.Controls.Add(Me.BrowseDataGridView)
         Me.Controls.Add(Me.ControlPanelGroupBox)
@@ -279,4 +290,5 @@ Partial Class Form1
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents SearchLabel As Label
     Friend WithEvents ResultsLabel As Label
+    Friend WithEvents DetailInformatinLabel As Label
 End Class
