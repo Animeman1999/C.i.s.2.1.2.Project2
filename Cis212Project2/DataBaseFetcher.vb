@@ -6,24 +6,26 @@ Public Class DataBaseFetcher
     Public Property ErrorMessage As String
 
 
-    Function getOleDataReader(ByVal TheSQLQueryStatement As String, ByVal connectionString As String) As String
+    Function getOleDataReader(ByVal queryString As String, ByVal numberOfColums As Integer, ByVal connectionString As String) As String()
 
         Dim oleDbConnection As OleDbConnection = Nothing
         Dim oleDbCommand As OleDbCommand = Nothing
         Dim oleDataReader As OleDbDataReader = Nothing
-        Dim returnString As String = ""
+        Dim returnString(numberOfColums) As String
 
         connectionString += " Provider=SQLOLEDB;"
 
         Try
-
-
+            Dim x As Int16 = 0
             oleDbConnection = New OleDbConnection(connectionString)
-            oleDbCommand = New OleDbCommand(TheSQLQueryStatement, oleDbConnection)
+            oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             oleDbConnection.Open()
             oleDataReader = oleDbCommand.ExecuteReader()
             While oleDataReader.Read()
-                returnString += oleDataReader(0).ToString() & Environment.NewLine()
+                For column As Integer = 0 To numberOfColums - 1
+                    returnString(column) = oleDataReader(column).ToString()
+                Next
+
             End While
 
         Catch ex As Exception
@@ -42,7 +44,7 @@ Public Class DataBaseFetcher
 
     End Function
 
-    Function getOleDataSet(ByVal TheSQLQueryStatement As String, ByVal TableName As String, ByVal connectionString As String) As DataSet
+    Function getOleDataSet(ByVal queryString As String, ByVal TableName As String, ByVal connectionString As String) As DataSet
 
         Dim dataAdapter As OleDbDataAdapter
         Dim oleDbConnection As OleDbConnection = Nothing
@@ -55,7 +57,7 @@ Public Class DataBaseFetcher
 
 
             oleDbConnection = New OleDbConnection(connectionString)
-            oleDbCommand = New OleDbCommand(TheSQLQueryStatement, oleDbConnection)
+            oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             dataAdapter = New OleDbDataAdapter(oleDbCommand)
             oleDbConnection.Open()
             dataAdapter.Fill(dataSet, TableName)

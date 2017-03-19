@@ -2,6 +2,7 @@
 
     Dim companiesAndEmployeesTables As CompaniesAndEmployeesTables = New CompaniesAndEmployeesTables
     Dim employeesTable As EmployeesTable = New EmployeesTable
+    Dim allContactRelatedTables As AllContactRelatedTables = New AllContactRelatedTables
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
 
     Enum SearchByType
@@ -81,9 +82,13 @@
     End Sub
 
     Private Sub BrowseDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles BrowseDataGridView.CellClick
+        Dim companyId As Integer = BrowseDataGridView.CurrentRow.Cells(3).Value
+        allContactRelatedTables.FetchSingleContactInclusiveData(connectionString, companyId)
 
-        DetailInformatinLabel.Text = BrowseDataGridView.SelectedCells(0).Value.ToString() & " " & BrowseDataGridView.CurrentCell.RowIndex.ToString
-
+        'DetailInformatinLabel.Text = BrowseDataGridView.SelectedCells(0).Value.ToString() & " " & BrowseDataGridView.CurrentCell.RowIndex.ToString
+        'DetailInformatinLabel.Text += "Cell Value: " & companyId
+        'companiesAndEmployeesTables.TestClick(connectionString, companyId)
+        'BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
@@ -106,4 +111,5 @@
 
 
     End Sub
+
 End Class

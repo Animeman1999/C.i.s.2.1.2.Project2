@@ -72,6 +72,7 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AllContactRelatedTables.vb" />
     <Compile Include="CompaniesAndEmployeesTables.vb" />
     <Compile Include="EmployeesTable.vb" />
     <Compile Include="DataBaseFetcher.vb" />
