@@ -1,4 +1,4 @@
-﻿Public Class CountContactsFromEmployees
+﻿Public Class EmployeesTable
 
     Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher
 

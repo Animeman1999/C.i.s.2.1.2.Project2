@@ -72,8 +72,8 @@
     <Import Include="System.Threading.Tasks" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BrowseCompaniesAndEmployees.vb" />
-    <Compile Include="CountContactsFromCompaniesAndEmployees.vb" />
+    <Compile Include="CompaniesAndEmployeesTables.vb" />
+    <Compile Include="EmployeesTable.vb" />
     <Compile Include="DataBaseFetcher.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>

@@ -1,7 +1,7 @@
 ﻿Public Class Form1
 
-    Dim browseCompaniesAndEmployees As BrowseCompaniesAndEmployees = New BrowseCompaniesAndEmployees
-    Dim countContactsFromEmployees As CountContactsFromEmployees = New CountContactsFromEmployees
+    Dim companiesAndEmployeesTables As CompaniesAndEmployeesTables = New CompaniesAndEmployeesTables
+    Dim employeesTable As EmployeesTable = New EmployeesTable
     Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher()
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
 
@@ -33,8 +33,8 @@
                 ResultsLabel.Text = "Last Name List"
                 DisableSearchItems()
                 BrowseDataGridView.Visible = True
-                browseCompaniesAndEmployees.FetchDataSet(connectionString)
-                BrowseDataGridView.DataSource = browseCompaniesAndEmployees.dataSet.Tables(0)
+                companiesAndEmployeesTables.FetchBrowseDataSet(connectionString)
+                BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
                 'PopulateDataGridViaDataSet("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName", "sd_header")
 
                 '88888888888888888888888888888888888
@@ -62,8 +62,8 @@
             Case TotalNumberOfContactsButton.Name
                 ResultsLabel.Text = "Number of contacts"
                 SearchLabel.Visible = True
-                countContactsFromEmployees.CreateCount(connectionString)
-                SearchLabel.Text = "Number of Contacts: " & countContactsFromEmployees.contactCount
+                employeesTable.CreateCount(connectionString)
+                SearchLabel.Text = "Number of Contacts: " & employeesTable.contactCount
                 'PopulateScarlInteger("SELECT COUNT(CompanyName) FROM sd_header")
 
         End Select
@@ -120,10 +120,14 @@
             BrowseDataGridView.Visible = True
             Select Case (searchByChosen)
                 Case SearchByType.CompanyName
-                    PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE CompanyName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
-                    DetailInformatinLabel.Text = SearchTextBox.Text
+                    companiesAndEmployeesTables.FetchCompanyNameDataSet(connectionString, SearchTextBox.Text)
+                    BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                    'PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE CompanyName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
+                   ' DetailInformatinLabel.Text = SearchTextBox.Text
                 Case SearchByType.LastName
-                    PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE LastName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
+                    companiesAndEmployeesTables.FetchLastNameDataSet(connectionString, SearchTextBox.Text)
+                    BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                    'PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE LastName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
             End Select
         Else
             MsgBox("You must enter text to search by.")
