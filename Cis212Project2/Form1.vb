@@ -113,4 +113,26 @@
         DetailInformatinLabel.Text = BrowseDataGridView.SelectedCells(0).Value.ToString() & " " & BrowseDataGridView.CurrentCell.RowIndex.ToString
 
     End Sub
+
+    Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+
+        If SearchTextBox.Text.Trim() <> "" Then
+            DisableSearchItems()
+            BrowseDataGridView.Visible = True
+            Select Case (searchByChosen)
+                Case SearchByType.CompanyName
+                    PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE CompanyName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
+                    DetailInformatinLabel.Text = SearchTextBox.Text
+                Case SearchByType.LastName
+                    PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE LastName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
+                Case SearchByType.Phonenumber
+
+            End Select
+        Else
+            MsgBox("You must enter text to search by.")
+
+        End If
+
+
+    End Sub
 End Class
