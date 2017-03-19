@@ -210,7 +210,7 @@ Partial Class Form1
         Me.BrowseDataGridView.Name = "BrowseDataGridView"
         Me.BrowseDataGridView.ReadOnly = True
         Me.BrowseDataGridView.RowTemplate.Height = 31
-        Me.BrowseDataGridView.Size = New System.Drawing.Size(730, 652)
+        Me.BrowseDataGridView.Size = New System.Drawing.Size(838, 652)
         Me.BrowseDataGridView.TabIndex = 5
         '
         'ResultsLabel

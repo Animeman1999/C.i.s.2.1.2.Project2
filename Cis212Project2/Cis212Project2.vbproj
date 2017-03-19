@@ -73,6 +73,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BrowseCompaniesAndEmployees.vb" />
+    <Compile Include="CountContactsFromCompaniesAndEmployees.vb" />
     <Compile Include="DataBaseFetcher.vb" />
     <Compile Include="Form1.vb">
       <SubType>Form</SubType>

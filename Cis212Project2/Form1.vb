@@ -1,6 +1,7 @@
 ﻿Public Class Form1
 
     Dim browseCompaniesAndEmployees As BrowseCompaniesAndEmployees = New BrowseCompaniesAndEmployees
+    Dim countContactsFromEmployees As CountContactsFromEmployees = New CountContactsFromEmployees
     Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher()
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
 
@@ -61,7 +62,9 @@
             Case TotalNumberOfContactsButton.Name
                 ResultsLabel.Text = "Number of contacts"
                 SearchLabel.Visible = True
-                PopulateScarlInteger("SELECT COUNT(CompanyName) FROM sd_header")
+                countContactsFromEmployees.CreateCount(connectionString)
+                SearchLabel.Text = "Number of Contacts: " & countContactsFromEmployees.contactCount
+                'PopulateScarlInteger("SELECT COUNT(CompanyName) FROM sd_header")
 
         End Select
     End Sub
