@@ -4,60 +4,9 @@ Imports System.Data.OleDb
 Public Class DataBaseFetcher
 
     Public Property ErrorMessage As String
-    Function getDataTable(ByVal TheSQLQueryStatement As String, ByVal connectionString As String) As DataTable
-        'NOT NEEDED
-        Dim connection As New SqlConnection
-        Dim sqlCommand As SqlCommand
-        Dim dataAdapter As SqlDataAdapter
-        Dim dataTable As New DataTable
-        Dim dataString As String = ""
-        'Dim oleDbConnection As OleDbConnection = Nothing
-        'Dim oleDbCommand As OleDbCommand = Nothing
 
-
-        Try
-            connection.ConnectionString = connectionString
-            sqlCommand = New SqlCommand(TheSQLQueryStatement, connection)
-            sqlCommand.CommandTimeout = 3000
-
-            dataAdapter = New SqlDataAdapter(sqlCommand)
-            dataAdapter.Fill(dataTable)
-
-
-
-        Catch ex As Exception
-            ErrorMessage = ex.Message.ToString() & " Error"
-        Finally
-
-            If connection.State = ConnectionState.Open Then
-                connection.Close()
-            End If
-        End Try
-
-        Return dataTable
-    End Function
 
     Function getOleDataReader(ByVal TheSQLQueryStatement As String, ByVal connectionString As String) As String
-        'Dim connection As New SqlConnection
-        'Dim sqlCommand As SqlCommand
-        'Dim sqlDataReader As SqlDataReader
-
-        'Try
-        '    connection.ConnectionString = connectionString
-        '    sqlCommand = New SqlCommand(TheSQLQueryStatement, connection)
-        '    sqlCommand.CommandTimeout = 3000
-
-        '    sqlDataReader = sqlCommand.ExecuteReader
-
-
-        'Catch ex As Exception
-        '    ErrorMessage = ex.Message.ToString() & " Error"
-        'Finally
-        '    If connection.State = ConnectionState.Open Then
-        '        connection.Close()
-        '    End If
-        'End Try
-
 
         Dim oleDbConnection As OleDbConnection = Nothing
         Dim oleDbCommand As OleDbCommand = Nothing

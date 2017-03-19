@@ -2,7 +2,6 @@
 
     Dim companiesAndEmployeesTables As CompaniesAndEmployeesTables = New CompaniesAndEmployeesTables
     Dim employeesTable As EmployeesTable = New EmployeesTable
-    Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher()
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
 
     Enum SearchByType
@@ -35,15 +34,6 @@
                 BrowseDataGridView.Visible = True
                 companiesAndEmployeesTables.FetchBrowseDataSet(connectionString)
                 BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
-                'PopulateDataGridViaDataSet("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName", "sd_header")
-
-                '88888888888888888888888888888888888
-
-                'ResultsLabel.Text = "Company Name List"
-                'DisableSearchItems()
-                'BrowseDataGridView.Visible = True
-
-                'PopulateDataGrid("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName") '8888888888888888888888888888888888888
 
             Case SearchByCompanyNameButton.Name
                 SearchLabel.Text = "Enter Name of Company"
@@ -64,27 +54,10 @@
                 SearchLabel.Visible = True
                 employeesTable.CreateCount(connectionString)
                 SearchLabel.Text = "Number of Contacts: " & employeesTable.contactCount
-                'PopulateScarlInteger("SELECT COUNT(CompanyName) FROM sd_header")
 
         End Select
     End Sub
 
-    Private Sub PopulateDataGridViaDataSet(ByVal searchString As String, ByVal tableName As String)
-
-        'BrowseDataGridView.DataSource = dataBaseFetcher.getSqlDataSet(searchString, connectionString)
-        BrowseDataGridView.DataSource = dataBaseFetcher.getOleDataSet(searchString, tableName, connectionString).Tables(0)
-    End Sub
-
-    Private Sub PopulateDataGrid(ByVal searchString As String)
-
-        BrowseDataGridView.DataSource = DataBaseFetcher.getDataTable(searchString, connectionString)
-
-    End Sub
-
-    Private Sub PopulateScarlInteger(ByVal searchString As String)
-        SearchLabel.Text = "Number of Contacts: " & dataBaseFetcher.IntegerScalarOleDbCommand(searchString, connectionString)
-
-    End Sub
 
     Private Sub EnableSeachItems()
         SearchLabel.Visible = True
@@ -122,12 +95,9 @@
                 Case SearchByType.CompanyName
                     companiesAndEmployeesTables.FetchCompanyNameDataSet(connectionString, SearchTextBox.Text)
                     BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
-                    'PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE CompanyName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
-                   ' DetailInformatinLabel.Text = SearchTextBox.Text
                 Case SearchByType.LastName
                     companiesAndEmployeesTables.FetchLastNameDataSet(connectionString, SearchTextBox.Text)
                     BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
-                    'PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE LastName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
             End Select
         Else
             MsgBox("You must enter text to search by.")
