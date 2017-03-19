@@ -93,7 +93,7 @@ Public Class DataBaseFetcher
 
     End Function
 
-    Function getSqlDataSet(ByVal TheSQLQueryStatement As String, ByVal TableName As String, ByVal connectionString As String) As DataSet
+    Function getOleDataSet(ByVal TheSQLQueryStatement As String, ByVal TableName As String, ByVal connectionString As String) As DataSet
 
         Dim dataAdapter As OleDbDataAdapter
         Dim oleDbConnection As OleDbConnection = Nothing

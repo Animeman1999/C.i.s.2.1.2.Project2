@@ -1,5 +1,6 @@
 ﻿Public Class Form1
 
+    Dim browseCompaniesAndEmployees As BrowseCompaniesAndEmployees = New BrowseCompaniesAndEmployees
     Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher()
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
 
@@ -28,19 +29,20 @@
 
         Select Case (buttonSelected.Name)
             Case BrowseListButton.Name
-                'ResultsLabel.Text = "Last Name List"
-                'DisableSearchItems()
-                'BrowseDataGridView.Visible = True
-
+                ResultsLabel.Text = "Last Name List"
+                DisableSearchItems()
+                BrowseDataGridView.Visible = True
+                browseCompaniesAndEmployees.FetchDataSet(connectionString)
+                BrowseDataGridView.DataSource = browseCompaniesAndEmployees.dataSet.Tables(0)
                 'PopulateDataGridViaDataSet("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName", "sd_header")
 
                 '88888888888888888888888888888888888
 
-                ResultsLabel.Text = "Company Name List"
-                DisableSearchItems()
-                BrowseDataGridView.Visible = True
+                'ResultsLabel.Text = "Company Name List"
+                'DisableSearchItems()
+                'BrowseDataGridView.Visible = True
 
-                PopulateDataGrid("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName") '8888888888888888888888888888888888888
+                'PopulateDataGrid("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName") '8888888888888888888888888888888888888
 
             Case SearchByCompanyNameButton.Name
                 SearchLabel.Text = "Enter Name of Company"
@@ -67,7 +69,7 @@
     Private Sub PopulateDataGridViaDataSet(ByVal searchString As String, ByVal tableName As String)
 
         'BrowseDataGridView.DataSource = dataBaseFetcher.getSqlDataSet(searchString, connectionString)
-        BrowseDataGridView.DataSource = DataBaseFetcher.getSqlDataSet(searchString, tableName, connectionString).Tables(0)
+        BrowseDataGridView.DataSource = dataBaseFetcher.getOleDataSet(searchString, tableName, connectionString).Tables(0)
     End Sub
 
     Private Sub PopulateDataGrid(ByVal searchString As String)

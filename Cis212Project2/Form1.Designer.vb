@@ -168,7 +168,7 @@ Partial Class Form1
         Me.SearchByLastNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByLastNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchByLastNameButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchByLastNameButton.Location = New System.Drawing.Point(29, 184)
+        Me.SearchByLastNameButton.Location = New System.Drawing.Point(29, 220)
         Me.SearchByLastNameButton.Name = "SearchByLastNameButton"
         Me.SearchByLastNameButton.Size = New System.Drawing.Size(386, 50)
         Me.SearchByLastNameButton.TabIndex = 2
@@ -181,7 +181,7 @@ Partial Class Form1
         Me.SearchByCompanyNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByCompanyNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchByCompanyNameButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchByCompanyNameButton.Location = New System.Drawing.Point(29, 115)
+        Me.SearchByCompanyNameButton.Location = New System.Drawing.Point(29, 151)
         Me.SearchByCompanyNameButton.Name = "SearchByCompanyNameButton"
         Me.SearchByCompanyNameButton.Size = New System.Drawing.Size(386, 50)
         Me.SearchByCompanyNameButton.TabIndex = 1
