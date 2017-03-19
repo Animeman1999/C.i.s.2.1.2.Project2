@@ -39,29 +39,30 @@ Partial Class Form1
         Me.BrowseDataGridView = New System.Windows.Forms.DataGridView()
         Me.ResultsLabel = New System.Windows.Forms.Label()
         Me.DetailInformatinLabel = New System.Windows.Forms.Label()
-        Me.CompanyNameLabel = New System.Windows.Forms.Label()
         Me.CampanyNameTitle = New System.Windows.Forms.Label()
-        Me.LastNameLabel = New System.Windows.Forms.Label()
         Me.LastNameTitle = New System.Windows.Forms.Label()
-        Me.FirstNameLabel = New System.Windows.Forms.Label()
         Me.FirstNameTitle = New System.Windows.Forms.Label()
-        Me.ContactTypeLabel = New System.Windows.Forms.Label()
         Me.ContactTypeTitle = New System.Windows.Forms.Label()
-        Me.PhoneNumberLabel = New System.Windows.Forms.Label()
         Me.PhoneNumberTitle = New System.Windows.Forms.Label()
-        Me.PhoneTypeLabel = New System.Windows.Forms.Label()
         Me.PhoneTypeTitle = New System.Windows.Forms.Label()
-        Me.Address1Label = New System.Windows.Forms.Label()
         Me.Address1Ttile = New System.Windows.Forms.Label()
-        Me.Address2Label = New System.Windows.Forms.Label()
         Me.Address2Title = New System.Windows.Forms.Label()
-        Me.CityLabel = New System.Windows.Forms.Label()
         Me.CityTitle = New System.Windows.Forms.Label()
-        Me.StateLabel = New System.Windows.Forms.Label()
         Me.StateTitle = New System.Windows.Forms.Label()
         Me.PostalCodeTitle = New System.Windows.Forms.Label()
-        Me.PostalCodeLabel = New System.Windows.Forms.Label()
         Me.ContactInfoPanel = New System.Windows.Forms.Panel()
+        Me.EnableEditButton = New System.Windows.Forms.Button()
+        Me.CompnayNameTextBox = New System.Windows.Forms.TextBox()
+        Me.LastNameTextBox = New System.Windows.Forms.TextBox()
+        Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
+        Me.ContactTypeTextBox = New System.Windows.Forms.TextBox()
+        Me.PhoneNumberTextBox = New System.Windows.Forms.TextBox()
+        Me.PhoneTypeTextBox = New System.Windows.Forms.TextBox()
+        Me.Address1TextBox = New System.Windows.Forms.TextBox()
+        Me.Address2TextBox7 = New System.Windows.Forms.TextBox()
+        Me.CityTextBox = New System.Windows.Forms.TextBox()
+        Me.StateTextBox = New System.Windows.Forms.TextBox()
+        Me.PostalCodeTextBox = New System.Windows.Forms.TextBox()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -258,16 +259,6 @@ Partial Class Form1
         Me.DetailInformatinLabel.TabIndex = 7
         Me.DetailInformatinLabel.Text = "DetailInformatinLabel"
         '
-        'CompanyNameLabel
-        '
-        Me.CompanyNameLabel.AutoSize = True
-        Me.CompanyNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CompanyNameLabel.Location = New System.Drawing.Point(215, 25)
-        Me.CompanyNameLabel.Name = "CompanyNameLabel"
-        Me.CompanyNameLabel.Size = New System.Drawing.Size(268, 31)
-        Me.CompanyNameLabel.TabIndex = 8
-        Me.CompanyNameLabel.Text = "CompanyNameLabel"
-        '
         'CampanyNameTitle
         '
         Me.CampanyNameTitle.AutoSize = True
@@ -278,16 +269,6 @@ Partial Class Form1
         Me.CampanyNameTitle.TabIndex = 9
         Me.CampanyNameTitle.Text = "Campany Name:"
         Me.CampanyNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'LastNameLabel
-        '
-        Me.LastNameLabel.AutoSize = True
-        Me.LastNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LastNameLabel.Location = New System.Drawing.Point(215, 81)
-        Me.LastNameLabel.Name = "LastNameLabel"
-        Me.LastNameLabel.Size = New System.Drawing.Size(204, 31)
-        Me.LastNameLabel.TabIndex = 10
-        Me.LastNameLabel.Text = "LastNameLabel"
         '
         'LastNameTitle
         '
@@ -300,16 +281,6 @@ Partial Class Form1
         Me.LastNameTitle.Text = "Last Name:"
         Me.LastNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'FirstNameLabel
-        '
-        Me.FirstNameLabel.AutoSize = True
-        Me.FirstNameLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FirstNameLabel.Location = New System.Drawing.Point(215, 137)
-        Me.FirstNameLabel.Name = "FirstNameLabel"
-        Me.FirstNameLabel.Size = New System.Drawing.Size(206, 31)
-        Me.FirstNameLabel.TabIndex = 12
-        Me.FirstNameLabel.Text = "FirstNameLabel"
-        '
         'FirstNameTitle
         '
         Me.FirstNameTitle.AutoSize = True
@@ -320,16 +291,6 @@ Partial Class Form1
         Me.FirstNameTitle.TabIndex = 13
         Me.FirstNameTitle.Text = "First Name:"
         Me.FirstNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'ContactTypeLabel
-        '
-        Me.ContactTypeLabel.AutoSize = True
-        Me.ContactTypeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContactTypeLabel.Location = New System.Drawing.Point(215, 193)
-        Me.ContactTypeLabel.Name = "ContactTypeLabel"
-        Me.ContactTypeLabel.Size = New System.Drawing.Size(236, 31)
-        Me.ContactTypeLabel.TabIndex = 14
-        Me.ContactTypeLabel.Text = "ContactTypeLabel"
         '
         'ContactTypeTitle
         '
@@ -342,16 +303,6 @@ Partial Class Form1
         Me.ContactTypeTitle.Text = "Contact Type:"
         Me.ContactTypeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'PhoneNumberLabel
-        '
-        Me.PhoneNumberLabel.AutoSize = True
-        Me.PhoneNumberLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PhoneNumberLabel.Location = New System.Drawing.Point(215, 249)
-        Me.PhoneNumberLabel.Name = "PhoneNumberLabel"
-        Me.PhoneNumberLabel.Size = New System.Drawing.Size(254, 31)
-        Me.PhoneNumberLabel.TabIndex = 16
-        Me.PhoneNumberLabel.Text = "PhoneNumberLabel"
-        '
         'PhoneNumberTitle
         '
         Me.PhoneNumberTitle.AutoSize = True
@@ -362,16 +313,6 @@ Partial Class Form1
         Me.PhoneNumberTitle.TabIndex = 17
         Me.PhoneNumberTitle.Text = "Phone Number:"
         Me.PhoneNumberTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'PhoneTypeLabel
-        '
-        Me.PhoneTypeLabel.AutoSize = True
-        Me.PhoneTypeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PhoneTypeLabel.Location = New System.Drawing.Point(215, 305)
-        Me.PhoneTypeLabel.Name = "PhoneTypeLabel"
-        Me.PhoneTypeLabel.Size = New System.Drawing.Size(219, 31)
-        Me.PhoneTypeLabel.TabIndex = 18
-        Me.PhoneTypeLabel.Text = "PhoneTypeLabel"
         '
         'PhoneTypeTitle
         '
@@ -384,16 +325,6 @@ Partial Class Form1
         Me.PhoneTypeTitle.Text = "Phone Type:"
         Me.PhoneTypeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'Address1Label
-        '
-        Me.Address1Label.AutoSize = True
-        Me.Address1Label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Address1Label.Location = New System.Drawing.Point(215, 361)
-        Me.Address1Label.Name = "Address1Label"
-        Me.Address1Label.Size = New System.Drawing.Size(195, 31)
-        Me.Address1Label.TabIndex = 20
-        Me.Address1Label.Text = "Address1Label"
-        '
         'Address1Ttile
         '
         Me.Address1Ttile.AutoSize = True
@@ -404,16 +335,6 @@ Partial Class Form1
         Me.Address1Ttile.TabIndex = 21
         Me.Address1Ttile.Text = "Address 1:"
         Me.Address1Ttile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'Address2Label
-        '
-        Me.Address2Label.AutoSize = True
-        Me.Address2Label.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Address2Label.Location = New System.Drawing.Point(215, 417)
-        Me.Address2Label.Name = "Address2Label"
-        Me.Address2Label.Size = New System.Drawing.Size(195, 31)
-        Me.Address2Label.TabIndex = 22
-        Me.Address2Label.Text = "Address2Label"
         '
         'Address2Title
         '
@@ -426,16 +347,6 @@ Partial Class Form1
         Me.Address2Title.Text = "Address 2:"
         Me.Address2Title.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'CityLabel
-        '
-        Me.CityLabel.AutoSize = True
-        Me.CityLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CityLabel.Location = New System.Drawing.Point(215, 473)
-        Me.CityLabel.Name = "CityLabel"
-        Me.CityLabel.Size = New System.Drawing.Size(128, 31)
-        Me.CityLabel.TabIndex = 24
-        Me.CityLabel.Text = "CityLabel"
-        '
         'CityTitle
         '
         Me.CityTitle.AutoSize = True
@@ -446,16 +357,6 @@ Partial Class Form1
         Me.CityTitle.TabIndex = 25
         Me.CityTitle.Text = "City:"
         Me.CityTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
-        '
-        'StateLabel
-        '
-        Me.StateLabel.AutoSize = True
-        Me.StateLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StateLabel.Location = New System.Drawing.Point(215, 529)
-        Me.StateLabel.Name = "StateLabel"
-        Me.StateLabel.Size = New System.Drawing.Size(144, 31)
-        Me.StateLabel.TabIndex = 26
-        Me.StateLabel.Text = "StateLabel"
         '
         'StateTitle
         '
@@ -479,30 +380,20 @@ Partial Class Form1
         Me.PostalCodeTitle.Text = "Postal Code:"
         Me.PostalCodeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
-        'PostalCodeLabel
-        '
-        Me.PostalCodeLabel.AutoSize = True
-        Me.PostalCodeLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PostalCodeLabel.Location = New System.Drawing.Point(215, 585)
-        Me.PostalCodeLabel.Name = "PostalCodeLabel"
-        Me.PostalCodeLabel.Size = New System.Drawing.Size(221, 31)
-        Me.PostalCodeLabel.TabIndex = 29
-        Me.PostalCodeLabel.Text = "PostalCodeLabel"
-        '
         'ContactInfoPanel
         '
         Me.ContactInfoPanel.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.ContactInfoPanel.Controls.Add(Me.PostalCodeLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.CompanyNameLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.LastNameLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.StateLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.FirstNameLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.CityLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.ContactTypeLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.Address2Label)
-        Me.ContactInfoPanel.Controls.Add(Me.PhoneNumberLabel)
-        Me.ContactInfoPanel.Controls.Add(Me.Address1Label)
-        Me.ContactInfoPanel.Controls.Add(Me.PhoneTypeLabel)
+        Me.ContactInfoPanel.Controls.Add(Me.PostalCodeTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.StateTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.CityTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.Address2TextBox7)
+        Me.ContactInfoPanel.Controls.Add(Me.Address1TextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.PhoneTypeTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.PhoneNumberTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.ContactTypeTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.FirstNameTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.LastNameTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.CompnayNameTextBox)
         Me.ContactInfoPanel.Controls.Add(Me.FirstNameTitle)
         Me.ContactInfoPanel.Controls.Add(Me.PostalCodeTitle)
         Me.ContactInfoPanel.Controls.Add(Me.CampanyNameTitle)
@@ -519,12 +410,111 @@ Partial Class Form1
         Me.ContactInfoPanel.Size = New System.Drawing.Size(770, 652)
         Me.ContactInfoPanel.TabIndex = 30
         '
+        'EnableEditButton
+        '
+        Me.EnableEditButton.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.EnableEditButton.Location = New System.Drawing.Point(1385, 835)
+        Me.EnableEditButton.Name = "EnableEditButton"
+        Me.EnableEditButton.Size = New System.Drawing.Size(171, 46)
+        Me.EnableEditButton.TabIndex = 31
+        Me.EnableEditButton.Text = "EnableEditButton"
+        Me.EnableEditButton.UseVisualStyleBackColor = False
+        '
+        'CompnayNameTextBox
+        '
+        Me.CompnayNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CompnayNameTextBox.Location = New System.Drawing.Point(221, 19)
+        Me.CompnayNameTextBox.Name = "CompnayNameTextBox"
+        Me.CompnayNameTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.CompnayNameTextBox.TabIndex = 30
+        '
+        'LastNameTextBox
+        '
+        Me.LastNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.LastNameTextBox.Location = New System.Drawing.Point(221, 75)
+        Me.LastNameTextBox.Name = "LastNameTextBox"
+        Me.LastNameTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.LastNameTextBox.TabIndex = 31
+        '
+        'FirstNameTextBox
+        '
+        Me.FirstNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.FirstNameTextBox.Location = New System.Drawing.Point(221, 134)
+        Me.FirstNameTextBox.Name = "FirstNameTextBox"
+        Me.FirstNameTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.FirstNameTextBox.TabIndex = 32
+        '
+        'ContactTypeTextBox
+        '
+        Me.ContactTypeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.ContactTypeTextBox.Location = New System.Drawing.Point(221, 187)
+        Me.ContactTypeTextBox.Name = "ContactTypeTextBox"
+        Me.ContactTypeTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.ContactTypeTextBox.TabIndex = 33
+        '
+        'PhoneNumberTextBox
+        '
+        Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(221, 243)
+        Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
+        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.PhoneNumberTextBox.TabIndex = 34
+        '
+        'PhoneTypeTextBox
+        '
+        Me.PhoneTypeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PhoneTypeTextBox.Location = New System.Drawing.Point(221, 293)
+        Me.PhoneTypeTextBox.Name = "PhoneTypeTextBox"
+        Me.PhoneTypeTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.PhoneTypeTextBox.TabIndex = 35
+        '
+        'Address1TextBox
+        '
+        Me.Address1TextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Address1TextBox.Location = New System.Drawing.Point(221, 355)
+        Me.Address1TextBox.Name = "Address1TextBox"
+        Me.Address1TextBox.Size = New System.Drawing.Size(534, 37)
+        Me.Address1TextBox.TabIndex = 36
+        '
+        'Address2TextBox7
+        '
+        Me.Address2TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.Address2TextBox7.Location = New System.Drawing.Point(221, 411)
+        Me.Address2TextBox7.Name = "Address2TextBox7"
+        Me.Address2TextBox7.Size = New System.Drawing.Size(534, 37)
+        Me.Address2TextBox7.TabIndex = 37
+        '
+        'CityTextBox
+        '
+        Me.CityTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CityTextBox.Location = New System.Drawing.Point(221, 467)
+        Me.CityTextBox.Name = "CityTextBox"
+        Me.CityTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.CityTextBox.TabIndex = 38
+        '
+        'StateTextBox
+        '
+        Me.StateTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.StateTextBox.Location = New System.Drawing.Point(221, 523)
+        Me.StateTextBox.Name = "StateTextBox"
+        Me.StateTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.StateTextBox.TabIndex = 39
+        '
+        'PostalCodeTextBox
+        '
+        Me.PostalCodeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.PostalCodeTextBox.Location = New System.Drawing.Point(221, 579)
+        Me.PostalCodeTextBox.Name = "PostalCodeTextBox"
+        Me.PostalCodeTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.PostalCodeTextBox.TabIndex = 40
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
         Me.ClientSize = New System.Drawing.Size(2299, 921)
+        Me.Controls.Add(Me.EnableEditButton)
         Me.Controls.Add(Me.ContactInfoPanel)
         Me.Controls.Add(Me.DetailInformatinLabel)
         Me.Controls.Add(Me.ResultsLabel)
@@ -565,27 +555,28 @@ Partial Class Form1
     Friend WithEvents SearchLabel As Label
     Friend WithEvents ResultsLabel As Label
     Friend WithEvents DetailInformatinLabel As Label
-    Friend WithEvents CompanyNameLabel As Label
     Friend WithEvents CampanyNameTitle As Label
-    Friend WithEvents LastNameLabel As Label
     Friend WithEvents LastNameTitle As Label
-    Friend WithEvents FirstNameLabel As Label
     Friend WithEvents FirstNameTitle As Label
-    Friend WithEvents ContactTypeLabel As Label
     Friend WithEvents ContactTypeTitle As Label
-    Friend WithEvents PhoneNumberLabel As Label
     Friend WithEvents PhoneNumberTitle As Label
-    Friend WithEvents PhoneTypeLabel As Label
     Friend WithEvents PhoneTypeTitle As Label
-    Friend WithEvents Address1Label As Label
     Friend WithEvents Address1Ttile As Label
-    Friend WithEvents Address2Label As Label
     Friend WithEvents Address2Title As Label
-    Friend WithEvents CityLabel As Label
     Friend WithEvents CityTitle As Label
-    Friend WithEvents StateLabel As Label
     Friend WithEvents StateTitle As Label
     Friend WithEvents PostalCodeTitle As Label
-    Friend WithEvents PostalCodeLabel As Label
     Friend WithEvents ContactInfoPanel As Panel
+    Friend WithEvents EnableEditButton As Button
+    Friend WithEvents CompnayNameTextBox As TextBox
+    Friend WithEvents PostalCodeTextBox As TextBox
+    Friend WithEvents StateTextBox As TextBox
+    Friend WithEvents CityTextBox As TextBox
+    Friend WithEvents Address2TextBox7 As TextBox
+    Friend WithEvents Address1TextBox As TextBox
+    Friend WithEvents PhoneTypeTextBox As TextBox
+    Friend WithEvents PhoneNumberTextBox As TextBox
+    Friend WithEvents ContactTypeTextBox As TextBox
+    Friend WithEvents FirstNameTextBox As TextBox
+    Friend WithEvents LastNameTextBox As TextBox
 End Class

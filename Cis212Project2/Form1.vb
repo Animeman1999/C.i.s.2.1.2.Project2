@@ -4,6 +4,7 @@
     Dim employeesTable As EmployeesTable = New EmployeesTable
     Dim allContactRelatedTables As AllContactRelatedTables = New AllContactRelatedTables
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
+    Dim editingContactInfo As Boolean = False
 
     Enum SearchByType
         CompanyName
@@ -17,6 +18,7 @@
         DisableContactInfoLabels()
         SearchTextBox.Text = ""
         ResultsLabel.Text = ""
+
     End Sub
 
     Private Sub BrowseListButton_Click(sender As Object, e As EventArgs) Handles BrowseListButton.Click, SearchByCompanyNameButton.Click,
@@ -83,74 +85,80 @@
     End Sub
 
     Private Sub DisableContactInfoLabels()
-        CompanyNameLabel.Visible = False
-        CampanyNameTitle.Visible = False
-        LastNameLabel.Visible = False
-        LastNameTitle.Visible = False
-        FirstNameLabel.Visible = False
-        FirstNameTitle.Visible = False
-        ContactTypeLabel.Visible = False
-        ContactTypeTitle.Visible = False
-        PhoneNumberLabel.Visible = False
-        PhoneNumberTitle.Visible = False
-        PhoneTypeLabel.Visible = False
-        PhoneTypeTitle.Visible = False
-        Address1Label.Visible = False
-        Address1Ttile.Visible = False
-        Address2Label.Visible = False
-        Address2Title.Visible = False
-        CityLabel.Visible = False
-        CityTitle.Visible = False
-        StateLabel.Visible = False
-        StateTitle.Visible = False
-        PostalCodeLabel.Visible = False
-        PostalCodeTitle.Visible = False
+
         ContactInfoPanel.Visible = False
+        EnableEditButton.Visible = False
+
     End Sub
 
     Private Sub EnableContactInfoLabels()
         ContactInfoPanel.Visible = True
-        CompanyNameLabel.Visible = True
-        CampanyNameTitle.Visible = True
-        LastNameLabel.Visible = True
-        LastNameTitle.Visible = True
-        FirstNameLabel.Visible = True
-        FirstNameTitle.Visible = True
-        ContactTypeLabel.Visible = True
-        ContactTypeTitle.Visible = True
-        PhoneNumberLabel.Visible = True
-        PhoneNumberTitle.Visible = True
-        PhoneTypeLabel.Visible = True
-        PhoneTypeTitle.Visible = True
-        Address1Label.Visible = True
-        Address1Ttile.Visible = True
-        Address2Label.Visible = True
-        Address2Title.Visible = True
-        CityLabel.Visible = True
-        CityTitle.Visible = True
-        StateLabel.Visible = True
-        StateTitle.Visible = True
-        PostalCodeLabel.Visible = True
-        PostalCodeTitle.Visible = True
+        EnableEditButton.Visible = True
+    End Sub
+
+    Private Sub DisableEditingContactInfo()
+        editingContactInfo = False
+        CompnayNameTextBox.ReadOnly = True
+        LastNameTextBox.ReadOnly = True
+        FirstNameTextBox.ReadOnly = True
+        ContactTypeTextBox.ReadOnly = True
+        PhoneNumberTextBox.ReadOnly = True
+        PhoneTypeTextBox.ReadOnly = True
+        Address1TextBox.ReadOnly = True
+        Address2TextBox7.ReadOnly = True
+        CityTextBox.ReadOnly = True
+        StateTextBox.ReadOnly = True
+        PostalCodeTextBox.ReadOnly = True
+    End Sub
+
+    Private Sub EnableEditingContactInfo()
+
+        editingContactInfo = True
+        CompnayNameTextBox.ReadOnly = False
+        LastNameTextBox.ReadOnly = False
+        FirstNameTextBox.ReadOnly = False
+        ContactTypeTextBox.ReadOnly = False
+        PhoneNumberTextBox.ReadOnly = False
+        PhoneTypeTextBox.ReadOnly = False
+        Address1TextBox.ReadOnly = False
+        Address2TextBox7.ReadOnly = False
+        CityTextBox.ReadOnly = False
+        StateTextBox.ReadOnly = False
+        PostalCodeTextBox.ReadOnly = False
     End Sub
 
     Private Sub BrowseDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles BrowseDataGridView.CellClick
-        Dim companyId As Integer = BrowseDataGridView.CurrentRow.Cells(3).Value
-        allContactRelatedTables.FetchSingleContactInclusiveData(connectionString, companyId)
+        Dim allowChangeOfContactInformation As Boolean = True
 
-        EnableContactInfoLabels()
+        If editingContactInfo = True Then
+            If MessageBox.Show("Editing has not been saved and all editing will be lost. Do you wish to continue?", "Loss of Data Warning",
+                              MessageBoxButtons.YesNo) = DialogResult.No Then
+                allowChangeOfContactInformation = False
+            End If
 
-        CompanyNameLabel.Text = allContactRelatedTables.companyName
-        LastNameLabel.Text = allContactRelatedTables.lastName
-        FirstNameLabel.Text = allContactRelatedTables.firstName
-        ContactTypeLabel.Text = allContactRelatedTables.employeeTypesDescription
-        PhoneNumberLabel.Text = allContactRelatedTables.phoneNumber
-        PhoneTypeLabel.Text = allContactRelatedTables.phoneNumber
-        Address1Label.Text = allContactRelatedTables.address1
-        Address2Label.Text = allContactRelatedTables.address2
-        CityLabel.Text = allContactRelatedTables.city
-        StateLabel.Text = allContactRelatedTables.state
-        PostalCodeLabel.Text = allContactRelatedTables.postalCode
+        End If
+
+        If allowChangeOfContactInformation = True Then
+            Dim companyId As Integer = BrowseDataGridView.CurrentRow.Cells(3).Value
+            allContactRelatedTables.FetchSingleContactInclusiveData(connectionString, companyId)
+
+
+            DisableEditingContactInfo()
+            EnableContactInfoLabels()
+
+            CompnayNameTextBox.Text = allContactRelatedTables.companyName
+            LastNameTextBox.Text = allContactRelatedTables.lastName
+            FirstNameTextBox.Text = allContactRelatedTables.firstName
+            ContactTypeTextBox.Text = allContactRelatedTables.employeeTypesDescription
+            PhoneNumberTextBox.Text = allContactRelatedTables.phoneNumber
+            PhoneTypeTextBox.Text = allContactRelatedTables.phoneType
+            Address1TextBox.Text = allContactRelatedTables.address1
+            Address2TextBox7.Text = allContactRelatedTables.address2
+            CityTextBox.Text = allContactRelatedTables.city
+            StateTextBox.Text = allContactRelatedTables.state
+            PostalCodeTextBox.Text = allContactRelatedTables.postalCode
+        End If
+
 
         'DetailInformatinLabel.Text = BrowseDataGridView.SelectedCells(0).Value.ToString() & " " & BrowseDataGridView.CurrentCell.RowIndex.ToString
         'DetailInformatinLabel.Text += "Cell Value: " & companyId
@@ -179,4 +187,7 @@
 
     End Sub
 
+    Private Sub EnableEditButton_Click(sender As Object, e As EventArgs) Handles EnableEditButton.Click
+        EnableEditingContactInfo()
+    End Sub
 End Class
