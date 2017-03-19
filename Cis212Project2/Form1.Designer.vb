@@ -37,8 +37,6 @@ Partial Class Form1
         Me.SearchByCompanyNameButton = New System.Windows.Forms.Button()
         Me.BrowseListButton = New System.Windows.Forms.Button()
         Me.BrowseDataGridView = New System.Windows.Forms.DataGridView()
-        Me.ResultsLabel = New System.Windows.Forms.Label()
-        Me.DetailInformatinLabel = New System.Windows.Forms.Label()
         Me.CampanyNameTitle = New System.Windows.Forms.Label()
         Me.LastNameTitle = New System.Windows.Forms.Label()
         Me.FirstNameTitle = New System.Windows.Forms.Label()
@@ -240,25 +238,6 @@ Partial Class Form1
         Me.BrowseDataGridView.RowTemplate.Height = 31
         Me.BrowseDataGridView.Size = New System.Drawing.Size(838, 652)
         Me.BrowseDataGridView.TabIndex = 5
-        '
-        'ResultsLabel
-        '
-        Me.ResultsLabel.AutoSize = True
-        Me.ResultsLabel.ForeColor = System.Drawing.SystemColors.MenuText
-        Me.ResultsLabel.Location = New System.Drawing.Point(34, 856)
-        Me.ResultsLabel.Name = "ResultsLabel"
-        Me.ResultsLabel.Size = New System.Drawing.Size(124, 25)
-        Me.ResultsLabel.TabIndex = 6
-        Me.ResultsLabel.Text = "ResultsLabel"
-        '
-        'DetailInformatinLabel
-        '
-        Me.DetailInformatinLabel.AutoSize = True
-        Me.DetailInformatinLabel.Location = New System.Drawing.Point(38, 887)
-        Me.DetailInformatinLabel.Name = "DetailInformatinLabel"
-        Me.DetailInformatinLabel.Size = New System.Drawing.Size(194, 25)
-        Me.DetailInformatinLabel.TabIndex = 7
-        Me.DetailInformatinLabel.Text = "DetailInformatinLabel"
         '
         'CampanyNameTitle
         '
@@ -543,8 +522,6 @@ Partial Class Form1
         Me.Controls.Add(Me.SaveAndExitEditingModeButton)
         Me.Controls.Add(Me.EnableEditButton)
         Me.Controls.Add(Me.ContactInfoPanel)
-        Me.Controls.Add(Me.DetailInformatinLabel)
-        Me.Controls.Add(Me.ResultsLabel)
         Me.Controls.Add(Me.BrowseDataGridView)
         Me.Controls.Add(Me.ControlPanelGroupBox)
         Me.Controls.Add(Me.TitleLabel)
@@ -579,8 +556,6 @@ Partial Class Form1
     Friend WithEvents SearchButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents SearchLabel As Label
-    Friend WithEvents ResultsLabel As Label
-    Friend WithEvents DetailInformatinLabel As Label
     Friend WithEvents CampanyNameTitle As Label
     Friend WithEvents LastNameTitle As Label
     Friend WithEvents FirstNameTitle As Label

@@ -22,16 +22,4 @@
         _ErrorMessage = dataBaseFetcher.ErrorMessage
     End Sub
 
-    Public Sub TestClick(ByVal connString As String, ByVal companyId As Integer)
-        _dataSet = dataBaseFetcher.getOleDataSet($"SELECT CompanyName, LastName, FirstName, EmployeeTypes.Description, dbo.Phones.Phone, dbo.PhoneTypes.Description,
-                                                 dbo.Addresses.Address1, Address2, City, State, PostalCode
-                                                 FROM dbo.Employees JOIN dbo.Companies ON Companies.CompanyID = Employees.CompanyID
-                                                 JOIN	dbo.EmployeeTypes ON	EmployeeTypes.EmployeeTypeID = Employees.EmployeeTypeID 
-                                                 JOIN dbo.Phones ON	Phones.CompanyID = Companies.CompanyID
-                                                 JOIN dbo.PhoneTypes ON PhoneTypes.PhoneTypeID = Phones.PhoneTypeID
-                                                 JOIN dbo.Addresses ON Addresses.CompanyID = Companies.CompanyID
-                                                 WHERE Companies.CompanyID = {companyId} ORDER BY LastName", "dbo.Employees", connString)
-
-        _ErrorMessage = dataBaseFetcher.ErrorMessage
-    End Sub
 End Class

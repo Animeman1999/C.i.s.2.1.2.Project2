@@ -17,7 +17,6 @@
         DisableSearchItems()
         DisableContactInfoLabels()
         SearchTextBox.Text = ""
-        ResultsLabel.Text = ""
         ErrorLabel.Text = ""
     End Sub
 
@@ -34,7 +33,6 @@
 
         Select Case (buttonSelected.Name)
             Case BrowseListButton.Name
-                ResultsLabel.Text = "Last Name List"
                 DisableSearchItems()
                 BrowseDataGridView.Visible = True
                 companiesAndEmployeesTables.FetchBrowseDataSet(connectionString)
@@ -58,11 +56,9 @@
                 searchByChosen = SearchByType.LastName
 
             Case AddNewCompanyButton.Name
-                ResultsLabel.Text = "Add a new phone number"
                 DisableSearchItems()
 
             Case TotalNumberOfContactsButton.Name
-                ResultsLabel.Text = "Number of contacts"
                 SearchLabel.Visible = True
                 employeesTable.CreateCount(connectionString)
                 SearchLabel.Text = "Number of Contacts: " & employeesTable.contactCount
@@ -172,11 +168,6 @@
             PostalCodeTextBox.Text = allContactRelatedTables.postalCode
         End If
 
-
-        'DetailInformatinLabel.Text = BrowseDataGridView.SelectedCells(0).Value.ToString() & " " & BrowseDataGridView.CurrentCell.RowIndex.ToString
-        'DetailInformatinLabel.Text += "Cell Value: " & companyId
-        'companiesAndEmployeesTables.TestClick(connectionString, companyId)
-        'BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
