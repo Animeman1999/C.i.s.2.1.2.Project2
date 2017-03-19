@@ -6,7 +6,6 @@
     Enum SearchByType
         CompanyName
         LastName
-        Phonenumber
     End Enum
 
     Dim searchByChosen As SearchByType = SearchByType.CompanyName
@@ -18,8 +17,8 @@
     End Sub
 
     Private Sub BrowseListButton_Click(sender As Object, e As EventArgs) Handles BrowseListButton.Click, SearchByCompanyNameButton.Click,
-                                                                                 SearchByLastNameButton.Click, SearchByPhoneNumberButton.Click,
-                                                                                 AddNewCompanyButton.Click, TotalNumberOfContactsButton.Click
+                                                                                 SearchByLastNameButton.Click, AddNewCompanyButton.Click,
+                                                                                 TotalNumberOfContactsButton.Click
         Dim buttonSelected As Button = sender
 
         resetFontsOnButtons()
@@ -53,17 +52,13 @@
                 EnableSeachItems()
                 searchByChosen = SearchByType.LastName
 
-            Case SearchByPhoneNumberButton.Name
-                SearchLabel.Text = "Enter Phone Number"
-                EnableSeachItems()
-                searchByChosen = SearchByType.Phonenumber
-
             Case AddNewCompanyButton.Name
                 ResultsLabel.Text = "Add a new phone number"
                 DisableSearchItems()
 
             Case TotalNumberOfContactsButton.Name
                 ResultsLabel.Text = "Number of contacts"
+                SearchLabel.Visible = True
                 PopulateScarlInteger("SELECT COUNT(CompanyName) FROM sd_header")
 
         End Select
@@ -82,7 +77,7 @@
     End Sub
 
     Private Sub PopulateScarlInteger(ByVal searchString As String)
-        DetailInformatinLabel.Text = dataBaseFetcher.IntegerScalarOleDbCommand(searchString, connectionString)
+        SearchLabel.Text = "Number of Contacts: " & dataBaseFetcher.IntegerScalarOleDbCommand(searchString, connectionString)
 
     End Sub
 
@@ -103,7 +98,6 @@
         BrowseListButton.ForeColor = Color.White
         SearchByCompanyNameButton.ForeColor = Color.White
         SearchByLastNameButton.ForeColor = Color.White
-        SearchByPhoneNumberButton.ForeColor = Color.White
         AddNewCompanyButton.ForeColor = Color.White
         TotalNumberOfContactsButton.ForeColor = Color.White
     End Sub
@@ -125,8 +119,6 @@
                     DetailInformatinLabel.Text = SearchTextBox.Text
                 Case SearchByType.LastName
                     PopulateDataGrid($"SELECT LastName, FirstName, CompanyName FROM sd_header WHERE LastName LIKE '{SearchTextBox.Text.Trim()}%' ORDER BY LastName")
-                Case SearchByType.Phonenumber
-
             End Select
         Else
             MsgBox("You must enter text to search by.")

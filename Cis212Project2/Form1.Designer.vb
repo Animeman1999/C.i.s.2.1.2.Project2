@@ -32,7 +32,6 @@ Partial Class Form1
         Me.SearchLabel = New System.Windows.Forms.Label()
         Me.TotalNumberOfContactsButton = New System.Windows.Forms.Button()
         Me.AddNewCompanyButton = New System.Windows.Forms.Button()
-        Me.SearchByPhoneNumberButton = New System.Windows.Forms.Button()
         Me.SearchByLastNameButton = New System.Windows.Forms.Button()
         Me.SearchByCompanyNameButton = New System.Windows.Forms.Button()
         Me.BrowseListButton = New System.Windows.Forms.Button()
@@ -95,7 +94,6 @@ Partial Class Form1
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchLabel)
         Me.ControlPanelGroupBox.Controls.Add(Me.TotalNumberOfContactsButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.AddNewCompanyButton)
-        Me.ControlPanelGroupBox.Controls.Add(Me.SearchByPhoneNumberButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByLastNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByCompanyNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.BrowseListButton)
@@ -164,19 +162,6 @@ Partial Class Form1
         Me.AddNewCompanyButton.Text = "AddNewCompanyButton"
         Me.AddNewCompanyButton.UseVisualStyleBackColor = False
         '
-        'SearchByPhoneNumberButton
-        '
-        Me.SearchByPhoneNumberButton.BackColor = System.Drawing.Color.SteelBlue
-        Me.SearchByPhoneNumberButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.SearchByPhoneNumberButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchByPhoneNumberButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchByPhoneNumberButton.Location = New System.Drawing.Point(29, 253)
-        Me.SearchByPhoneNumberButton.Name = "SearchByPhoneNumberButton"
-        Me.SearchByPhoneNumberButton.Size = New System.Drawing.Size(386, 50)
-        Me.SearchByPhoneNumberButton.TabIndex = 3
-        Me.SearchByPhoneNumberButton.Text = "SearchByPhoneNumberButton"
-        Me.SearchByPhoneNumberButton.UseVisualStyleBackColor = False
-        '
         'SearchByLastNameButton
         '
         Me.SearchByLastNameButton.BackColor = System.Drawing.Color.SteelBlue
@@ -225,7 +210,7 @@ Partial Class Form1
         Me.BrowseDataGridView.Name = "BrowseDataGridView"
         Me.BrowseDataGridView.ReadOnly = True
         Me.BrowseDataGridView.RowTemplate.Height = 31
-        Me.BrowseDataGridView.Size = New System.Drawing.Size(730, 564)
+        Me.BrowseDataGridView.Size = New System.Drawing.Size(730, 652)
         Me.BrowseDataGridView.TabIndex = 5
         '
         'ResultsLabel
@@ -281,7 +266,6 @@ Partial Class Form1
     Friend WithEvents ControlPanelGroupBox As GroupBox
     Friend WithEvents TotalNumberOfContactsButton As Button
     Friend WithEvents AddNewCompanyButton As Button
-    Friend WithEvents SearchByPhoneNumberButton As Button
     Friend WithEvents SearchByLastNameButton As Button
     Friend WithEvents SearchByCompanyNameButton As Button
     Friend WithEvents BrowseListButton As Button
