@@ -14,6 +14,7 @@
 
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         DisableSearchItems()
+        DisableContactInfoLabels()
         SearchTextBox.Text = ""
         ResultsLabel.Text = ""
     End Sub
@@ -81,9 +82,75 @@
         TotalNumberOfContactsButton.ForeColor = Color.White
     End Sub
 
+    Private Sub DisableContactInfoLabels()
+        CompanyNameLabel.Visible = False
+        CampanyNameTitle.Visible = False
+        LastNameLabel.Visible = False
+        LastNameTitle.Visible = False
+        FirstNameLabel.Visible = False
+        FirstNameTitle.Visible = False
+        ContactTypeLabel.Visible = False
+        ContactTypeTitle.Visible = False
+        PhoneNumberLabel.Visible = False
+        PhoneNumberTitle.Visible = False
+        PhoneTypeLabel.Visible = False
+        PhoneTypeTitle.Visible = False
+        Address1Label.Visible = False
+        Address1Ttile.Visible = False
+        Address2Label.Visible = False
+        Address2Title.Visible = False
+        CityLabel.Visible = False
+        CityTitle.Visible = False
+        StateLabel.Visible = False
+        StateTitle.Visible = False
+        PostalCodeLabel.Visible = False
+        PostalCodeTitle.Visible = False
+        ContactInfoPanel.Visible = False
+    End Sub
+
+    Private Sub EnableContactInfoLabels()
+        ContactInfoPanel.Visible = True
+        CompanyNameLabel.Visible = True
+        CampanyNameTitle.Visible = True
+        LastNameLabel.Visible = True
+        LastNameTitle.Visible = True
+        FirstNameLabel.Visible = True
+        FirstNameTitle.Visible = True
+        ContactTypeLabel.Visible = True
+        ContactTypeTitle.Visible = True
+        PhoneNumberLabel.Visible = True
+        PhoneNumberTitle.Visible = True
+        PhoneTypeLabel.Visible = True
+        PhoneTypeTitle.Visible = True
+        Address1Label.Visible = True
+        Address1Ttile.Visible = True
+        Address2Label.Visible = True
+        Address2Title.Visible = True
+        CityLabel.Visible = True
+        CityTitle.Visible = True
+        StateLabel.Visible = True
+        StateTitle.Visible = True
+        PostalCodeLabel.Visible = True
+        PostalCodeTitle.Visible = True
+    End Sub
+
     Private Sub BrowseDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles BrowseDataGridView.CellClick
         Dim companyId As Integer = BrowseDataGridView.CurrentRow.Cells(3).Value
         allContactRelatedTables.FetchSingleContactInclusiveData(connectionString, companyId)
+
+        EnableContactInfoLabels()
+
+        CompanyNameLabel.Text = allContactRelatedTables.companyName
+        LastNameLabel.Text = allContactRelatedTables.lastName
+        FirstNameLabel.Text = allContactRelatedTables.firstName
+        ContactTypeLabel.Text = allContactRelatedTables.employeeTypesDescription
+        PhoneNumberLabel.Text = allContactRelatedTables.phoneNumber
+        PhoneTypeLabel.Text = allContactRelatedTables.phoneNumber
+        Address1Label.Text = allContactRelatedTables.address1
+        Address2Label.Text = allContactRelatedTables.address2
+        CityLabel.Text = allContactRelatedTables.city
+        StateLabel.Text = allContactRelatedTables.state
+        PostalCodeLabel.Text = allContactRelatedTables.postalCode
 
         'DetailInformatinLabel.Text = BrowseDataGridView.SelectedCells(0).Value.ToString() & " " & BrowseDataGridView.CurrentCell.RowIndex.ToString
         'DetailInformatinLabel.Text += "Cell Value: " & companyId
