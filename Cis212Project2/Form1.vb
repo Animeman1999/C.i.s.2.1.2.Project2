@@ -29,20 +29,19 @@
 
         Select Case (buttonSelected.Name)
             Case BrowseListButton.Name
-                ResultsLabel.Text = "Last Name List"
-                DisableSearchItems()
-                BrowseDataGridView.Visible = True
-
-                PopulateDataGridViaDataSet("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName", "sd_header")
-
-                'ResultsLabel.Text = "Company Name List"
+                'ResultsLabel.Text = "Last Name List"
                 'DisableSearchItems()
                 'BrowseDataGridView.Visible = True
 
-                'PopulateDataGrid("SELECT CompanyName, CompanyID FROM Companies ORDER BY CompanyName") '8888888888888888888888888888888888888
+                'PopulateDataGridViaDataSet("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName", "sd_header")
 
-            'Case BrowseByLastNameButton.Name
+                '88888888888888888888888888888888888
 
+                ResultsLabel.Text = "Company Name List"
+                DisableSearchItems()
+                BrowseDataGridView.Visible = True
+
+                PopulateDataGrid("SELECT LastName, FirstName, CompanyName FROM sd_header ORDER BY LastName") '8888888888888888888888888888888888888
 
             Case SearchByCompanyNameButton.Name
                 SearchLabel.Text = "Enter Name of Company"
