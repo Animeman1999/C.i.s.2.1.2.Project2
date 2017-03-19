@@ -3,7 +3,7 @@ Imports System.Data.OleDb
 
 Public Class DataBaseFetcher
 
-    Public Property ErrorMessage As String
+    Public ReadOnly Property ErrorMessage As String
 
 
     Function getOleDataReader(ByVal queryString As String, ByVal numberOfColums As Integer, ByVal connectionString As String) As String()
@@ -29,7 +29,7 @@ Public Class DataBaseFetcher
             End While
 
         Catch ex As Exception
-            ErrorMessage = ex.Message.ToString() & " Error"
+            _ErrorMessage = ex.Message.ToString() & " Error "
         Finally
 
             If oleDbConnection.State = ConnectionState.Open Then
@@ -63,7 +63,7 @@ Public Class DataBaseFetcher
             dataAdapter.Fill(dataSet, TableName)
 
         Catch ex As Exception
-            ErrorMessage = ex.Message.ToString() & " Error"
+            _ErrorMessage = ex.Message.ToString() & " Error "
         Finally
 
             If oleDbConnection.State = ConnectionState.Open Then
@@ -91,7 +91,7 @@ Public Class DataBaseFetcher
             integerResult = oleDbCommand.ExecuteScalar()
 
         Catch ex As Exception
-            ErrorMessage = ex.Message.ToString() & " Error"
+            _ErrorMessage = ex.Message.ToString() & " Error "
         Finally
 
             If oleDbConnection.State = ConnectionState.Open Then
@@ -102,4 +102,19 @@ Public Class DataBaseFetcher
 
         Return integerResult
     End Function
+
+    Public Sub CreateOleDbCommand(ByVal queryString As String, ByVal connectionString As String)
+        connectionString += " Provider=SQLOLEDB;"
+
+        Try
+            Using connection As New OleDbConnection(connectionString)
+                connection.Open()
+                Dim command As New OleDbCommand(queryString, connection)
+                command.ExecuteNonQuery()
+            End Using
+        Catch ex As Exception
+            _ErrorMessage = ex.Message.ToString() & " Error "
+        End Try
+
+    End Sub
 End Class

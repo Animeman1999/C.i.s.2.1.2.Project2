@@ -18,7 +18,7 @@
         DisableContactInfoLabels()
         SearchTextBox.Text = ""
         ResultsLabel.Text = ""
-
+        ErrorLabel.Text = ""
     End Sub
 
     Private Sub BrowseListButton_Click(sender As Object, e As EventArgs) Handles BrowseListButton.Click, SearchByCompanyNameButton.Click,
@@ -26,6 +26,7 @@
                                                                                  TotalNumberOfContactsButton.Click
         Dim buttonSelected As Button = sender
 
+        ErrorLabel.Text = ""
         resetFontsOnButtons()
         buttonSelected.ForeColor = Color.Yellow
 
@@ -37,7 +38,14 @@
                 DisableSearchItems()
                 BrowseDataGridView.Visible = True
                 companiesAndEmployeesTables.FetchBrowseDataSet(connectionString)
-                BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                ErrorLabel.Text = companiesAndEmployeesTables.ErrorMessage
+                Try
+                    BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                Catch ex As Exception
+                    ErrorLabel.Text += ex.Message.ToString() & " Error "
+                End Try
+
+
 
             Case SearchByCompanyNameButton.Name
                 SearchLabel.Text = "Enter Name of Company"
@@ -58,8 +66,10 @@
                 SearchLabel.Visible = True
                 employeesTable.CreateCount(connectionString)
                 SearchLabel.Text = "Number of Contacts: " & employeesTable.contactCount
+                ErrorLabel.Text = employeesTable.ErrorMessage
 
         End Select
+
     End Sub
 
 
@@ -88,12 +98,14 @@
 
         ContactInfoPanel.Visible = False
         EnableEditButton.Visible = False
+        SaveAndExitEditingModeButton.Visible = False
 
     End Sub
 
     Private Sub EnableContactInfoLabels()
         ContactInfoPanel.Visible = True
         EnableEditButton.Visible = True
+
     End Sub
 
     Private Sub DisableEditingContactInfo()
@@ -129,6 +141,7 @@
 
     Private Sub BrowseDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles BrowseDataGridView.CellClick
         Dim allowChangeOfContactInformation As Boolean = True
+        ErrorLabel.Text = ""
 
         If editingContactInfo = True Then
             If MessageBox.Show("Editing has not been saved and all editing will be lost. Do you wish to continue?", "Loss of Data Warning",
@@ -141,7 +154,7 @@
         If allowChangeOfContactInformation = True Then
             Dim companyId As Integer = BrowseDataGridView.CurrentRow.Cells(3).Value
             allContactRelatedTables.FetchSingleContactInclusiveData(connectionString, companyId)
-
+            ErrorLabel.Text = allContactRelatedTables.ErrorMessage
 
             DisableEditingContactInfo()
             EnableContactInfoLabels()
@@ -167,6 +180,7 @@
     End Sub
 
     Private Sub SearchButton_Click(sender As Object, e As EventArgs) Handles SearchButton.Click
+        ErrorLabel.Text = ""
 
         If SearchTextBox.Text.Trim() <> "" Then
             DisableSearchItems()
@@ -174,11 +188,22 @@
             Select Case (searchByChosen)
                 Case SearchByType.CompanyName
                     companiesAndEmployeesTables.FetchCompanyNameDataSet(connectionString, SearchTextBox.Text)
-                    BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                    Try
+                        BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                    Catch ex As Exception
+                        ErrorLabel.Text += ex.Message.ToString() & " Error "
+                    End Try
+
                 Case SearchByType.LastName
                     companiesAndEmployeesTables.FetchLastNameDataSet(connectionString, SearchTextBox.Text)
-                    BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                    Try
+                        BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
+                    Catch ex As Exception
+                        ErrorLabel.Text += ex.Message.ToString() & " Error "
+                    End Try
+
             End Select
+            ErrorLabel.Text += companiesAndEmployeesTables.ErrorMessage
         Else
             MsgBox("You must enter text to search by.")
 
@@ -189,5 +214,29 @@
 
     Private Sub EnableEditButton_Click(sender As Object, e As EventArgs) Handles EnableEditButton.Click
         EnableEditingContactInfo()
+        SaveAndExitEditingModeButton.Visible = True
+        EnableEditButton.Visible = False
+
+    End Sub
+
+    Private Sub SaveAndExitEditingModeButton_Click(sender As Object, e As EventArgs) Handles SaveAndExitEditingModeButton.Click
+        ErrorLabel.Text = ""
+        editingContactInfo = False
+        SaveAndExitEditingModeButton.Visible = False
+        EnableEditButton.Visible = True
+        DisableEditingContactInfo()
+        allContactRelatedTables.companyName = CompnayNameTextBox.Text
+        allContactRelatedTables.lastName = LastNameTextBox.Text
+        allContactRelatedTables.firstName = FirstNameTextBox.Text
+        allContactRelatedTables.employeeTypesDescription = ContactTypeTextBox.Text
+        allContactRelatedTables.phoneNumber = PhoneNumberTextBox.Text
+        allContactRelatedTables.phoneType = PhoneTypeTextBox.Text
+        allContactRelatedTables.address1 = Address1TextBox.Text
+        allContactRelatedTables.address2 = Address2TextBox7.Text
+        allContactRelatedTables.city = CityTextBox.Text
+        allContactRelatedTables.state = StateTextBox.Text
+        allContactRelatedTables.postalCode = PostalCodeTextBox.Text
+        allContactRelatedTables.UpdateContactInformation(connectionString)
+        ErrorLabel.Text = allContactRelatedTables.ErrorMessage
     End Sub
 End Class
