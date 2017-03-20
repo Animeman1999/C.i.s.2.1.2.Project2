@@ -63,6 +63,8 @@ Partial Class Form1
         Me.EnableEditButton = New System.Windows.Forms.Button()
         Me.SaveAndExitEditingModeButton = New System.Windows.Forms.Button()
         Me.ErrorLabel = New System.Windows.Forms.Label()
+        Me.DeleteButton = New System.Windows.Forms.Button()
+        Me.CancelButton = New System.Windows.Forms.Button()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -483,9 +485,9 @@ Partial Class Form1
         Me.EnableEditButton.BackColor = System.Drawing.Color.LightSteelBlue
         Me.EnableEditButton.Location = New System.Drawing.Point(1385, 835)
         Me.EnableEditButton.Name = "EnableEditButton"
-        Me.EnableEditButton.Size = New System.Drawing.Size(171, 46)
+        Me.EnableEditButton.Size = New System.Drawing.Size(148, 74)
         Me.EnableEditButton.TabIndex = 31
-        Me.EnableEditButton.Text = "EnableEditButton"
+        Me.EnableEditButton.Text = "Edit this Information"
         Me.EnableEditButton.UseVisualStyleBackColor = False
         '
         'SaveAndExitEditingModeButton
@@ -493,11 +495,11 @@ Partial Class Form1
         Me.SaveAndExitEditingModeButton.BackColor = System.Drawing.Color.LightSkyBlue
         Me.SaveAndExitEditingModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SaveAndExitEditingModeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveAndExitEditingModeButton.Location = New System.Drawing.Point(1618, 835)
+        Me.SaveAndExitEditingModeButton.Location = New System.Drawing.Point(1529, 835)
         Me.SaveAndExitEditingModeButton.Name = "SaveAndExitEditingModeButton"
-        Me.SaveAndExitEditingModeButton.Size = New System.Drawing.Size(394, 54)
+        Me.SaveAndExitEditingModeButton.Size = New System.Drawing.Size(281, 54)
         Me.SaveAndExitEditingModeButton.TabIndex = 32
-        Me.SaveAndExitEditingModeButton.Text = "Save and Exit Editing Mode"
+        Me.SaveAndExitEditingModeButton.Text = "Save and Exit Editing"
         Me.SaveAndExitEditingModeButton.UseVisualStyleBackColor = False
         '
         'ErrorLabel
@@ -511,12 +513,36 @@ Partial Class Form1
         Me.ErrorLabel.TabIndex = 33
         Me.ErrorLabel.Text = "ErrorLabel"
         '
+        'DeleteButton
+        '
+        Me.DeleteButton.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.DeleteButton.Location = New System.Drawing.Point(2007, 835)
+        Me.DeleteButton.Name = "DeleteButton"
+        Me.DeleteButton.Size = New System.Drawing.Size(148, 74)
+        Me.DeleteButton.TabIndex = 34
+        Me.DeleteButton.Text = "Delete this Information"
+        Me.DeleteButton.UseVisualStyleBackColor = False
+        '
+        'CancelButton
+        '
+        Me.CancelButton.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelButton.Location = New System.Drawing.Point(1876, 835)
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.Size = New System.Drawing.Size(138, 54)
+        Me.CancelButton.TabIndex = 35
+        Me.CancelButton.Text = "Cancel"
+        Me.CancelButton.UseVisualStyleBackColor = False
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
         Me.ClientSize = New System.Drawing.Size(2299, 921)
+        Me.Controls.Add(Me.CancelButton)
+        Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.ErrorLabel)
         Me.Controls.Add(Me.SaveAndExitEditingModeButton)
@@ -582,4 +608,6 @@ Partial Class Form1
     Friend WithEvents LastNameTextBox As TextBox
     Friend WithEvents SaveAndExitEditingModeButton As Button
     Friend WithEvents ErrorLabel As Label
+    Friend WithEvents DeleteButton As Button
+    Friend WithEvents CancelButton As Button
 End Class

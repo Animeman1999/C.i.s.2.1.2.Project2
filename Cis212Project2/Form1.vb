@@ -94,13 +94,16 @@
 
         ContactInfoPanel.Visible = False
         EnableEditButton.Visible = False
+        DeleteButton.Visible = False
         SaveAndExitEditingModeButton.Visible = False
+        CancelButton.Visible = False
 
     End Sub
 
     Private Sub EnableContactInfoLabels()
         ContactInfoPanel.Visible = True
         EnableEditButton.Visible = True
+        DeleteButton.Visible = True
 
     End Sub
 
@@ -148,6 +151,8 @@
         End If
 
         If allowChangeOfContactInformation = True Then
+            SaveAndExitEditingModeButton.Visible = False
+            CancelButton.Visible = False
             Dim companyId As Integer = BrowseDataGridView.CurrentRow.Cells(3).Value
             allContactRelatedTables.FetchSingleContactInclusiveData(connectionString, companyId)
             ErrorLabel.Text = allContactRelatedTables.ErrorMessage
@@ -206,7 +211,9 @@
     Private Sub EnableEditButton_Click(sender As Object, e As EventArgs) Handles EnableEditButton.Click
         EnableEditingContactInfo()
         SaveAndExitEditingModeButton.Visible = True
+        CancelButton.Visible = True
         EnableEditButton.Visible = False
+        DeleteButton.Visible = False
 
     End Sub
 
@@ -214,7 +221,9 @@
         ErrorLabel.Text = ""
         editingContactInfo = False
         SaveAndExitEditingModeButton.Visible = False
+        CancelButton.Visible = False
         EnableEditButton.Visible = True
+        DeleteButton.Visible = True
         DisableEditingContactInfo()
         allContactRelatedTables.companyName = CompnayNameTextBox.Text
         allContactRelatedTables.lastName = LastNameTextBox.Text
@@ -229,5 +238,33 @@
         allContactRelatedTables.postalCode = PostalCodeTextBox.Text
         allContactRelatedTables.UpdateContactInformation(connectionString)
         ErrorLabel.Text = allContactRelatedTables.ErrorMessage
+        If ErrorLabel.Text = "" Then
+            MsgBox("Contact information has been updated.")
+            BrowseDataGridView.Visible = False
+        End If
+    End Sub
+
+    Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
+
+    End Sub
+
+    Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
+        editingContactInfo = False
+        SaveAndExitEditingModeButton.Visible = False
+        CancelButton.Visible = False
+        EnableEditButton.Visible = True
+        DeleteButton.Visible = True
+        DisableEditingContactInfo()
+        CompnayNameTextBox.Text = allContactRelatedTables.companyName
+        LastNameTextBox.Text = allContactRelatedTables.lastName
+        FirstNameTextBox.Text = allContactRelatedTables.firstName
+        ContactTypeTextBox.Text = allContactRelatedTables.employeeTypesDescription
+        PhoneNumberTextBox.Text = allContactRelatedTables.phoneNumber
+        PhoneTypeTextBox.Text = allContactRelatedTables.phoneType
+        Address1TextBox.Text = allContactRelatedTables.address1
+        Address2TextBox7.Text = allContactRelatedTables.address2
+        CityTextBox.Text = allContactRelatedTables.city
+        StateTextBox.Text = allContactRelatedTables.state
+        PostalCodeTextBox.Text = allContactRelatedTables.postalCode
     End Sub
 End Class
