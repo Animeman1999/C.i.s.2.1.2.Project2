@@ -37,7 +37,7 @@ Partial Class Form1
         Me.SearchByCompanyNameButton = New System.Windows.Forms.Button()
         Me.BrowseListButton = New System.Windows.Forms.Button()
         Me.BrowseDataGridView = New System.Windows.Forms.DataGridView()
-        Me.CampanyNameTitle = New System.Windows.Forms.Label()
+        Me.CompanyNameTitle = New System.Windows.Forms.Label()
         Me.LastNameTitle = New System.Windows.Forms.Label()
         Me.FirstNameTitle = New System.Windows.Forms.Label()
         Me.ContactTypeTitle = New System.Windows.Forms.Label()
@@ -59,7 +59,7 @@ Partial Class Form1
         Me.ContactTypeTextBox = New System.Windows.Forms.TextBox()
         Me.FirstNameTextBox = New System.Windows.Forms.TextBox()
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
-        Me.CompnayNameTextBox = New System.Windows.Forms.TextBox()
+        Me.CompanyNameTextBox = New System.Windows.Forms.TextBox()
         Me.EnableEditButton = New System.Windows.Forms.Button()
         Me.SaveAndExitEditingModeButton = New System.Windows.Forms.Button()
         Me.ErrorLabel = New System.Windows.Forms.Label()
@@ -76,7 +76,7 @@ Partial Class Form1
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(1805, 26)
+        Me.PictureBox3.Location = New System.Drawing.Point(1898, 29)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(142, 109)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -86,7 +86,7 @@ Partial Class Form1
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(591, -3)
+        Me.PictureBox2.Location = New System.Drawing.Point(684, 0)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(142, 109)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -96,7 +96,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(34, 40)
+        Me.PictureBox1.Location = New System.Drawing.Point(25, 0)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(518, 109)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
@@ -108,7 +108,7 @@ Partial Class Form1
         Me.TitleLabel.AutoSize = True
         Me.TitleLabel.Font = New System.Drawing.Font("Lucida Calligraphy", 26.14286!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleLabel.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TitleLabel.Location = New System.Drawing.Point(727, 26)
+        Me.TitleLabel.Location = New System.Drawing.Point(820, 29)
         Me.TitleLabel.Name = "TitleLabel"
         Me.TitleLabel.Size = New System.Drawing.Size(1035, 80)
         Me.TitleLabel.TabIndex = 3
@@ -125,7 +125,7 @@ Partial Class Form1
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByLastNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByCompanyNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.BrowseListButton)
-        Me.ControlPanelGroupBox.Location = New System.Drawing.Point(34, 185)
+        Me.ControlPanelGroupBox.Location = New System.Drawing.Point(33, 158)
         Me.ControlPanelGroupBox.Name = "ControlPanelGroupBox"
         Me.ControlPanelGroupBox.Size = New System.Drawing.Size(450, 652)
         Me.ControlPanelGroupBox.TabIndex = 4
@@ -234,23 +234,23 @@ Partial Class Form1
         Me.BrowseDataGridView.AllowUserToDeleteRows = False
         Me.BrowseDataGridView.BackgroundColor = System.Drawing.Color.LightSteelBlue
         Me.BrowseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.BrowseDataGridView.Location = New System.Drawing.Point(522, 185)
+        Me.BrowseDataGridView.Location = New System.Drawing.Point(521, 158)
         Me.BrowseDataGridView.Name = "BrowseDataGridView"
         Me.BrowseDataGridView.ReadOnly = True
         Me.BrowseDataGridView.RowTemplate.Height = 31
         Me.BrowseDataGridView.Size = New System.Drawing.Size(838, 652)
         Me.BrowseDataGridView.TabIndex = 5
         '
-        'CampanyNameTitle
+        'CompanyNameTitle
         '
-        Me.CampanyNameTitle.AutoSize = True
-        Me.CampanyNameTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CampanyNameTitle.Location = New System.Drawing.Point(7, 25)
-        Me.CampanyNameTitle.Name = "CampanyNameTitle"
-        Me.CampanyNameTitle.Size = New System.Drawing.Size(217, 31)
-        Me.CampanyNameTitle.TabIndex = 9
-        Me.CampanyNameTitle.Text = "Campany Name:"
-        Me.CampanyNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
+        Me.CompanyNameTitle.AutoSize = True
+        Me.CompanyNameTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CompanyNameTitle.Location = New System.Drawing.Point(7, 25)
+        Me.CompanyNameTitle.Name = "CompanyNameTitle"
+        Me.CompanyNameTitle.Size = New System.Drawing.Size(217, 31)
+        Me.CompanyNameTitle.TabIndex = 9
+        Me.CompanyNameTitle.Text = "Company Name:"
+        Me.CompanyNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         '
         'LastNameTitle
         '
@@ -375,10 +375,10 @@ Partial Class Form1
         Me.ContactInfoPanel.Controls.Add(Me.ContactTypeTextBox)
         Me.ContactInfoPanel.Controls.Add(Me.FirstNameTextBox)
         Me.ContactInfoPanel.Controls.Add(Me.LastNameTextBox)
-        Me.ContactInfoPanel.Controls.Add(Me.CompnayNameTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.CompanyNameTextBox)
         Me.ContactInfoPanel.Controls.Add(Me.FirstNameTitle)
         Me.ContactInfoPanel.Controls.Add(Me.PostalCodeTitle)
-        Me.ContactInfoPanel.Controls.Add(Me.CampanyNameTitle)
+        Me.ContactInfoPanel.Controls.Add(Me.CompanyNameTitle)
         Me.ContactInfoPanel.Controls.Add(Me.StateTitle)
         Me.ContactInfoPanel.Controls.Add(Me.LastNameTitle)
         Me.ContactInfoPanel.Controls.Add(Me.CityTitle)
@@ -387,7 +387,7 @@ Partial Class Form1
         Me.ContactInfoPanel.Controls.Add(Me.Address1Ttile)
         Me.ContactInfoPanel.Controls.Add(Me.PhoneNumberTitle)
         Me.ContactInfoPanel.Controls.Add(Me.PhoneTypeTitle)
-        Me.ContactInfoPanel.Location = New System.Drawing.Point(1385, 185)
+        Me.ContactInfoPanel.Location = New System.Drawing.Point(1384, 158)
         Me.ContactInfoPanel.Name = "ContactInfoPanel"
         Me.ContactInfoPanel.Size = New System.Drawing.Size(770, 652)
         Me.ContactInfoPanel.TabIndex = 30
@@ -472,18 +472,18 @@ Partial Class Form1
         Me.LastNameTextBox.Size = New System.Drawing.Size(534, 37)
         Me.LastNameTextBox.TabIndex = 31
         '
-        'CompnayNameTextBox
+        'CompanyNameTextBox
         '
-        Me.CompnayNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CompnayNameTextBox.Location = New System.Drawing.Point(221, 19)
-        Me.CompnayNameTextBox.Name = "CompnayNameTextBox"
-        Me.CompnayNameTextBox.Size = New System.Drawing.Size(534, 37)
-        Me.CompnayNameTextBox.TabIndex = 30
+        Me.CompanyNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CompanyNameTextBox.Location = New System.Drawing.Point(221, 19)
+        Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
+        Me.CompanyNameTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.CompanyNameTextBox.TabIndex = 30
         '
         'EnableEditButton
         '
         Me.EnableEditButton.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.EnableEditButton.Location = New System.Drawing.Point(1385, 835)
+        Me.EnableEditButton.Location = New System.Drawing.Point(1384, 808)
         Me.EnableEditButton.Name = "EnableEditButton"
         Me.EnableEditButton.Size = New System.Drawing.Size(148, 74)
         Me.EnableEditButton.TabIndex = 31
@@ -495,7 +495,7 @@ Partial Class Form1
         Me.SaveAndExitEditingModeButton.BackColor = System.Drawing.Color.LightSkyBlue
         Me.SaveAndExitEditingModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SaveAndExitEditingModeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveAndExitEditingModeButton.Location = New System.Drawing.Point(1529, 835)
+        Me.SaveAndExitEditingModeButton.Location = New System.Drawing.Point(1528, 808)
         Me.SaveAndExitEditingModeButton.Name = "SaveAndExitEditingModeButton"
         Me.SaveAndExitEditingModeButton.Size = New System.Drawing.Size(281, 54)
         Me.SaveAndExitEditingModeButton.TabIndex = 32
@@ -507,7 +507,7 @@ Partial Class Form1
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.BackColor = System.Drawing.Color.Pink
         Me.ErrorLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ErrorLabel.Location = New System.Drawing.Point(517, 864)
+        Me.ErrorLabel.Location = New System.Drawing.Point(27, 831)
         Me.ErrorLabel.Name = "ErrorLabel"
         Me.ErrorLabel.Size = New System.Drawing.Size(150, 31)
         Me.ErrorLabel.TabIndex = 33
@@ -516,7 +516,7 @@ Partial Class Form1
         'DeleteButton
         '
         Me.DeleteButton.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.DeleteButton.Location = New System.Drawing.Point(2007, 835)
+        Me.DeleteButton.Location = New System.Drawing.Point(2006, 808)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(148, 74)
         Me.DeleteButton.TabIndex = 34
@@ -528,7 +528,7 @@ Partial Class Form1
         Me.CancelButton.BackColor = System.Drawing.Color.LightSkyBlue
         Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.Location = New System.Drawing.Point(1876, 835)
+        Me.CancelButton.Location = New System.Drawing.Point(1875, 808)
         Me.CancelButton.Name = "CancelButton"
         Me.CancelButton.Size = New System.Drawing.Size(138, 54)
         Me.CancelButton.TabIndex = 35
@@ -554,7 +554,7 @@ Partial Class Form1
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "CIS 212 Project 2"
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).EndInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).EndInit()
@@ -582,7 +582,7 @@ Partial Class Form1
     Friend WithEvents SearchButton As Button
     Friend WithEvents SearchTextBox As TextBox
     Friend WithEvents SearchLabel As Label
-    Friend WithEvents CampanyNameTitle As Label
+    Friend WithEvents CompanyNameTitle As Label
     Friend WithEvents LastNameTitle As Label
     Friend WithEvents FirstNameTitle As Label
     Friend WithEvents ContactTypeTitle As Label
@@ -595,7 +595,7 @@ Partial Class Form1
     Friend WithEvents PostalCodeTitle As Label
     Friend WithEvents ContactInfoPanel As Panel
     Friend WithEvents EnableEditButton As Button
-    Friend WithEvents CompnayNameTextBox As TextBox
+    Friend WithEvents CompanyNameTextBox As TextBox
     Friend WithEvents PostalCodeTextBox As TextBox
     Friend WithEvents StateTextBox As TextBox
     Friend WithEvents CityTextBox As TextBox

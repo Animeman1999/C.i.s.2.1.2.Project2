@@ -23,7 +23,7 @@
 
 
     Public Sub FetchSingleContactInclusiveData(ByVal connectionString As String, ByVal companyId As Integer)
-
+        _ErrorMessage = ""
         _contactData = databaseFetcher.getOleDataReader($"SELECT CompanyName, LastName, FirstName, EmployeeTypes.Description, dbo.Phones.Phone, dbo.PhoneTypes.Description,
                                                         dbo.Addresses.Address1, Address2, City, State, PostalCode, EmployeeID, PhoneID, AddressID
                                                         FROM dbo.Employees JOIN dbo.Companies ON Companies.CompanyID = Employees.CompanyID
@@ -52,6 +52,7 @@
     End Sub
 
     Public Sub UpdateContactInformation(ByVal connectionString As String)
+        _ErrorMessage = ""
         _contactData(0) = companyName
         _contactData(1) = lastName
         _contactData(2) = firstName
@@ -90,5 +91,47 @@
                                             END CATCH", connectionString)
 
         _ErrorMessage = databaseFetcher.ErrorMessage
+    End Sub
+
+    Public Sub DeleteContact(ByVal connectionString As String)
+        _ErrorMessage = ""
+        databaseFetcher.CreateOleDbCommand($"BEGIN TRY
+	                                            BEGIN TRANSACTION
+		                                            DELETE FROM dbo.Employees
+		                                            WHERE EmployeeID = {_employeeID}
+
+		                                            DELETE FROM dbo.Companies
+		                                            WHERE CompanyID = {_companyID}
+
+		                                            DELETE FROM dbo.Phones
+		                                            WHERE PhoneID = {_phoneID}
+
+		                                            DELETE FROM dbo.Addresses
+		                                            WHERE AddressID = {_addressID}
+	                                            COMMIT
+                                            END TRY
+                                            BEGIN CATCH
+	                                            IF @@TRANCOUNT > 0
+	                                            ROLLBACK
+                                            END CATCH", connectionString)
+
+        _ErrorMessage = databaseFetcher.ErrorMessage
+    End Sub
+
+    Public Sub ClearData()
+        companyName = ""
+        lastName = ""
+        firstName = ""
+        employeeTypesDescription = ""
+        phoneNumber = ""
+        phoneType = ""
+        address1 = ""
+        city = ""
+        state = ""
+        postalCode = ""
+        _employeeID = ""
+        _phoneID = ""
+        _addressID = ""
+        _companyID = ""
     End Sub
 End Class

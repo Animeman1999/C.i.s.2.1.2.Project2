@@ -5,6 +5,7 @@
     Dim allContactRelatedTables As AllContactRelatedTables = New AllContactRelatedTables
     Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
     Dim editingContactInfo As Boolean = False
+    Dim addingNewContact As Boolean = False
 
     Enum SearchByType
         CompanyName
@@ -26,7 +27,7 @@
         Dim buttonSelected As Button = sender
 
         ErrorLabel.Text = ""
-        resetFontsOnButtons()
+        resetFontColorOnButtons()
         buttonSelected.ForeColor = Color.Yellow
 
         SearchTextBox.Text = ""
@@ -56,7 +57,25 @@
                 searchByChosen = SearchByType.LastName
 
             Case AddNewCompanyButton.Name
-                DisableSearchItems()
+                Dim allowChangeOfContactInformation As Boolean = True
+                ErrorLabel.Text = ""
+
+                If editingContactInfo = True Then
+                    If MessageBox.Show("Editing has not been saved and all editing will be lost. Do you wish to continue?", "Loss of Data Warning",
+                              MessageBoxButtons.YesNo) = DialogResult.No Then
+                        allowChangeOfContactInformation = False
+                    End If
+
+                End If
+                If allowChangeOfContactInformation = True Then
+                    DisableSearchItems()
+                    ClearAcontactRelatedATablesInfo()
+                    EnableContactInfoLabels()
+                    EnableEditingContactInfo()
+                    EnableEditingButtions()
+                    addingNewContact = True
+                End If
+
 
             Case TotalNumberOfContactsButton.Name
                 SearchLabel.Visible = True
@@ -68,6 +87,19 @@
 
     End Sub
 
+    Private Sub ClearAcontactRelatedATablesInfo()
+        CompanyNameTextBox.Text = ""
+        LastNameTextBox.Text = ""
+        FirstNameTextBox.Text = ""
+        ContactTypeTextBox.Text = ""
+        PhoneNumberTextBox.Text = ""
+        PhoneTypeTextBox.Text = ""
+        Address1TextBox.Text = ""
+        Address2TextBox7.Text = ""
+        CityTextBox.Text = ""
+        StateTextBox.Text = ""
+        PostalCodeTextBox.Text = ""
+    End Sub
 
     Private Sub EnableSeachItems()
         SearchLabel.Visible = True
@@ -82,7 +114,7 @@
         BrowseDataGridView.Visible = False
     End Sub
 
-    Private Sub resetFontsOnButtons()
+    Private Sub resetFontColorOnButtons()
         BrowseListButton.ForeColor = Color.White
         SearchByCompanyNameButton.ForeColor = Color.White
         SearchByLastNameButton.ForeColor = Color.White
@@ -109,7 +141,7 @@
 
     Private Sub DisableEditingContactInfo()
         editingContactInfo = False
-        CompnayNameTextBox.ReadOnly = True
+        CompanyNameTextBox.ReadOnly = True
         LastNameTextBox.ReadOnly = True
         FirstNameTextBox.ReadOnly = True
         ContactTypeTextBox.ReadOnly = True
@@ -125,7 +157,7 @@
     Private Sub EnableEditingContactInfo()
 
         editingContactInfo = True
-        CompnayNameTextBox.ReadOnly = False
+        CompanyNameTextBox.ReadOnly = False
         LastNameTextBox.ReadOnly = False
         FirstNameTextBox.ReadOnly = False
         ContactTypeTextBox.ReadOnly = False
@@ -136,6 +168,13 @@
         CityTextBox.ReadOnly = False
         StateTextBox.ReadOnly = False
         PostalCodeTextBox.ReadOnly = False
+    End Sub
+
+    Private Sub EnableEditingButtions()
+        SaveAndExitEditingModeButton.Visible = True
+        CancelButton.Visible = True
+        EnableEditButton.Visible = False
+        DeleteButton.Visible = False
     End Sub
 
     Private Sub BrowseDataGridView_CellContentClick(sender As Object, e As DataGridViewCellEventArgs) Handles BrowseDataGridView.CellClick
@@ -160,17 +199,7 @@
             DisableEditingContactInfo()
             EnableContactInfoLabels()
 
-            CompnayNameTextBox.Text = allContactRelatedTables.companyName
-            LastNameTextBox.Text = allContactRelatedTables.lastName
-            FirstNameTextBox.Text = allContactRelatedTables.firstName
-            ContactTypeTextBox.Text = allContactRelatedTables.employeeTypesDescription
-            PhoneNumberTextBox.Text = allContactRelatedTables.phoneNumber
-            PhoneTypeTextBox.Text = allContactRelatedTables.phoneType
-            Address1TextBox.Text = allContactRelatedTables.address1
-            Address2TextBox7.Text = allContactRelatedTables.address2
-            CityTextBox.Text = allContactRelatedTables.city
-            StateTextBox.Text = allContactRelatedTables.state
-            PostalCodeTextBox.Text = allContactRelatedTables.postalCode
+            UpdateAllContactRelatedInfo()
         End If
 
     End Sub
@@ -220,12 +249,39 @@
     Private Sub SaveAndExitEditingModeButton_Click(sender As Object, e As EventArgs) Handles SaveAndExitEditingModeButton.Click
         ErrorLabel.Text = ""
         editingContactInfo = False
-        SaveAndExitEditingModeButton.Visible = False
-        CancelButton.Visible = False
-        EnableEditButton.Visible = True
-        DeleteButton.Visible = True
-        DisableEditingContactInfo()
-        allContactRelatedTables.companyName = CompnayNameTextBox.Text
+        If addingNewContact = True Then
+
+        Else
+                SaveAndExitEditingModeButton.Visible = False
+                CancelButton.Visible = False
+                EnableEditButton.Visible = True
+                DeleteButton.Visible = True
+                DisableEditingContactInfo()
+                UpdateAllContactRelatedTablesFields()
+                ErrorLabel.Text = allContactRelatedTables.ErrorMessage
+                If ErrorLabel.Text = "" Then
+                    MsgBox("Contact information has been updated.")
+                    BrowseDataGridView.Visible = False
+                End If
+            End If
+
+
+    End Sub
+    Private Sub UpdateAllContactRelatedInfo()
+        CompanyNameTextBox.Text = allContactRelatedTables.companyName
+        LastNameTextBox.Text = allContactRelatedTables.lastName
+        FirstNameTextBox.Text = allContactRelatedTables.firstName
+        ContactTypeTextBox.Text = allContactRelatedTables.employeeTypesDescription
+        PhoneNumberTextBox.Text = allContactRelatedTables.phoneNumber
+        PhoneTypeTextBox.Text = allContactRelatedTables.phoneType
+        Address1TextBox.Text = allContactRelatedTables.address1
+        Address2TextBox7.Text = allContactRelatedTables.address2
+        CityTextBox.Text = allContactRelatedTables.city
+        StateTextBox.Text = allContactRelatedTables.state
+        PostalCodeTextBox.Text = allContactRelatedTables.postalCode
+    End Sub
+    Private Sub UpdateAllContactRelatedTablesFields()
+        allContactRelatedTables.companyName = CompanyNameTextBox.Text
         allContactRelatedTables.lastName = LastNameTextBox.Text
         allContactRelatedTables.firstName = FirstNameTextBox.Text
         allContactRelatedTables.employeeTypesDescription = ContactTypeTextBox.Text
@@ -237,34 +293,36 @@
         allContactRelatedTables.state = StateTextBox.Text
         allContactRelatedTables.postalCode = PostalCodeTextBox.Text
         allContactRelatedTables.UpdateContactInformation(connectionString)
-        ErrorLabel.Text = allContactRelatedTables.ErrorMessage
-        If ErrorLabel.Text = "" Then
-            MsgBox("Contact information has been updated.")
-            BrowseDataGridView.Visible = False
-        End If
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
-
+        ErrorLabel.Text = ""
+        If MessageBox.Show("All of this contact information will be deleted. Do you wish to continue?", "Loss of Data Warning",
+                              MessageBoxButtons.YesNo) = DialogResult.Yes Then
+            allContactRelatedTables.DeleteContact(connectionString)
+            ErrorLabel.Text = allContactRelatedTables.ErrorMessage
+            If ErrorLabel.Text = "" Then
+                MsgBox("Contact information has been deleted.")
+                BrowseDataGridView.Visible = False
+                ContactInfoPanel.Visible = False
+                DisableContactInfoLabels()
+            End If
+        End If
     End Sub
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
         editingContactInfo = False
-        SaveAndExitEditingModeButton.Visible = False
-        CancelButton.Visible = False
-        EnableEditButton.Visible = True
-        DeleteButton.Visible = True
-        DisableEditingContactInfo()
-        CompnayNameTextBox.Text = allContactRelatedTables.companyName
-        LastNameTextBox.Text = allContactRelatedTables.lastName
-        FirstNameTextBox.Text = allContactRelatedTables.firstName
-        ContactTypeTextBox.Text = allContactRelatedTables.employeeTypesDescription
-        PhoneNumberTextBox.Text = allContactRelatedTables.phoneNumber
-        PhoneTypeTextBox.Text = allContactRelatedTables.phoneType
-        Address1TextBox.Text = allContactRelatedTables.address1
-        Address2TextBox7.Text = allContactRelatedTables.address2
-        CityTextBox.Text = allContactRelatedTables.city
-        StateTextBox.Text = allContactRelatedTables.state
-        PostalCodeTextBox.Text = allContactRelatedTables.postalCode
+        If addingNewContact = True Then
+            addingNewContact = False
+            ContactInfoPanel.Visible = False
+            CancelButton.Visible = False
+            SaveAndExitEditingModeButton.Visible = False
+            resetFontColorOnButtons()
+        Else
+            EnableEditingButtions()
+            DisableEditingContactInfo()
+            UpdateAllContactRelatedInfo()
+        End If
+
     End Sub
 End Class
