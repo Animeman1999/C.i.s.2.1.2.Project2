@@ -2,24 +2,24 @@
 
     Private COLUMN_NUMBER As Integer = 14
     Private databaseFetcher As DataBaseFetcher = New DataBaseFetcher
-    Private _contactData() As String
+    Private _contactData(COLUMN_NUMBER) As String
     Private _employeeID As String
     Private _phoneID As String
     Private _addressID As String
     Private _companyID As Integer
     Public ReadOnly Property ErrorMessage As String
 
-    Public Property companyName As String
-    Public Property lastName As String
-    Public Property firstName As String
-    Public Property employeeTypesDescription As String
-    Public Property phoneNumber As String
-    Public Property phoneType As String
-    Public Property address1 As String
-    Public Property address2 As String
-    Public Property city As String
-    Public Property state As String
-    Public Property postalCode As String
+    Public Property companyName As String = ""
+    Public Property lastName As String = ""
+    Public Property firstName As String = ""
+    Public Property employeeTypesDescription As String = ""
+    Public Property phoneNumber As String = ""
+    Public Property phoneType As String = ""
+    Public Property address1 As String = ""
+    Public Property address2 As String = ""
+    Public Property city As String = ""
+    Public Property state As String = ""
+    Public Property postalCode As String = ""
 
 
     Public Sub FetchSingleContactInclusiveData(ByVal connectionString As String, ByVal companyId As Integer)
@@ -53,17 +53,17 @@
 
     Public Sub UpdateContactInformation(ByVal connectionString As String)
         _ErrorMessage = ""
-        _contactData(0) = companyName
-        _contactData(1) = lastName
-        _contactData(2) = firstName
-        _contactData(3) = employeeTypesDescription
-        _contactData(4) = phoneNumber
-        _contactData(5) = phoneType
-        _contactData(6) = address1
-        _contactData(7) = address2
-        _contactData(8) = city
-        _contactData(9) = state
-        _contactData(10) = postalCode
+        '_contactData(0) = companyName
+        '_contactData(1) = lastName
+        '_contactData(2) = firstName
+        '_contactData(3) = employeeTypesDescription
+        '_contactData(4) = phoneNumber
+        '_contactData(5) = phoneType
+        '_contactData(6) = address1
+        '_contactData(7) = address2
+        '_contactData(8) = city
+        '_contactData(9) = state
+        '_contactData(10) = postalCode
 
         databaseFetcher.CreateOleDbCommand($"BEGIN TRY
 	                                            BEGIN TRANSACTION
@@ -118,6 +118,37 @@
         _ErrorMessage = databaseFetcher.ErrorMessage
     End Sub
 
+    Public Sub AddNewContact(ByVal connectionString As String)
+        _ErrorMessage = ""
+
+        databaseFetcher.CreateOleDbCommand($"BEGIN TRY
+	                                        BEGIN TRANSACTION
+		                                        DECLARE @companyId INT
+		                                        INSERT INTO dbo.Companies
+		                                        VALUES ('{companyName}')
+		                                        SET	@companyId = @@Identity
+		
+
+		                                        INSERT INTO dbo.Employees
+		                                        VALUES (@companyId, 1, '{firstName}', '{lastName}')
+
+		                                        INSERT INTO dbo.Phones
+		                                        VALUES (@companyId, 4, '{phoneNumber}')
+
+		                                        INSERT INTO dbo.Addresses
+		                                        VALUES (@companyId, 2,'{address1}', '{address2}',
+			                                        '{city}', '{state}', '{postalCode}')
+	                                        COMMIT
+                                        END TRY
+                                        BEGIN CATCH
+	                                        IF @@TRANCOUNT > 0
+	                                        ROLLBACK
+                                        END CATCH", connectionString)
+
+        _ErrorMessage = databaseFetcher.ErrorMessage
+
+    End Sub
+
     Public Sub ClearData()
         companyName = ""
         lastName = ""
@@ -134,4 +165,5 @@
         _addressID = ""
         _companyID = ""
     End Sub
+
 End Class

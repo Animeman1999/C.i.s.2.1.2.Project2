@@ -3,7 +3,7 @@
     Dim companiesAndEmployeesTables As CompaniesAndEmployeesTables = New CompaniesAndEmployeesTables
     Dim employeesTable As EmployeesTable = New EmployeesTable
     Dim allContactRelatedTables As AllContactRelatedTables = New AllContactRelatedTables
-    Dim connectionString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
+    Dim connString As String = "Server=DESKTOP-MBULVCJ\JEFFONE;Integrated Security=SSPI;Database=ScubaDealers;"
     Dim editingContactInfo As Boolean = False
     Dim addingNewContact As Boolean = False
 
@@ -19,6 +19,7 @@
         DisableContactInfoLabels()
         SearchTextBox.Text = ""
         ErrorLabel.Text = ""
+        EditAddLabel.Text = ""
     End Sub
 
     Private Sub BrowseListButton_Click(sender As Object, e As EventArgs) Handles BrowseListButton.Click, SearchByCompanyNameButton.Click,
@@ -36,7 +37,7 @@
             Case BrowseListButton.Name
                 DisableSearchItems()
                 BrowseDataGridView.Visible = True
-                companiesAndEmployeesTables.FetchBrowseDataSet(connectionString)
+                companiesAndEmployeesTables.FetchBrowseDataSet(connString)
                 ErrorLabel.Text = companiesAndEmployeesTables.ErrorMessage
                 Try
                     BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
@@ -74,12 +75,13 @@
                     EnableEditingContactInfo()
                     EnableEditingButtions()
                     addingNewContact = True
+                    EditAddLabel.Text = "Add New Contact Information"
                 End If
 
 
             Case TotalNumberOfContactsButton.Name
                 SearchLabel.Visible = True
-                employeesTable.CreateCount(connectionString)
+                employeesTable.CreateCount(connString)
                 SearchLabel.Text = "Number of Contacts: " & employeesTable.contactCount
                 ErrorLabel.Text = employeesTable.ErrorMessage
 
@@ -133,6 +135,7 @@
     End Sub
 
     Private Sub EnableContactInfoLabels()
+        EditAddLabel.Visible = True
         ContactInfoPanel.Visible = True
         EnableEditButton.Visible = True
         DeleteButton.Visible = True
@@ -193,7 +196,7 @@
             SaveAndExitEditingModeButton.Visible = False
             CancelButton.Visible = False
             Dim companyId As Integer = BrowseDataGridView.CurrentRow.Cells(3).Value
-            allContactRelatedTables.FetchSingleContactInclusiveData(connectionString, companyId)
+            allContactRelatedTables.FetchSingleContactInclusiveData(connString, companyId)
             ErrorLabel.Text = allContactRelatedTables.ErrorMessage
 
             DisableEditingContactInfo()
@@ -212,7 +215,7 @@
             BrowseDataGridView.Visible = True
             Select Case (searchByChosen)
                 Case SearchByType.CompanyName
-                    companiesAndEmployeesTables.FetchCompanyNameDataSet(connectionString, SearchTextBox.Text)
+                    companiesAndEmployeesTables.FetchCompanyNameDataSet(connString, SearchTextBox.Text)
                     Try
                         BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
                     Catch ex As Exception
@@ -220,7 +223,7 @@
                     End Try
 
                 Case SearchByType.LastName
-                    companiesAndEmployeesTables.FetchLastNameDataSet(connectionString, SearchTextBox.Text)
+                    companiesAndEmployeesTables.FetchLastNameDataSet(connString, SearchTextBox.Text)
                     Try
                         BrowseDataGridView.DataSource = companiesAndEmployeesTables.dataSet.Tables(0)
                     Catch ex As Exception
@@ -243,30 +246,60 @@
         CancelButton.Visible = True
         EnableEditButton.Visible = False
         DeleteButton.Visible = False
+        EditAddLabel.Text = "Edit Contact Information"
 
     End Sub
 
     Private Sub SaveAndExitEditingModeButton_Click(sender As Object, e As EventArgs) Handles SaveAndExitEditingModeButton.Click
         ErrorLabel.Text = ""
-        editingContactInfo = False
-        If addingNewContact = True Then
 
+
+
+        If CompanyNameTextBox.Text = "" Then
+            MsgBox("Need to have a Company Name to save a contact.")
         Else
+
+            If addingNewContact = True Then
+
+                UpdateAllContactRelatedTablesFields()
+                allContactRelatedTables.AddNewContact(connString)
+                If companiesAndEmployeesTables.CheckIfCompanyInDatabase(connString, CompanyNameTextBox.Text, LastNameTextBox.Text) Then
+                    ErrorLabel.Text = "Error could not update database"
+                Else
+                    addingNewContact = False
+                    SaveAndExitEditingModeButton.Visible = False
+                    CancelButton.Visible = False
+                    ContactInfoPanel.Visible = False
+                    DisableEditingContactInfo()
+                End If
+
+            Else
+                editingContactInfo = False
                 SaveAndExitEditingModeButton.Visible = False
                 CancelButton.Visible = False
                 EnableEditButton.Visible = True
                 DeleteButton.Visible = True
                 DisableEditingContactInfo()
                 UpdateAllContactRelatedTablesFields()
+                allContactRelatedTables.UpdateContactInformation(connString)
                 ErrorLabel.Text = allContactRelatedTables.ErrorMessage
-                If ErrorLabel.Text = "" Then
-                    MsgBox("Contact information has been updated.")
-                    BrowseDataGridView.Visible = False
-                End If
             End If
 
+            If ErrorLabel.Text = "" Then
+
+                If addingNewContact = True Then
+                    MsgBox("New Contact has been added.")
+                Else
+                        MsgBox("Contact information has been updated.")
+
+                End If
+                BrowseDataGridView.Visible = False
+            End If
+
+        End If
 
     End Sub
+
     Private Sub UpdateAllContactRelatedInfo()
         CompanyNameTextBox.Text = allContactRelatedTables.companyName
         LastNameTextBox.Text = allContactRelatedTables.lastName
@@ -292,19 +325,20 @@
         allContactRelatedTables.city = CityTextBox.Text
         allContactRelatedTables.state = StateTextBox.Text
         allContactRelatedTables.postalCode = PostalCodeTextBox.Text
-        allContactRelatedTables.UpdateContactInformation(connectionString)
+
     End Sub
 
     Private Sub DeleteButton_Click(sender As Object, e As EventArgs) Handles DeleteButton.Click
         ErrorLabel.Text = ""
         If MessageBox.Show("All of this contact information will be deleted. Do you wish to continue?", "Loss of Data Warning",
                               MessageBoxButtons.YesNo) = DialogResult.Yes Then
-            allContactRelatedTables.DeleteContact(connectionString)
+            allContactRelatedTables.DeleteContact(connString)
             ErrorLabel.Text = allContactRelatedTables.ErrorMessage
             If ErrorLabel.Text = "" Then
                 MsgBox("Contact information has been deleted.")
                 BrowseDataGridView.Visible = False
                 ContactInfoPanel.Visible = False
+                resetFontColorOnButtons()
                 DisableContactInfoLabels()
             End If
         End If
@@ -312,6 +346,8 @@
 
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
         editingContactInfo = False
+
+        EditAddLabel.Text = ""
         If addingNewContact = True Then
             addingNewContact = False
             ContactInfoPanel.Visible = False
