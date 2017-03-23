@@ -1,9 +1,9 @@
-﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()> _
+﻿<Global.Microsoft.VisualBasic.CompilerServices.DesignerGenerated()>
 Partial Class Form1
     Inherits System.Windows.Forms.Form
 
     'Form overrides dispose to clean up the component list.
-    <System.Diagnostics.DebuggerNonUserCode()> _
+    <System.Diagnostics.DebuggerNonUserCode()>
     Protected Overrides Sub Dispose(ByVal disposing As Boolean)
         Try
             If disposing AndAlso components IsNot Nothing Then
@@ -20,7 +20,7 @@ Partial Class Form1
     'NOTE: The following procedure is required by the Windows Form Designer
     'It can be modified using the Windows Form Designer.  
     'Do not modify it using the code editor.
-    <System.Diagnostics.DebuggerStepThrough()> _
+    <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Form1))
         Me.PictureBox3 = New System.Windows.Forms.PictureBox()
@@ -49,6 +49,7 @@ Partial Class Form1
         Me.StateTitle = New System.Windows.Forms.Label()
         Me.PostalCodeTitle = New System.Windows.Forms.Label()
         Me.ContactInfoPanel = New System.Windows.Forms.Panel()
+        Me.EditAddLabel = New System.Windows.Forms.Label()
         Me.PostalCodeTextBox = New System.Windows.Forms.TextBox()
         Me.StateTextBox = New System.Windows.Forms.TextBox()
         Me.CityTextBox = New System.Windows.Forms.TextBox()
@@ -61,11 +62,10 @@ Partial Class Form1
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
         Me.CompanyNameTextBox = New System.Windows.Forms.TextBox()
         Me.EnableEditButton = New System.Windows.Forms.Button()
-        Me.SaveAndExitEditingModeButton = New System.Windows.Forms.Button()
+        Me.SaveAndExitModeButton = New System.Windows.Forms.Button()
         Me.ErrorLabel = New System.Windows.Forms.Label()
         Me.DeleteButton = New System.Windows.Forms.Button()
         Me.CancelButton = New System.Windows.Forms.Button()
-        Me.EditAddLabel = New System.Windows.Forms.Label()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,9 +77,10 @@ Partial Class Form1
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(1898, 29)
+        Me.PictureBox3.Location = New System.Drawing.Point(2761, 37)
+        Me.PictureBox3.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PictureBox3.Name = "PictureBox3"
-        Me.PictureBox3.Size = New System.Drawing.Size(142, 109)
+        Me.PictureBox3.Size = New System.Drawing.Size(207, 141)
         Me.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox3.TabIndex = 2
         Me.PictureBox3.TabStop = False
@@ -87,9 +88,10 @@ Partial Class Form1
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(684, 0)
+        Me.PictureBox2.Location = New System.Drawing.Point(995, 0)
+        Me.PictureBox2.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PictureBox2.Name = "PictureBox2"
-        Me.PictureBox2.Size = New System.Drawing.Size(142, 109)
+        Me.PictureBox2.Size = New System.Drawing.Size(207, 141)
         Me.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox2.TabIndex = 1
         Me.PictureBox2.TabStop = False
@@ -97,9 +99,10 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(25, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(37, 0)
+        Me.PictureBox1.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PictureBox1.Name = "PictureBox1"
-        Me.PictureBox1.Size = New System.Drawing.Size(518, 109)
+        Me.PictureBox1.Size = New System.Drawing.Size(753, 141)
         Me.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage
         Me.PictureBox1.TabIndex = 0
         Me.PictureBox1.TabStop = False
@@ -109,9 +112,10 @@ Partial Class Form1
         Me.TitleLabel.AutoSize = True
         Me.TitleLabel.Font = New System.Drawing.Font("Lucida Calligraphy", 26.14286!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleLabel.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TitleLabel.Location = New System.Drawing.Point(820, 29)
+        Me.TitleLabel.Location = New System.Drawing.Point(1193, 37)
+        Me.TitleLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.TitleLabel.Name = "TitleLabel"
-        Me.TitleLabel.Size = New System.Drawing.Size(1035, 80)
+        Me.TitleLabel.Size = New System.Drawing.Size(1460, 114)
         Me.TitleLabel.TabIndex = 3
         Me.TitleLabel.Text = "Contact Information Look Up"
         '
@@ -126,9 +130,11 @@ Partial Class Form1
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByLastNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByCompanyNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.BrowseListButton)
-        Me.ControlPanelGroupBox.Location = New System.Drawing.Point(22, 144)
+        Me.ControlPanelGroupBox.Location = New System.Drawing.Point(32, 186)
+        Me.ControlPanelGroupBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.ControlPanelGroupBox.Name = "ControlPanelGroupBox"
-        Me.ControlPanelGroupBox.Size = New System.Drawing.Size(450, 683)
+        Me.ControlPanelGroupBox.Padding = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.ControlPanelGroupBox.Size = New System.Drawing.Size(655, 882)
         Me.ControlPanelGroupBox.TabIndex = 4
         Me.ControlPanelGroupBox.TabStop = False
         '
@@ -138,9 +144,10 @@ Partial Class Form1
         Me.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchButton.Location = New System.Drawing.Point(30, 598)
+        Me.SearchButton.Location = New System.Drawing.Point(43, 773)
+        Me.SearchButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.Size = New System.Drawing.Size(386, 50)
+        Me.SearchButton.Size = New System.Drawing.Size(561, 64)
         Me.SearchButton.TabIndex = 8
         Me.SearchButton.Text = "Search"
         Me.SearchButton.UseVisualStyleBackColor = False
@@ -148,9 +155,10 @@ Partial Class Form1
         'SearchTextBox
         '
         Me.SearchTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchTextBox.Location = New System.Drawing.Point(30, 525)
+        Me.SearchTextBox.Location = New System.Drawing.Point(43, 678)
+        Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(386, 37)
+        Me.SearchTextBox.Size = New System.Drawing.Size(559, 50)
         Me.SearchTextBox.TabIndex = 7
         Me.SearchTextBox.Text = "SearchTextBox"
         '
@@ -158,9 +166,10 @@ Partial Class Form1
         '
         Me.SearchLabel.AutoSize = True
         Me.SearchLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchLabel.Location = New System.Drawing.Point(33, 458)
+        Me.SearchLabel.Location = New System.Drawing.Point(48, 591)
+        Me.SearchLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.SearchLabel.Name = "SearchLabel"
-        Me.SearchLabel.Size = New System.Drawing.Size(166, 31)
+        Me.SearchLabel.Size = New System.Drawing.Size(233, 44)
         Me.SearchLabel.TabIndex = 6
         Me.SearchLabel.Text = "SearchLabel"
         '
@@ -170,9 +179,10 @@ Partial Class Form1
         Me.TotalNumberOfContactsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.TotalNumberOfContactsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalNumberOfContactsButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.TotalNumberOfContactsButton.Location = New System.Drawing.Point(30, 372)
+        Me.TotalNumberOfContactsButton.Location = New System.Drawing.Point(43, 481)
+        Me.TotalNumberOfContactsButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.TotalNumberOfContactsButton.Name = "TotalNumberOfContactsButton"
-        Me.TotalNumberOfContactsButton.Size = New System.Drawing.Size(386, 50)
+        Me.TotalNumberOfContactsButton.Size = New System.Drawing.Size(561, 64)
         Me.TotalNumberOfContactsButton.TabIndex = 5
         Me.TotalNumberOfContactsButton.Text = "Total Number of Contacts"
         Me.TotalNumberOfContactsButton.UseVisualStyleBackColor = False
@@ -183,9 +193,10 @@ Partial Class Form1
         Me.AddNewCompanyButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.AddNewCompanyButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AddNewCompanyButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.AddNewCompanyButton.Location = New System.Drawing.Point(30, 286)
+        Me.AddNewCompanyButton.Location = New System.Drawing.Point(43, 370)
+        Me.AddNewCompanyButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.AddNewCompanyButton.Name = "AddNewCompanyButton"
-        Me.AddNewCompanyButton.Size = New System.Drawing.Size(386, 50)
+        Me.AddNewCompanyButton.Size = New System.Drawing.Size(561, 64)
         Me.AddNewCompanyButton.TabIndex = 4
         Me.AddNewCompanyButton.Text = "Add a New Company"
         Me.AddNewCompanyButton.UseVisualStyleBackColor = False
@@ -196,9 +207,10 @@ Partial Class Form1
         Me.SearchByLastNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByLastNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchByLastNameButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchByLastNameButton.Location = New System.Drawing.Point(30, 200)
+        Me.SearchByLastNameButton.Location = New System.Drawing.Point(43, 259)
+        Me.SearchByLastNameButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchByLastNameButton.Name = "SearchByLastNameButton"
-        Me.SearchByLastNameButton.Size = New System.Drawing.Size(386, 50)
+        Me.SearchByLastNameButton.Size = New System.Drawing.Size(561, 64)
         Me.SearchByLastNameButton.TabIndex = 2
         Me.SearchByLastNameButton.Text = "Search By Last Name"
         Me.SearchByLastNameButton.UseVisualStyleBackColor = False
@@ -209,9 +221,10 @@ Partial Class Form1
         Me.SearchByCompanyNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByCompanyNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchByCompanyNameButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchByCompanyNameButton.Location = New System.Drawing.Point(30, 114)
+        Me.SearchByCompanyNameButton.Location = New System.Drawing.Point(43, 148)
+        Me.SearchByCompanyNameButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchByCompanyNameButton.Name = "SearchByCompanyNameButton"
-        Me.SearchByCompanyNameButton.Size = New System.Drawing.Size(386, 50)
+        Me.SearchByCompanyNameButton.Size = New System.Drawing.Size(561, 64)
         Me.SearchByCompanyNameButton.TabIndex = 1
         Me.SearchByCompanyNameButton.Text = "Search By Company Name"
         Me.SearchByCompanyNameButton.UseVisualStyleBackColor = False
@@ -222,9 +235,10 @@ Partial Class Form1
         Me.BrowseListButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BrowseListButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BrowseListButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.BrowseListButton.Location = New System.Drawing.Point(30, 28)
+        Me.BrowseListButton.Location = New System.Drawing.Point(43, 36)
+        Me.BrowseListButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BrowseListButton.Name = "BrowseListButton"
-        Me.BrowseListButton.Size = New System.Drawing.Size(386, 50)
+        Me.BrowseListButton.Size = New System.Drawing.Size(561, 64)
         Me.BrowseListButton.TabIndex = 0
         Me.BrowseListButton.Text = "Browse List"
         Me.BrowseListButton.UseVisualStyleBackColor = False
@@ -235,20 +249,22 @@ Partial Class Form1
         Me.BrowseDataGridView.AllowUserToDeleteRows = False
         Me.BrowseDataGridView.BackgroundColor = System.Drawing.Color.LightSteelBlue
         Me.BrowseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.BrowseDataGridView.Location = New System.Drawing.Point(510, 144)
+        Me.BrowseDataGridView.Location = New System.Drawing.Point(742, 186)
+        Me.BrowseDataGridView.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BrowseDataGridView.Name = "BrowseDataGridView"
         Me.BrowseDataGridView.ReadOnly = True
         Me.BrowseDataGridView.RowTemplate.Height = 31
-        Me.BrowseDataGridView.Size = New System.Drawing.Size(838, 683)
+        Me.BrowseDataGridView.Size = New System.Drawing.Size(1219, 882)
         Me.BrowseDataGridView.TabIndex = 5
         '
         'CompanyNameTitle
         '
         Me.CompanyNameTitle.AutoSize = True
         Me.CompanyNameTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CompanyNameTitle.Location = New System.Drawing.Point(3, 83)
+        Me.CompanyNameTitle.Location = New System.Drawing.Point(5, 107)
+        Me.CompanyNameTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.CompanyNameTitle.Name = "CompanyNameTitle"
-        Me.CompanyNameTitle.Size = New System.Drawing.Size(217, 31)
+        Me.CompanyNameTitle.Size = New System.Drawing.Size(306, 44)
         Me.CompanyNameTitle.TabIndex = 9
         Me.CompanyNameTitle.Text = "Company Name:"
         Me.CompanyNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -257,9 +273,10 @@ Partial Class Form1
         '
         Me.LastNameTitle.AutoSize = True
         Me.LastNameTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LastNameTitle.Location = New System.Drawing.Point(67, 139)
+        Me.LastNameTitle.Location = New System.Drawing.Point(97, 180)
+        Me.LastNameTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.LastNameTitle.Name = "LastNameTitle"
-        Me.LastNameTitle.Size = New System.Drawing.Size(153, 31)
+        Me.LastNameTitle.Size = New System.Drawing.Size(215, 44)
         Me.LastNameTitle.TabIndex = 11
         Me.LastNameTitle.Text = "Last Name:"
         Me.LastNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -268,9 +285,10 @@ Partial Class Form1
         '
         Me.FirstNameTitle.AutoSize = True
         Me.FirstNameTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FirstNameTitle.Location = New System.Drawing.Point(65, 195)
+        Me.FirstNameTitle.Location = New System.Drawing.Point(95, 252)
+        Me.FirstNameTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.FirstNameTitle.Name = "FirstNameTitle"
-        Me.FirstNameTitle.Size = New System.Drawing.Size(155, 31)
+        Me.FirstNameTitle.Size = New System.Drawing.Size(218, 44)
         Me.FirstNameTitle.TabIndex = 13
         Me.FirstNameTitle.Text = "First Name:"
         Me.FirstNameTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -279,9 +297,10 @@ Partial Class Form1
         '
         Me.ContactTypeTitle.AutoSize = True
         Me.ContactTypeTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContactTypeTitle.Location = New System.Drawing.Point(35, 251)
+        Me.ContactTypeTitle.Location = New System.Drawing.Point(51, 324)
+        Me.ContactTypeTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.ContactTypeTitle.Name = "ContactTypeTitle"
-        Me.ContactTypeTitle.Size = New System.Drawing.Size(185, 31)
+        Me.ContactTypeTitle.Size = New System.Drawing.Size(256, 44)
         Me.ContactTypeTitle.TabIndex = 15
         Me.ContactTypeTitle.Text = "Contact Type:"
         Me.ContactTypeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -290,9 +309,10 @@ Partial Class Form1
         '
         Me.PhoneNumberTitle.AutoSize = True
         Me.PhoneNumberTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PhoneNumberTitle.Location = New System.Drawing.Point(17, 307)
+        Me.PhoneNumberTitle.Location = New System.Drawing.Point(25, 397)
+        Me.PhoneNumberTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.PhoneNumberTitle.Name = "PhoneNumberTitle"
-        Me.PhoneNumberTitle.Size = New System.Drawing.Size(203, 31)
+        Me.PhoneNumberTitle.Size = New System.Drawing.Size(286, 44)
         Me.PhoneNumberTitle.TabIndex = 17
         Me.PhoneNumberTitle.Text = "Phone Number:"
         Me.PhoneNumberTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -301,9 +321,10 @@ Partial Class Form1
         '
         Me.PhoneTypeTitle.AutoSize = True
         Me.PhoneTypeTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PhoneTypeTitle.Location = New System.Drawing.Point(52, 363)
+        Me.PhoneTypeTitle.Location = New System.Drawing.Point(75, 469)
+        Me.PhoneTypeTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.PhoneTypeTitle.Name = "PhoneTypeTitle"
-        Me.PhoneTypeTitle.Size = New System.Drawing.Size(168, 31)
+        Me.PhoneTypeTitle.Size = New System.Drawing.Size(234, 44)
         Me.PhoneTypeTitle.TabIndex = 19
         Me.PhoneTypeTitle.Text = "Phone Type:"
         Me.PhoneTypeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -312,9 +333,10 @@ Partial Class Form1
         '
         Me.Address1Ttile.AutoSize = True
         Me.Address1Ttile.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Address1Ttile.Location = New System.Drawing.Point(76, 419)
+        Me.Address1Ttile.Location = New System.Drawing.Point(111, 541)
+        Me.Address1Ttile.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Address1Ttile.Name = "Address1Ttile"
-        Me.Address1Ttile.Size = New System.Drawing.Size(144, 31)
+        Me.Address1Ttile.Size = New System.Drawing.Size(201, 44)
         Me.Address1Ttile.TabIndex = 21
         Me.Address1Ttile.Text = "Address 1:"
         Me.Address1Ttile.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -323,9 +345,10 @@ Partial Class Form1
         '
         Me.Address2Title.AutoSize = True
         Me.Address2Title.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Address2Title.Location = New System.Drawing.Point(76, 475)
+        Me.Address2Title.Location = New System.Drawing.Point(111, 614)
+        Me.Address2Title.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.Address2Title.Name = "Address2Title"
-        Me.Address2Title.Size = New System.Drawing.Size(144, 31)
+        Me.Address2Title.Size = New System.Drawing.Size(201, 44)
         Me.Address2Title.TabIndex = 23
         Me.Address2Title.Text = "Address 2:"
         Me.Address2Title.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -334,9 +357,10 @@ Partial Class Form1
         '
         Me.CityTitle.AutoSize = True
         Me.CityTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CityTitle.Location = New System.Drawing.Point(150, 531)
+        Me.CityTitle.Location = New System.Drawing.Point(218, 686)
+        Me.CityTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.CityTitle.Name = "CityTitle"
-        Me.CityTitle.Size = New System.Drawing.Size(70, 31)
+        Me.CityTitle.Size = New System.Drawing.Size(97, 44)
         Me.CityTitle.TabIndex = 25
         Me.CityTitle.Text = "City:"
         Me.CityTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -345,9 +369,10 @@ Partial Class Form1
         '
         Me.StateTitle.AutoSize = True
         Me.StateTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StateTitle.Location = New System.Drawing.Point(134, 587)
+        Me.StateTitle.Location = New System.Drawing.Point(195, 758)
+        Me.StateTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.StateTitle.Name = "StateTitle"
-        Me.StateTitle.Size = New System.Drawing.Size(86, 31)
+        Me.StateTitle.Size = New System.Drawing.Size(120, 44)
         Me.StateTitle.TabIndex = 27
         Me.StateTitle.Text = "State:"
         Me.StateTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -356,9 +381,10 @@ Partial Class Form1
         '
         Me.PostalCodeTitle.AutoSize = True
         Me.PostalCodeTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PostalCodeTitle.Location = New System.Drawing.Point(50, 643)
+        Me.PostalCodeTitle.Location = New System.Drawing.Point(73, 831)
+        Me.PostalCodeTitle.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.PostalCodeTitle.Name = "PostalCodeTitle"
-        Me.PostalCodeTitle.Size = New System.Drawing.Size(170, 31)
+        Me.PostalCodeTitle.Size = New System.Drawing.Size(237, 44)
         Me.PostalCodeTitle.TabIndex = 28
         Me.PostalCodeTitle.Text = "Postal Code:"
         Me.PostalCodeTitle.TextAlign = System.Drawing.ContentAlignment.MiddleRight
@@ -389,138 +415,165 @@ Partial Class Form1
         Me.ContactInfoPanel.Controls.Add(Me.Address1Ttile)
         Me.ContactInfoPanel.Controls.Add(Me.PhoneNumberTitle)
         Me.ContactInfoPanel.Controls.Add(Me.PhoneTypeTitle)
-        Me.ContactInfoPanel.Location = New System.Drawing.Point(1373, 144)
+        Me.ContactInfoPanel.Location = New System.Drawing.Point(1997, 186)
+        Me.ContactInfoPanel.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.ContactInfoPanel.Name = "ContactInfoPanel"
-        Me.ContactInfoPanel.Size = New System.Drawing.Size(770, 683)
+        Me.ContactInfoPanel.Size = New System.Drawing.Size(1120, 882)
         Me.ContactInfoPanel.TabIndex = 30
+        '
+        'EditAddLabel
+        '
+        Me.EditAddLabel.AutoSize = True
+        Me.EditAddLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.EditAddLabel.Location = New System.Drawing.Point(305, 22)
+        Me.EditAddLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
+        Me.EditAddLabel.Name = "EditAddLabel"
+        Me.EditAddLabel.Size = New System.Drawing.Size(310, 55)
+        Me.EditAddLabel.TabIndex = 41
+        Me.EditAddLabel.Text = "EditAddLabel"
         '
         'PostalCodeTextBox
         '
         Me.PostalCodeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PostalCodeTextBox.Location = New System.Drawing.Point(217, 637)
+        Me.PostalCodeTextBox.Location = New System.Drawing.Point(315, 823)
+        Me.PostalCodeTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PostalCodeTextBox.Name = "PostalCodeTextBox"
-        Me.PostalCodeTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.PostalCodeTextBox.Size = New System.Drawing.Size(775, 50)
         Me.PostalCodeTextBox.TabIndex = 40
         '
         'StateTextBox
         '
         Me.StateTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.StateTextBox.Location = New System.Drawing.Point(217, 581)
+        Me.StateTextBox.Location = New System.Drawing.Point(315, 750)
+        Me.StateTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.StateTextBox.Name = "StateTextBox"
-        Me.StateTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.StateTextBox.Size = New System.Drawing.Size(775, 50)
         Me.StateTextBox.TabIndex = 39
         '
         'CityTextBox
         '
         Me.CityTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CityTextBox.Location = New System.Drawing.Point(217, 525)
+        Me.CityTextBox.Location = New System.Drawing.Point(315, 678)
+        Me.CityTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.CityTextBox.Name = "CityTextBox"
-        Me.CityTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.CityTextBox.Size = New System.Drawing.Size(775, 50)
         Me.CityTextBox.TabIndex = 38
         '
         'Address2TextBox7
         '
         Me.Address2TextBox7.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Address2TextBox7.Location = New System.Drawing.Point(217, 469)
+        Me.Address2TextBox7.Location = New System.Drawing.Point(315, 606)
+        Me.Address2TextBox7.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.Address2TextBox7.Name = "Address2TextBox7"
-        Me.Address2TextBox7.Size = New System.Drawing.Size(534, 37)
+        Me.Address2TextBox7.Size = New System.Drawing.Size(775, 50)
         Me.Address2TextBox7.TabIndex = 37
         '
         'Address1TextBox
         '
         Me.Address1TextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Address1TextBox.Location = New System.Drawing.Point(217, 413)
+        Me.Address1TextBox.Location = New System.Drawing.Point(315, 533)
+        Me.Address1TextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.Address1TextBox.Name = "Address1TextBox"
-        Me.Address1TextBox.Size = New System.Drawing.Size(534, 37)
+        Me.Address1TextBox.Size = New System.Drawing.Size(775, 50)
         Me.Address1TextBox.TabIndex = 36
         '
         'PhoneTypeTextBox
         '
         Me.PhoneTypeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PhoneTypeTextBox.Location = New System.Drawing.Point(217, 351)
+        Me.PhoneTypeTextBox.Location = New System.Drawing.Point(315, 453)
+        Me.PhoneTypeTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PhoneTypeTextBox.Name = "PhoneTypeTextBox"
-        Me.PhoneTypeTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.PhoneTypeTextBox.Size = New System.Drawing.Size(775, 50)
         Me.PhoneTypeTextBox.TabIndex = 35
         '
         'PhoneNumberTextBox
         '
         Me.PhoneNumberTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(217, 301)
+        Me.PhoneNumberTextBox.Location = New System.Drawing.Point(315, 389)
+        Me.PhoneNumberTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PhoneNumberTextBox.Name = "PhoneNumberTextBox"
-        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.PhoneNumberTextBox.Size = New System.Drawing.Size(775, 50)
         Me.PhoneNumberTextBox.TabIndex = 34
         '
         'ContactTypeTextBox
         '
         Me.ContactTypeTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ContactTypeTextBox.Location = New System.Drawing.Point(217, 245)
+        Me.ContactTypeTextBox.Location = New System.Drawing.Point(315, 316)
+        Me.ContactTypeTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.ContactTypeTextBox.Name = "ContactTypeTextBox"
-        Me.ContactTypeTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.ContactTypeTextBox.Size = New System.Drawing.Size(775, 50)
         Me.ContactTypeTextBox.TabIndex = 33
         '
         'FirstNameTextBox
         '
         Me.FirstNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.FirstNameTextBox.Location = New System.Drawing.Point(217, 192)
+        Me.FirstNameTextBox.Location = New System.Drawing.Point(315, 248)
+        Me.FirstNameTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.FirstNameTextBox.Name = "FirstNameTextBox"
-        Me.FirstNameTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.FirstNameTextBox.Size = New System.Drawing.Size(775, 50)
         Me.FirstNameTextBox.TabIndex = 32
         '
         'LastNameTextBox
         '
         Me.LastNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.LastNameTextBox.Location = New System.Drawing.Point(217, 133)
+        Me.LastNameTextBox.Location = New System.Drawing.Point(315, 172)
+        Me.LastNameTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.LastNameTextBox.Name = "LastNameTextBox"
-        Me.LastNameTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.LastNameTextBox.Size = New System.Drawing.Size(775, 50)
         Me.LastNameTextBox.TabIndex = 31
         '
         'CompanyNameTextBox
         '
         Me.CompanyNameTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CompanyNameTextBox.Location = New System.Drawing.Point(217, 77)
+        Me.CompanyNameTextBox.Location = New System.Drawing.Point(315, 99)
+        Me.CompanyNameTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.CompanyNameTextBox.Name = "CompanyNameTextBox"
-        Me.CompanyNameTextBox.Size = New System.Drawing.Size(534, 37)
+        Me.CompanyNameTextBox.Size = New System.Drawing.Size(775, 50)
         Me.CompanyNameTextBox.TabIndex = 30
         '
         'EnableEditButton
         '
         Me.EnableEditButton.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.EnableEditButton.Location = New System.Drawing.Point(1373, 825)
+        Me.EnableEditButton.Location = New System.Drawing.Point(1997, 1066)
+        Me.EnableEditButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.EnableEditButton.Name = "EnableEditButton"
-        Me.EnableEditButton.Size = New System.Drawing.Size(148, 74)
+        Me.EnableEditButton.Size = New System.Drawing.Size(215, 95)
         Me.EnableEditButton.TabIndex = 31
         Me.EnableEditButton.Text = "Edit this Information"
         Me.EnableEditButton.UseVisualStyleBackColor = False
         '
         'SaveAndExitEditingModeButton
         '
-        Me.SaveAndExitEditingModeButton.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.SaveAndExitEditingModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.SaveAndExitEditingModeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveAndExitEditingModeButton.Location = New System.Drawing.Point(1517, 825)
-        Me.SaveAndExitEditingModeButton.Name = "SaveAndExitEditingModeButton"
-        Me.SaveAndExitEditingModeButton.Size = New System.Drawing.Size(219, 54)
-        Me.SaveAndExitEditingModeButton.TabIndex = 32
-        Me.SaveAndExitEditingModeButton.Text = "Save and Exit"
-        Me.SaveAndExitEditingModeButton.UseVisualStyleBackColor = False
+        Me.SaveAndExitModeButton.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.SaveAndExitModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.SaveAndExitModeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveAndExitModeButton.Location = New System.Drawing.Point(2207, 1066)
+        Me.SaveAndExitModeButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.SaveAndExitModeButton.Name = "SaveAndExitEditingModeButton"
+        Me.SaveAndExitModeButton.Size = New System.Drawing.Size(319, 69)
+        Me.SaveAndExitModeButton.TabIndex = 32
+        Me.SaveAndExitModeButton.Text = "Save and Exit"
+        Me.SaveAndExitModeButton.UseVisualStyleBackColor = False
         '
         'ErrorLabel
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.BackColor = System.Drawing.Color.Pink
         Me.ErrorLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ErrorLabel.Location = New System.Drawing.Point(16, 848)
+        Me.ErrorLabel.Location = New System.Drawing.Point(23, 1096)
+        Me.ErrorLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.ErrorLabel.Name = "ErrorLabel"
-        Me.ErrorLabel.Size = New System.Drawing.Size(150, 31)
+        Me.ErrorLabel.Size = New System.Drawing.Size(208, 44)
         Me.ErrorLabel.TabIndex = 33
         Me.ErrorLabel.Text = "ErrorLabel"
         '
         'DeleteButton
         '
         Me.DeleteButton.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.DeleteButton.Location = New System.Drawing.Point(1995, 825)
+        Me.DeleteButton.Location = New System.Drawing.Point(2902, 1066)
+        Me.DeleteButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.DeleteButton.Name = "DeleteButton"
-        Me.DeleteButton.Size = New System.Drawing.Size(148, 74)
+        Me.DeleteButton.Size = New System.Drawing.Size(215, 95)
         Me.DeleteButton.TabIndex = 34
         Me.DeleteButton.Text = "Delete this Information"
         Me.DeleteButton.UseVisualStyleBackColor = False
@@ -530,34 +583,25 @@ Partial Class Form1
         Me.CancelButton.BackColor = System.Drawing.Color.LightSkyBlue
         Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.Location = New System.Drawing.Point(1782, 825)
+        Me.CancelButton.Location = New System.Drawing.Point(2592, 1066)
+        Me.CancelButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(219, 54)
+        Me.CancelButton.Size = New System.Drawing.Size(319, 69)
         Me.CancelButton.TabIndex = 35
         Me.CancelButton.Text = "Cancel and Exit"
         Me.CancelButton.UseVisualStyleBackColor = False
         '
-        'EditAddLabel
-        '
-        Me.EditAddLabel.AutoSize = True
-        Me.EditAddLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.EditAddLabel.Location = New System.Drawing.Point(210, 17)
-        Me.EditAddLabel.Name = "EditAddLabel"
-        Me.EditAddLabel.Size = New System.Drawing.Size(221, 39)
-        Me.EditAddLabel.TabIndex = 41
-        Me.EditAddLabel.Text = "EditAddLabel"
-        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(11.0!, 24.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(16.0!, 31.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(2299, 921)
+        Me.ClientSize = New System.Drawing.Size(3344, 1190)
         Me.Controls.Add(Me.CancelButton)
         Me.Controls.Add(Me.DeleteButton)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.ErrorLabel)
-        Me.Controls.Add(Me.SaveAndExitEditingModeButton)
+        Me.Controls.Add(Me.SaveAndExitModeButton)
         Me.Controls.Add(Me.EnableEditButton)
         Me.Controls.Add(Me.ContactInfoPanel)
         Me.Controls.Add(Me.BrowseDataGridView)
@@ -565,6 +609,7 @@ Partial Class Form1
         Me.Controls.Add(Me.TitleLabel)
         Me.Controls.Add(Me.PictureBox2)
         Me.Controls.Add(Me.PictureBox1)
+        Me.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.Name = "Form1"
         Me.Text = "CIS 212 Project 2"
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).EndInit()
@@ -618,7 +663,7 @@ Partial Class Form1
     Friend WithEvents ContactTypeTextBox As TextBox
     Friend WithEvents FirstNameTextBox As TextBox
     Friend WithEvents LastNameTextBox As TextBox
-    Friend WithEvents SaveAndExitEditingModeButton As Button
+    Friend WithEvents SaveAndExitModeButton As Button
     Friend WithEvents ErrorLabel As Label
     Friend WithEvents DeleteButton As Button
     Friend WithEvents CancelButton As Button

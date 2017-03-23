@@ -43,7 +43,7 @@
                                                         JOIN dbo.Companies  
                                                         ON Companies.CompanyID = Employees.CompanyID 
                                                         WHERE CompanyName = '{companyName.Trim()}'
-                                                              LastName = '{lastName.Trim()}' ", connString)
+                                                            AND LastName = '{lastName.Trim()}'", connString)
         _ErrorMessage = dataBaseFetcher.ErrorMessage
     End Function
-End Class
+End Class '   

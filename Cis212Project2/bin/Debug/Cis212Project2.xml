@@ -37,5 +37,59 @@ Cis212Project2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:Cis212Project2.Form1">
+ <summary>
+ Program launches from here and this controls all the users input and outpus
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.Form1_Load(System.Object,System.EventArgs)">
+ <summary>
+ Loads the form and sets the opening view
+ </summary>
+ <param name="sender">Object</param>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:Cis212Project2.Form1.ButtonsOnControlPanelGroupBox_Click(System.Object,System.EventArgs)">
+ <summary>
+ Multi button event handler to handle buttons that are always shown on the ControlPanelGroupBox
+ </summary>
+ <param name="sender">Object</param>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:Cis212Project2.Form1.SearchButtonOnControlPanel_Click(System.Object,System.EventArgs)">
+ <summary>
+ AFter a type of seach has been chosen, this will exucte that type of search
+ </summary>
+ <param name="sender">Object</param>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:Cis212Project2.Form1.BrowseDataGridView_CellContentClick(System.Object,System.Windows.Forms.DataGridViewCellEventArgs)">
+ <summary>
+ Get detailed contact infromation for the item clicked in the DataGridView
+ </summary>
+ <param name="sender">Object</param>
+ <param name="e">DataGridViewCellEventArgs</param>
+</member>
+<member name="M:Cis212Project2.Form1.EnableEditButton_Click(System.Object,System.EventArgs)">
+ <summary>
+ Places the detailed contact inforamtion into edit mode.
+ </summary>
+ <param name="sender">Object</param>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:Cis212Project2.Form1.SaveAndExitEditingModeButton_Click(System.Object,System.EventArgs)">
+ <summary>
+ Saves valid information for a contact 
+ </summary>
+ <param name="sender">Object</param>
+ <param name="e">EventArgs</param>
+</member>
+<member name="M:Cis212Project2.Form1.CancelButton_Click(System.Object,System.EventArgs)">
+ <summary>
+ Exit adding contact or edit contact mode
+ </summary>
+ <param name="sender">Object</param>
+ <param name="e">EventArgs</param>
+</member>
 </members>
 </doc>
