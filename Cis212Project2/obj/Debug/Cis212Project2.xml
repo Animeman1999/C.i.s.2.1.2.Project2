@@ -80,7 +80,7 @@ Cis212Project2
 </member>
 <member name="M:Cis212Project2.Form1.SearchButtonOnControlPanel_Click(System.Object,System.EventArgs)">
  <summary>
- AFter a type of seach has been chosen, this will exucte that type of search
+ Searches for the type of seach chosen, with the value entered, and displays the results.
  </summary>
  <param name="sender">Object</param>
  <param name="e">EventArgs</param>
@@ -94,7 +94,7 @@ Cis212Project2
 </member>
 <member name="M:Cis212Project2.Form1.EnableEditButton_Click(System.Object,System.EventArgs)">
  <summary>
- Places the detailed contact inforamtion into edit mode.
+ Switches the detailed contact infromation into edit mode
  </summary>
  <param name="sender">Object</param>
  <param name="e">EventArgs</param>
@@ -112,6 +112,78 @@ Cis212Project2
  </summary>
  <param name="sender">Object</param>
  <param name="e">EventArgs</param>
+</member>
+<member name="M:Cis212Project2.Form1.DeleteButton_Click(System.Object,System.EventArgs)">
+ <summary>
+ Delete the detailed contact information from all tables in the database
+ </summary>
+ <param name="sender"></param>
+ <param name="e"></param>
+</member>
+<member name="M:Cis212Project2.Form1.EnableSeachItems">
+ <summary>
+ Enables items used when a seach it going to be done.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.DisableSearchItems">
+ <summary>
+ Disable items used when a seach is going to be done.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.EnableEditAddModeItems">
+ <summary>
+ Enable items used when in Edit contact or add contact mode.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.DisableEditAddModeItems">
+ <summary>
+ Disable items used when in Edit contact or add contact mode
+ and set both modes to false.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.resetFontColorOnButtons">
+ <summary>
+ Set the color of text for buttons on the ControlPanelGroupBox to white
+ to indicate not selected.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.EnableContactInfoItems">
+ <summary>
+ Enable items used for detailed contact information.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.DisableContactInfoLabels">
+ <summary>
+ Disable items used for detailed contact information.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.EnableEditingContactInfo">
+ <summary>
+ Enable textBox.Text fields to be eddited.
+ ContactTypeTextBox.Text and PhoneTypeTextBox.Text
+ are set to the default values. Done here so if
+ enabled in the future, it is in the correct location.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.DisableEditingContactInfo">
+ <summary>
+ Disable textBox.Text fields to be eddited.
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.UpdateAllContactRelatedTextBoxes">
+ <summary>
+ Get the detail contact information from the allContactRelatedTables and place into the TextBoxes
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.UpdateAllContactRelatedTablesFields">
+ <summary>
+  Get the detail contact information from the TextBoxes and place into the allContactRelatedTables
+ </summary>
+</member>
+<member name="M:Cis212Project2.Form1.ClearAllcontactRelatedATablesInfo">
+ <summary>
+ Clears out all of the TextBoxes used for detail contact infromatin
+ </summary>
 </member>
 </members>
 </doc>

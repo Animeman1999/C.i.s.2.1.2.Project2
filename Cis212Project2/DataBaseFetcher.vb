@@ -20,8 +20,16 @@ Public Class DataBaseFetcher
 
 #Region "Functions"
 
+    ''' <summary>
+    ''' Uses a oleDataReader to fetch the data from a database and returns it as a string.
+    ''' </summary>
+    ''' <param name="queryString">String</param>
+    ''' <param name="numberOfColums">String</param>
+    ''' <param name="connString">String</param>
+    ''' <returns></returns>
     Function getOleDataReader(ByVal queryString As String, ByVal numberOfColums As Integer, ByVal connString As String) As String()
 
+        'Working Variables
         Dim oleDbConnection As OleDbConnection = Nothing
         Dim oleDbCommand As OleDbCommand = Nothing
         Dim oleDataReader As OleDbDataReader = Nothing
@@ -32,13 +40,14 @@ Public Class DataBaseFetcher
 
         Try
 
+            'Create the connectin and place the data into the reader
             Dim x As Int16 = 0
-            'Create the connection to the database
             oleDbConnection = New OleDbConnection(connString)
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             oleDbConnection.Open()
             oleDataReader = oleDbCommand.ExecuteReader()
 
+            'Take the data out of the reader one line at a time than one collumn at a time and add to the string to be returned.
             While oleDataReader.Read()
 
                 For column As Integer = 0 To numberOfColums - 1
@@ -66,8 +75,16 @@ Public Class DataBaseFetcher
 
     End Function
 
+    ''' <summary>
+    ''' Get the data from a database and return it as a Dataset.
+    ''' </summary>
+    ''' <param name="queryString">String</param>
+    ''' <param name="TableName">String</param>
+    ''' <param name="connString">String</param>
+    ''' <returns>DataSet</returns>
     Function getOleDataSet(ByVal queryString As String, ByVal TableName As String, ByVal connString As String) As DataSet
 
+        'Working Variables
         Dim dataAdapter As OleDbDataAdapter
         Dim oleDbConnection As OleDbConnection = Nothing
         Dim oleDbCommand As OleDbCommand = Nothing
@@ -78,7 +95,7 @@ Public Class DataBaseFetcher
 
         Try
 
-            'Create the connection to the database
+            'Create the connection to the database and place the data in the DataSet
             oleDbConnection = New OleDbConnection(connString)
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             dataAdapter = New OleDbDataAdapter(oleDbCommand)
@@ -102,8 +119,15 @@ Public Class DataBaseFetcher
 
     End Function
 
+    ''' <summary>
+    ''' Get the data from a database and return it as a Integer Scalar.
+    ''' </summary>
+    ''' <param name="queryString"></param>
+    ''' <param name="connString"></param>
+    ''' <returns></returns>
     Public Function IntegerScalarOleDbCommand(queryString As String, connString As String) As Integer
 
+        'Working Variables
         Dim integerResult As Integer = Nothing
         Dim oleDbConnection As OleDbConnection = Nothing
         Dim oleDbCommand As OleDbCommand = Nothing
@@ -113,7 +137,7 @@ Public Class DataBaseFetcher
 
         Try
 
-            'Create the connection to the database
+            'Create the connection to the database and place the results in the integerResult that will be returned.
             oleDbConnection = New OleDbConnection(connString)
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             oleDbConnection.Open()
@@ -156,12 +180,10 @@ Public Class DataBaseFetcher
 
         Try
 
-            'Create the connection to the database
+            'Create the connection to the database place the boolean value into foudBool that will be returned.
             oleDbConnection = New OleDbConnection(connString)
-            'Load the command with the SqlQuery and the connection
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             oleDbConnection.Open()
-            'Return a bool value from the SqlQuery
             foundBool = oleDbCommand.ExecuteNonQuery()
 
         Catch ex As Exception

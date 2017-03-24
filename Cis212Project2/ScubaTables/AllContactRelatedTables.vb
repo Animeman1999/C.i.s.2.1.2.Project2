@@ -1,4 +1,11 @@
-﻿Public Class AllContactRelatedTables
+﻿'Jeffrey Martin
+'CIS 212 Project 2
+
+''' <summary>
+''' This class is the interface between the View and the Controler for the database.
+''' Used with the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+''' </summary>
+Public Class AllContactRelatedTables
 
     Private COLUMN_NUMBER As Integer = 14
     Private databaseFetcher As DataBaseFetcher = New DataBaseFetcher
@@ -115,6 +122,8 @@
 
 
     Public Sub FetchSingleContactInclusiveData(ByVal connectionString As String, ByVal companyId As Integer)
+
+        'Fetch the data, store it and get any error messages
         _ErrorMessage = ""
         _contactData = databaseFetcher.getOleDataReader($"SELECT CompanyName, LastName, FirstName, EmployeeTypes.Description, dbo.Phones.Phone, dbo.PhoneTypes.Description,
                                                         dbo.Addresses.Address1, Address2, City, State, PostalCode, EmployeeID, PhoneID, AddressID
@@ -144,18 +153,9 @@
     End Sub
 
     Public Sub UpdateContactInformation(ByVal connectionString As String)
+
+        'Fetch the data, store it and get any error messages
         _ErrorMessage = ""
-        '_contactData(0) = companyName
-        '_contactData(1) = lastName
-        '_contactData(2) = firstName
-        '_contactData(3) = employeeTypesDescription
-        '_contactData(4) = phoneNumber
-        '_contactData(5) = phoneType
-        '_contactData(6) = address1
-        '_contactData(7) = address2
-        '_contactData(8) = city
-        '_contactData(9) = state
-        '_contactData(10) = postalCode
 
         databaseFetcher.CreateOleDbCommand($"BEGIN TRY
 	                                            BEGIN TRANSACTION
