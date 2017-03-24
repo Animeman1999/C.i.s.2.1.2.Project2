@@ -21,7 +21,7 @@
         _dataSet = dataBaseFetcher.getOleDataSet($"SELECT LastName, FirstName, CompanyName,Companies.CompanyID 
                                                     FROM dbo.Employees JOIN dbo.Companies 
                                                     ON Companies.CompanyID = Employees.CompanyID 
-                                                    WHERE LastName LIKE '{lastName.Trim()}%'
+                                                    WHERE LastName LIKE '{lastName.Trim().Replace("'", "''")}%'
                                                     ORDER BY LastName", "dbo.Employees", connString)
         _ErrorMessage = dataBaseFetcher.ErrorMessage
     End Sub
@@ -31,7 +31,7 @@
         _dataSet = dataBaseFetcher.getOleDataSet($"SELECT LastName, FirstName, CompanyName,Companies.CompanyID 
                                                    FROM dbo.Employees 
                                                    JOIN dbo.Companies ON Companies.CompanyID = Employees.CompanyID 
-                                                   WHERE CompanyName LIKE '{companyName.Trim()}%' 
+                                                   WHERE CompanyName LIKE '{companyName.Trim().Replace("'", "''")}%' 
                                                    ORDER BY LastName", "dbo.Employees", connString)
         _ErrorMessage = dataBaseFetcher.ErrorMessage
     End Sub
@@ -42,8 +42,8 @@
                                                         FROM dbo.Employees 
                                                         JOIN dbo.Companies  
                                                         ON Companies.CompanyID = Employees.CompanyID 
-                                                        WHERE CompanyName = '{companyName.Trim()}'
-                                                            AND LastName = '{lastName.Trim()}'", connString)
+                                                        WHERE CompanyName = '{companyName.Trim().Replace("'", "''")}'
+                                                            AND LastName = '{lastName.Trim().Replace("'", "''")}'", connString)
         _ErrorMessage = dataBaseFetcher.ErrorMessage
     End Function
 End Class '   

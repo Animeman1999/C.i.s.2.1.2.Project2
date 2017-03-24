@@ -37,6 +37,28 @@ Cis212Project2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:Cis212Project2.DataBaseFetcher">
+ <summary>
+ Class to take SQL Commands and hook up to a database and return a value.
+ These are generic and should work with any OleDataBase
+ </summary>
+</member>
+<member name="M:Cis212Project2.DataBaseFetcher.ObjectFoundOleDbCommand(System.String,System.String)">
+ <summary>
+ Search a database and return if found. The queryString sent in needs to be one that will return
+ a boolean.
+ </summary>
+ <param name="queryString">String</param>
+ <param name="connString">String</param>
+ <returns>Boolean</returns>
+</member>
+<member name="M:Cis212Project2.DataBaseFetcher.CreateOleDbCommand(System.String,System.String)">
+ <summary>
+ Method to add a new record to a table, delete a record, or update a record.
+ </summary>
+ <param name="queryString"></param>
+ <param name="connString"></param>
+</member>
 <member name="T:Cis212Project2.Form1">
  <summary>
  Program launches from here and this controls all the users input and outpus

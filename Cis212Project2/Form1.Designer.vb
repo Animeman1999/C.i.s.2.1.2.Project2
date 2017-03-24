@@ -49,10 +49,12 @@ Partial Class Form1
         Me.StateTitle = New System.Windows.Forms.Label()
         Me.PostalCodeTitle = New System.Windows.Forms.Label()
         Me.ContactInfoPanel = New System.Windows.Forms.Panel()
+        Me.CancelButton = New System.Windows.Forms.Button()
         Me.EditAddLabel = New System.Windows.Forms.Label()
         Me.PostalCodeTextBox = New System.Windows.Forms.TextBox()
         Me.StateTextBox = New System.Windows.Forms.TextBox()
         Me.CityTextBox = New System.Windows.Forms.TextBox()
+        Me.SaveAndExitModeButton = New System.Windows.Forms.Button()
         Me.Address2TextBox7 = New System.Windows.Forms.TextBox()
         Me.Address1TextBox = New System.Windows.Forms.TextBox()
         Me.PhoneTypeTextBox = New System.Windows.Forms.TextBox()
@@ -62,10 +64,8 @@ Partial Class Form1
         Me.LastNameTextBox = New System.Windows.Forms.TextBox()
         Me.CompanyNameTextBox = New System.Windows.Forms.TextBox()
         Me.EnableEditButton = New System.Windows.Forms.Button()
-        Me.SaveAndExitModeButton = New System.Windows.Forms.Button()
         Me.ErrorLabel = New System.Windows.Forms.Label()
         Me.DeleteButton = New System.Windows.Forms.Button()
-        Me.CancelButton = New System.Windows.Forms.Button()
         CType(Me.PictureBox3, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox2, System.ComponentModel.ISupportInitialize).BeginInit()
         CType(Me.PictureBox1, System.ComponentModel.ISupportInitialize).BeginInit()
@@ -77,7 +77,7 @@ Partial Class Form1
         'PictureBox3
         '
         Me.PictureBox3.Image = CType(resources.GetObject("PictureBox3.Image"), System.Drawing.Image)
-        Me.PictureBox3.Location = New System.Drawing.Point(2761, 37)
+        Me.PictureBox3.Location = New System.Drawing.Point(2380, 17)
         Me.PictureBox3.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PictureBox3.Name = "PictureBox3"
         Me.PictureBox3.Size = New System.Drawing.Size(207, 141)
@@ -88,7 +88,7 @@ Partial Class Form1
         'PictureBox2
         '
         Me.PictureBox2.Image = CType(resources.GetObject("PictureBox2.Image"), System.Drawing.Image)
-        Me.PictureBox2.Location = New System.Drawing.Point(995, 0)
+        Me.PictureBox2.Location = New System.Drawing.Point(786, -10)
         Me.PictureBox2.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PictureBox2.Name = "PictureBox2"
         Me.PictureBox2.Size = New System.Drawing.Size(207, 141)
@@ -99,7 +99,7 @@ Partial Class Form1
         'PictureBox1
         '
         Me.PictureBox1.Image = CType(resources.GetObject("PictureBox1.Image"), System.Drawing.Image)
-        Me.PictureBox1.Location = New System.Drawing.Point(37, 0)
+        Me.PictureBox1.Location = New System.Drawing.Point(14, 0)
         Me.PictureBox1.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.PictureBox1.Name = "PictureBox1"
         Me.PictureBox1.Size = New System.Drawing.Size(753, 141)
@@ -112,12 +112,12 @@ Partial Class Form1
         Me.TitleLabel.AutoSize = True
         Me.TitleLabel.Font = New System.Drawing.Font("Lucida Calligraphy", 26.14286!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TitleLabel.ForeColor = System.Drawing.Color.RoyalBlue
-        Me.TitleLabel.Location = New System.Drawing.Point(1193, 37)
+        Me.TitleLabel.Location = New System.Drawing.Point(979, 17)
         Me.TitleLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.TitleLabel.Name = "TitleLabel"
-        Me.TitleLabel.Size = New System.Drawing.Size(1460, 114)
+        Me.TitleLabel.Size = New System.Drawing.Size(1381, 114)
         Me.TitleLabel.TabIndex = 3
-        Me.TitleLabel.Text = "Contact Information Look Up"
+        Me.TitleLabel.Text = "Owner Contact Information"
         '
         'ControlPanelGroupBox
         '
@@ -130,11 +130,11 @@ Partial Class Form1
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByLastNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.SearchByCompanyNameButton)
         Me.ControlPanelGroupBox.Controls.Add(Me.BrowseListButton)
-        Me.ControlPanelGroupBox.Location = New System.Drawing.Point(32, 186)
+        Me.ControlPanelGroupBox.Location = New System.Drawing.Point(33, 181)
         Me.ControlPanelGroupBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.ControlPanelGroupBox.Name = "ControlPanelGroupBox"
         Me.ControlPanelGroupBox.Padding = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.ControlPanelGroupBox.Size = New System.Drawing.Size(655, 882)
+        Me.ControlPanelGroupBox.Size = New System.Drawing.Size(2478, 321)
         Me.ControlPanelGroupBox.TabIndex = 4
         Me.ControlPanelGroupBox.TabStop = False
         '
@@ -144,10 +144,10 @@ Partial Class Form1
         Me.SearchButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchButton.Location = New System.Drawing.Point(43, 773)
+        Me.SearchButton.Location = New System.Drawing.Point(818, 186)
         Me.SearchButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchButton.Name = "SearchButton"
-        Me.SearchButton.Size = New System.Drawing.Size(561, 64)
+        Me.SearchButton.Size = New System.Drawing.Size(376, 109)
         Me.SearchButton.TabIndex = 8
         Me.SearchButton.Text = "Search"
         Me.SearchButton.UseVisualStyleBackColor = False
@@ -155,10 +155,10 @@ Partial Class Form1
         'SearchTextBox
         '
         Me.SearchTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchTextBox.Location = New System.Drawing.Point(43, 678)
+        Me.SearchTextBox.Location = New System.Drawing.Point(1250, 245)
         Me.SearchTextBox.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchTextBox.Name = "SearchTextBox"
-        Me.SearchTextBox.Size = New System.Drawing.Size(559, 50)
+        Me.SearchTextBox.Size = New System.Drawing.Size(374, 50)
         Me.SearchTextBox.TabIndex = 7
         Me.SearchTextBox.Text = "SearchTextBox"
         '
@@ -166,7 +166,7 @@ Partial Class Form1
         '
         Me.SearchLabel.AutoSize = True
         Me.SearchLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SearchLabel.Location = New System.Drawing.Point(48, 591)
+        Me.SearchLabel.Location = New System.Drawing.Point(1242, 186)
         Me.SearchLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.SearchLabel.Name = "SearchLabel"
         Me.SearchLabel.Size = New System.Drawing.Size(233, 44)
@@ -179,10 +179,10 @@ Partial Class Form1
         Me.TotalNumberOfContactsButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.TotalNumberOfContactsButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.TotalNumberOfContactsButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.TotalNumberOfContactsButton.Location = New System.Drawing.Point(43, 481)
+        Me.TotalNumberOfContactsButton.Location = New System.Drawing.Point(1861, 39)
         Me.TotalNumberOfContactsButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.TotalNumberOfContactsButton.Name = "TotalNumberOfContactsButton"
-        Me.TotalNumberOfContactsButton.Size = New System.Drawing.Size(561, 64)
+        Me.TotalNumberOfContactsButton.Size = New System.Drawing.Size(376, 109)
         Me.TotalNumberOfContactsButton.TabIndex = 5
         Me.TotalNumberOfContactsButton.Text = "Total Number of Contacts"
         Me.TotalNumberOfContactsButton.UseVisualStyleBackColor = False
@@ -193,10 +193,10 @@ Partial Class Form1
         Me.AddNewCompanyButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.AddNewCompanyButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.AddNewCompanyButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.AddNewCompanyButton.Location = New System.Drawing.Point(43, 370)
+        Me.AddNewCompanyButton.Location = New System.Drawing.Point(1457, 39)
         Me.AddNewCompanyButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.AddNewCompanyButton.Name = "AddNewCompanyButton"
-        Me.AddNewCompanyButton.Size = New System.Drawing.Size(561, 64)
+        Me.AddNewCompanyButton.Size = New System.Drawing.Size(376, 109)
         Me.AddNewCompanyButton.TabIndex = 4
         Me.AddNewCompanyButton.Text = "Add a New Company"
         Me.AddNewCompanyButton.UseVisualStyleBackColor = False
@@ -207,10 +207,10 @@ Partial Class Form1
         Me.SearchByLastNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByLastNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchByLastNameButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchByLastNameButton.Location = New System.Drawing.Point(43, 259)
+        Me.SearchByLastNameButton.Location = New System.Drawing.Point(1053, 39)
         Me.SearchByLastNameButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchByLastNameButton.Name = "SearchByLastNameButton"
-        Me.SearchByLastNameButton.Size = New System.Drawing.Size(561, 64)
+        Me.SearchByLastNameButton.Size = New System.Drawing.Size(376, 109)
         Me.SearchByLastNameButton.TabIndex = 2
         Me.SearchByLastNameButton.Text = "Search By Last Name"
         Me.SearchByLastNameButton.UseVisualStyleBackColor = False
@@ -221,10 +221,10 @@ Partial Class Form1
         Me.SearchByCompanyNameButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.SearchByCompanyNameButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.SearchByCompanyNameButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.SearchByCompanyNameButton.Location = New System.Drawing.Point(43, 148)
+        Me.SearchByCompanyNameButton.Location = New System.Drawing.Point(649, 39)
         Me.SearchByCompanyNameButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.SearchByCompanyNameButton.Name = "SearchByCompanyNameButton"
-        Me.SearchByCompanyNameButton.Size = New System.Drawing.Size(561, 64)
+        Me.SearchByCompanyNameButton.Size = New System.Drawing.Size(376, 109)
         Me.SearchByCompanyNameButton.TabIndex = 1
         Me.SearchByCompanyNameButton.Text = "Search By Company Name"
         Me.SearchByCompanyNameButton.UseVisualStyleBackColor = False
@@ -235,10 +235,10 @@ Partial Class Form1
         Me.BrowseListButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.BrowseListButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.BrowseListButton.ForeColor = System.Drawing.SystemColors.Window
-        Me.BrowseListButton.Location = New System.Drawing.Point(43, 36)
+        Me.BrowseListButton.Location = New System.Drawing.Point(245, 39)
         Me.BrowseListButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BrowseListButton.Name = "BrowseListButton"
-        Me.BrowseListButton.Size = New System.Drawing.Size(561, 64)
+        Me.BrowseListButton.Size = New System.Drawing.Size(376, 109)
         Me.BrowseListButton.TabIndex = 0
         Me.BrowseListButton.Text = "Browse List"
         Me.BrowseListButton.UseVisualStyleBackColor = False
@@ -249,12 +249,12 @@ Partial Class Form1
         Me.BrowseDataGridView.AllowUserToDeleteRows = False
         Me.BrowseDataGridView.BackgroundColor = System.Drawing.Color.LightSteelBlue
         Me.BrowseDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.BrowseDataGridView.Location = New System.Drawing.Point(742, 186)
+        Me.BrowseDataGridView.Location = New System.Drawing.Point(33, 572)
         Me.BrowseDataGridView.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.BrowseDataGridView.Name = "BrowseDataGridView"
         Me.BrowseDataGridView.ReadOnly = True
         Me.BrowseDataGridView.RowTemplate.Height = 31
-        Me.BrowseDataGridView.Size = New System.Drawing.Size(1219, 882)
+        Me.BrowseDataGridView.Size = New System.Drawing.Size(1219, 1015)
         Me.BrowseDataGridView.TabIndex = 5
         '
         'CompanyNameTitle
@@ -392,10 +392,14 @@ Partial Class Form1
         'ContactInfoPanel
         '
         Me.ContactInfoPanel.BackColor = System.Drawing.Color.LightSteelBlue
+        Me.ContactInfoPanel.Controls.Add(Me.DeleteButton)
+        Me.ContactInfoPanel.Controls.Add(Me.CancelButton)
         Me.ContactInfoPanel.Controls.Add(Me.EditAddLabel)
         Me.ContactInfoPanel.Controls.Add(Me.PostalCodeTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.EnableEditButton)
         Me.ContactInfoPanel.Controls.Add(Me.StateTextBox)
         Me.ContactInfoPanel.Controls.Add(Me.CityTextBox)
+        Me.ContactInfoPanel.Controls.Add(Me.SaveAndExitModeButton)
         Me.ContactInfoPanel.Controls.Add(Me.Address2TextBox7)
         Me.ContactInfoPanel.Controls.Add(Me.Address1TextBox)
         Me.ContactInfoPanel.Controls.Add(Me.PhoneTypeTextBox)
@@ -415,11 +419,24 @@ Partial Class Form1
         Me.ContactInfoPanel.Controls.Add(Me.Address1Ttile)
         Me.ContactInfoPanel.Controls.Add(Me.PhoneNumberTitle)
         Me.ContactInfoPanel.Controls.Add(Me.PhoneTypeTitle)
-        Me.ContactInfoPanel.Location = New System.Drawing.Point(1997, 186)
+        Me.ContactInfoPanel.Location = New System.Drawing.Point(1338, 572)
         Me.ContactInfoPanel.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.ContactInfoPanel.Name = "ContactInfoPanel"
-        Me.ContactInfoPanel.Size = New System.Drawing.Size(1120, 882)
+        Me.ContactInfoPanel.Size = New System.Drawing.Size(1173, 1015)
         Me.ContactInfoPanel.TabIndex = 30
+        '
+        'CancelButton
+        '
+        Me.CancelButton.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.CancelButton.Location = New System.Drawing.Point(771, 906)
+        Me.CancelButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.CancelButton.Name = "CancelButton"
+        Me.CancelButton.Size = New System.Drawing.Size(319, 69)
+        Me.CancelButton.TabIndex = 35
+        Me.CancelButton.Text = "Cancel and Exit"
+        Me.CancelButton.UseVisualStyleBackColor = False
         '
         'EditAddLabel
         '
@@ -458,6 +475,19 @@ Partial Class Form1
         Me.CityTextBox.Name = "CityTextBox"
         Me.CityTextBox.Size = New System.Drawing.Size(775, 50)
         Me.CityTextBox.TabIndex = 38
+        '
+        'SaveAndExitModeButton
+        '
+        Me.SaveAndExitModeButton.BackColor = System.Drawing.Color.LightSkyBlue
+        Me.SaveAndExitModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
+        Me.SaveAndExitModeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.SaveAndExitModeButton.Location = New System.Drawing.Point(315, 906)
+        Me.SaveAndExitModeButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
+        Me.SaveAndExitModeButton.Name = "SaveAndExitModeButton"
+        Me.SaveAndExitModeButton.Size = New System.Drawing.Size(319, 69)
+        Me.SaveAndExitModeButton.TabIndex = 32
+        Me.SaveAndExitModeButton.Text = "Save and Exit"
+        Me.SaveAndExitModeButton.UseVisualStyleBackColor = False
         '
         'Address2TextBox7
         '
@@ -534,7 +564,7 @@ Partial Class Form1
         'EnableEditButton
         '
         Me.EnableEditButton.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.EnableEditButton.Location = New System.Drawing.Point(1997, 1066)
+        Me.EnableEditButton.Location = New System.Drawing.Point(33, 906)
         Me.EnableEditButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.EnableEditButton.Name = "EnableEditButton"
         Me.EnableEditButton.Size = New System.Drawing.Size(215, 95)
@@ -542,25 +572,12 @@ Partial Class Form1
         Me.EnableEditButton.Text = "Edit this Information"
         Me.EnableEditButton.UseVisualStyleBackColor = False
         '
-        'SaveAndExitEditingModeButton
-        '
-        Me.SaveAndExitModeButton.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.SaveAndExitModeButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.SaveAndExitModeButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.SaveAndExitModeButton.Location = New System.Drawing.Point(2207, 1066)
-        Me.SaveAndExitModeButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.SaveAndExitModeButton.Name = "SaveAndExitEditingModeButton"
-        Me.SaveAndExitModeButton.Size = New System.Drawing.Size(319, 69)
-        Me.SaveAndExitModeButton.TabIndex = 32
-        Me.SaveAndExitModeButton.Text = "Save and Exit"
-        Me.SaveAndExitModeButton.UseVisualStyleBackColor = False
-        '
         'ErrorLabel
         '
         Me.ErrorLabel.AutoSize = True
         Me.ErrorLabel.BackColor = System.Drawing.Color.Pink
         Me.ErrorLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.ErrorLabel.Location = New System.Drawing.Point(23, 1096)
+        Me.ErrorLabel.Location = New System.Drawing.Point(44, 1605)
         Me.ErrorLabel.Margin = New System.Windows.Forms.Padding(5, 0, 5, 0)
         Me.ErrorLabel.Name = "ErrorLabel"
         Me.ErrorLabel.Size = New System.Drawing.Size(208, 44)
@@ -570,7 +587,7 @@ Partial Class Form1
         'DeleteButton
         '
         Me.DeleteButton.BackColor = System.Drawing.Color.LightSteelBlue
-        Me.DeleteButton.Location = New System.Drawing.Point(2902, 1066)
+        Me.DeleteButton.Location = New System.Drawing.Point(913, 906)
         Me.DeleteButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
         Me.DeleteButton.Name = "DeleteButton"
         Me.DeleteButton.Size = New System.Drawing.Size(215, 95)
@@ -578,31 +595,14 @@ Partial Class Form1
         Me.DeleteButton.Text = "Delete this Information"
         Me.DeleteButton.UseVisualStyleBackColor = False
         '
-        'CancelButton
-        '
-        Me.CancelButton.BackColor = System.Drawing.Color.LightSkyBlue
-        Me.CancelButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.CancelButton.Font = New System.Drawing.Font("Microsoft Sans Serif", 11.14286!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.CancelButton.Location = New System.Drawing.Point(2592, 1066)
-        Me.CancelButton.Margin = New System.Windows.Forms.Padding(5, 4, 5, 4)
-        Me.CancelButton.Name = "CancelButton"
-        Me.CancelButton.Size = New System.Drawing.Size(319, 69)
-        Me.CancelButton.TabIndex = 35
-        Me.CancelButton.Text = "Cancel and Exit"
-        Me.CancelButton.UseVisualStyleBackColor = False
-        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(16.0!, 31.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Lavender
-        Me.ClientSize = New System.Drawing.Size(3344, 1190)
-        Me.Controls.Add(Me.CancelButton)
-        Me.Controls.Add(Me.DeleteButton)
+        Me.ClientSize = New System.Drawing.Size(2617, 1658)
         Me.Controls.Add(Me.PictureBox3)
         Me.Controls.Add(Me.ErrorLabel)
-        Me.Controls.Add(Me.SaveAndExitModeButton)
-        Me.Controls.Add(Me.EnableEditButton)
         Me.Controls.Add(Me.ContactInfoPanel)
         Me.Controls.Add(Me.BrowseDataGridView)
         Me.Controls.Add(Me.ControlPanelGroupBox)

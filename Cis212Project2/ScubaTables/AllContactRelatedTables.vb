@@ -7,19 +7,111 @@
     Private _phoneID As String
     Private _addressID As String
     Private _companyID As Integer
+    Private _companyName As String
+    Private _lastName As String
+    Private _firstName As String
+    Private _employeeTypesDescription As String
+    Private _phoneType As String
+    Private _address1 As String
+    Private _phoneNumber As String
+    Private _address2 As String
+    Private _city As String
+    Private _state As String
+    Private _postalCode As String
     Public ReadOnly Property ErrorMessage As String
 
-    Public Property companyName As String = ""
-    Public Property lastName As String = ""
-    Public Property firstName As String = ""
-    Public Property employeeTypesDescription As String = ""
-    Public Property phoneNumber As String = ""
-    Public Property phoneType As String = ""
-    Public Property address1 As String = ""
-    Public Property address2 As String = ""
-    Public Property city As String = ""
-    Public Property state As String = ""
-    Public Property postalCode As String = ""
+
+    Public Property companyName As String
+        Get
+            Return _companyName.Replace("''", "'")
+        End Get
+
+        Set(value As String)
+            _companyName = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+
+    Public Property lastName As String
+        Get
+            Return _lastName.Replace("''", "'")
+        End Get
+
+        Set(value As String)
+            _lastName = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property firstName As String
+        Get
+            Return _firstName.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _firstName = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property employeeTypesDescription As String
+        Get
+            Return _employeeTypesDescription.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _employeeTypesDescription = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property phoneNumber As String
+        Get
+            Return _phoneNumber.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _phoneNumber = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property phoneType As String
+        Get
+            Return _phoneType.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _phoneType = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property address1 As String
+        Get
+            Return _address1.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _address1 = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property address2 As String
+        Get
+            Return _address2.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _address2 = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property city As String
+        Get
+            Return _city.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _city = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property state As String
+        Get
+            Return _state.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _state = value.Trim().Replace("'", "''")
+        End Set
+    End Property
+    Public Property postalCode As String
+        Get
+            Return _postalCode.Replace("''", "'")
+        End Get
+        Set(value As String)
+            _postalCode = value.Trim().Replace("'", "''")
+        End Set
+    End Property
 
 
     Public Sub FetchSingleContactInclusiveData(ByVal connectionString As String, ByVal companyId As Integer)
@@ -68,20 +160,20 @@
         databaseFetcher.CreateOleDbCommand($"BEGIN TRY
 	                                            BEGIN TRANSACTION
 		                                            UPDATE dbo.Employees
-		                                            SET LastName = '{lastName}', FirstName = '{firstName}',EmployeeTypeID = 1
+		                                            SET LastName = '{_lastName}', FirstName = '{_firstName}',EmployeeTypeID = 1
 		                                            WHERE EmployeeID = {_employeeID}
 
 		                                            UPDATE dbo.Companies
-		                                            SET CompanyName = '{companyName}'
+		                                            SET CompanyName = '{_companyName}'
 		                                            WHERE CompanyID = {_companyID}
 
 		                                            UPDATE dbo.Phones
-		                                            SET Phone = '{phoneNumber}',PhoneTypeID = 4
+		                                            SET Phone = '{_phoneNumber}',PhoneTypeID = 4
 		                                            WHERE PhoneID = {_phoneID}
 
 		                                            UPDATE dbo.Addresses
-		                                            SET Address1 = '{address1}', Address2 = '{address2}',
-			                                            City = '{city}', State = '{state}', PostalCode = '{postalCode}'
+		                                            SET Address1 = '{_address1}', Address2 = '{_address2}',
+			                                            City = '{_city}', State = '{_state}', PostalCode = '{_postalCode}'
 		                                            WHERE AddressID = {_addressID}
 	                                            COMMIT
                                             END TRY
@@ -125,19 +217,19 @@
 	                                        BEGIN TRANSACTION
 		                                        DECLARE @companyId INT
 		                                        INSERT INTO dbo.Companies
-		                                        VALUES ('{companyName}')
+		                                        VALUES ('{_companyName}')
 		                                        SET	@companyId = @@Identity
 		
 
 		                                        INSERT INTO dbo.Employees
-		                                        VALUES (@companyId, 1, '{firstName}', '{lastName}')
+		                                        VALUES (@companyId, 1, '{_firstName}', '{_lastName}')
 
 		                                        INSERT INTO dbo.Phones
-		                                        VALUES (@companyId, 4, '{phoneNumber}')
+		                                        VALUES (@companyId, 4, '{_phoneNumber}')
 
 		                                        INSERT INTO dbo.Addresses
-		                                        VALUES (@companyId, 2,'{address1}', '{address2}',
-			                                        '{city}', '{state}', '{postalCode}')
+		                                        VALUES (@companyId, 2,'{_address1}', '{_address2}',
+			                                        '{_city}', '{_state}', '{_postalCode}')
 	                                        COMMIT
                                         END TRY
                                         BEGIN CATCH

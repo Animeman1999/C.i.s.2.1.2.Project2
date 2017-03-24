@@ -1,10 +1,24 @@
-﻿Imports System.Data.SqlClient
+﻿'Jeffrey Martin
+'CIS 212 Project 2
+
+
+Imports System.Data.SqlClient
 Imports System.Data.OleDb
 
+''' <summary>
+''' Class to take SQL Commands and hook up to a database and return a value.
+''' These are generic and should work with any OleDataBase
+''' </summary>
 Public Class DataBaseFetcher
 
+#Region "Properties"
+
+    'Used to pass back last error message generated in this class
     Public ReadOnly Property ErrorMessage As String
 
+#End Region
+
+#Region "Functions"
 
     Function getOleDataReader(ByVal queryString As String, ByVal numberOfColums As Integer, ByVal connString As String) As String()
 
@@ -17,24 +31,33 @@ Public Class DataBaseFetcher
         connString += " Provider=SQLOLEDB;"
 
         Try
+
             Dim x As Int16 = 0
+            'Create the connection to the database
             oleDbConnection = New OleDbConnection(connString)
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             oleDbConnection.Open()
             oleDataReader = oleDbCommand.ExecuteReader()
+
             While oleDataReader.Read()
+
                 For column As Integer = 0 To numberOfColums - 1
+
                     returnString(column) = oleDataReader(column).ToString()
+
                 Next
 
             End While
 
         Catch ex As Exception
+
             _ErrorMessage = ex.Message.ToString() & " Error "
+
         Finally
 
             If oleDbConnection.State = ConnectionState.Open Then
                 oleDbConnection.Close()
+
             End If
 
         End Try
@@ -55,7 +78,7 @@ Public Class DataBaseFetcher
 
         Try
 
-
+            'Create the connection to the database
             oleDbConnection = New OleDbConnection(connString)
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             dataAdapter = New OleDbDataAdapter(oleDbCommand)
@@ -63,15 +86,20 @@ Public Class DataBaseFetcher
             dataAdapter.Fill(dataSet, TableName)
 
         Catch ex As Exception
+
             _ErrorMessage = ex.Message.ToString() & " Error "
+
         Finally
 
             If oleDbConnection.State = ConnectionState.Open Then
                 oleDbConnection.Close()
+
             End If
 
         End Try
+
         Return dataSet
+
     End Function
 
     Public Function IntegerScalarOleDbCommand(queryString As String, connString As String) As Integer
@@ -85,40 +113,38 @@ Public Class DataBaseFetcher
 
         Try
 
+            'Create the connection to the database
             oleDbConnection = New OleDbConnection(connString)
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             oleDbConnection.Open()
             integerResult = oleDbCommand.ExecuteScalar()
 
         Catch ex As Exception
+
             _ErrorMessage = ex.Message.ToString() & " Error "
+
         Finally
 
             If oleDbConnection.State = ConnectionState.Open Then
+
                 oleDbConnection.Close()
+
             End If
 
         End Try
 
         Return integerResult
+
     End Function
 
-    Public Sub CreateOleDbCommand(ByVal queryString As String, ByVal connString As String)
-        _ErrorMessage = ""
-        connString += " Provider=SQLOLEDB;"
 
-        Try
-            Using connection As New OleDbConnection(connString)
-                connection.Open()
-                Dim command As New OleDbCommand(queryString, connection)
-                command.ExecuteNonQuery()
-            End Using
-        Catch ex As Exception
-            _ErrorMessage = ex.Message.ToString() & " Error "
-        End Try
-
-    End Sub
-
+    ''' <summary>
+    ''' Search a database and return if found. The queryString sent in needs to be one that will return
+    ''' a boolean.
+    ''' </summary>
+    ''' <param name="queryString">String</param>
+    ''' <param name="connString">String</param>
+    ''' <returns>Boolean</returns>
     Public Function ObjectFoundOleDbCommand(ByVal queryString As String, ByVal connString As String) As Boolean
         _ErrorMessage = ""
         Dim foundBool As Boolean = False
@@ -130,12 +156,16 @@ Public Class DataBaseFetcher
 
         Try
 
+            'Create the connection to the database
             oleDbConnection = New OleDbConnection(connString)
+            'Load the command with the SqlQuery and the connection
             oleDbCommand = New OleDbCommand(queryString, oleDbConnection)
             oleDbConnection.Open()
+            'Return a bool value from the SqlQuery
             foundBool = oleDbCommand.ExecuteNonQuery()
 
         Catch ex As Exception
+
             _ErrorMessage = ex.Message.ToString() & " Error "
         Finally
 
@@ -147,4 +177,42 @@ Public Class DataBaseFetcher
 
         Return foundBool
     End Function
+
+#End Region
+
+#Region "Methods"
+
+    ''' <summary>
+    ''' Method to add a new record to a table, delete a record, or update a record.
+    ''' </summary>
+    ''' <param name="queryString"></param>
+    ''' <param name="connString"></param>
+    Public Sub CreateOleDbCommand(ByVal queryString As String, ByVal connString As String)
+        _ErrorMessage = ""
+        connString += " Provider=SQLOLEDB;"
+
+        Try
+
+            'Create the connection to the database
+            Using connection As New OleDbConnection(connString)
+
+                connection.Open()
+                'Load the command with the SqlQuery and the connection
+                Dim command As New OleDbCommand(queryString, connection)
+                'Execute the command. This SQL commands  works for every type except for SELECT queries
+                command.ExecuteNonQuery()
+
+                'Close the connection
+            End Using
+
+        Catch ex As Exception
+
+            _ErrorMessage = ex.Message.ToString() & " Error "
+
+        End Try
+
+    End Sub
+
+#End Region
+
 End Class

@@ -35,6 +35,7 @@ Public Class Form1
     ''' <param name="sender">Object</param>
     ''' <param name="e">EventArgs</param>
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Me.Size = New System.Drawing.Size(1000, 750)
         DisableSearchItems()
         DisableContactInfoLabels()
         SearchTextBox.Text = ""
@@ -89,7 +90,7 @@ Public Class Form1
                 'Load the search items for a company name
             Case SearchByCompanyNameButton.Name
                 'Create the text to let the user know that they will be searching for a company name
-                SearchLabel.Text = "Enter Name of Company"
+                SearchLabel.Text = "Enter Company Name"
                 'Load the search items on the form
                 EnableSeachItems()
                 'Set the search type to companyName
@@ -98,7 +99,7 @@ Public Class Form1
                 'Load the search items for a last name
             Case SearchByLastNameButton.Name
                 'Create the text to let the user know that they will be searching for a last name
-                SearchLabel.Text = "Enter Name of Name"
+                SearchLabel.Text = "Enter Last Name"
                 'Load the search items on the form
                 EnableSeachItems()
                 'Set the search type to LastName
@@ -226,6 +227,9 @@ Public Class Form1
                               MessageBoxButtons.YesNo) = DialogResult.No Then
                 allowChangeOfContactInformation = False
 
+            Else
+                editingContactInfo = False
+
             End If
 
         End If
@@ -280,12 +284,65 @@ Public Class Form1
         'Every event that can create an error, will have this property cleared before run.
         ErrorLabel.Text = ""
 
+        Dim validatedData As Boolean = True
+
+        Select Case (True)
+            Case (CompanyNameTextBox.Text.Trim() = "")
+                MsgBox("XXXXXXNeed to have a Company Name to save a contact.")
+                validatedData = False
+
+            Case InStr(CompanyNameTextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the Company Name input field.")
+                CompanyNameTextBox.Focus()
+                validatedData = False
+
+            Case InStr(LastNameTextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the Last Name input field.")
+                validatedData = False
+                LastNameTextBox.Focus()
+
+            Case InStr(FirstNameTextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the First Name input field.")
+                validatedData = False
+                FirstNameTextBox.Focus()
+
+            Case InStr(PhoneNumberTextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the Phonenumber input field.")
+                validatedData = False
+                PhoneNumberTextBox.Focus()
+
+            Case InStr(Address1TextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the Address 1 input field.")
+                validatedData = False
+                Address1TextBox.Focus()
+
+            Case InStr(Address2TextBox7.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the Address 2 input field.")
+                validatedData = False
+                Address2TextBox7.Focus()
+
+            Case InStr(CityTextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the City input field.")
+                validatedData = False
+                CityTextBox.Focus()
+
+            Case InStr(StateTextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the State input field.")
+                validatedData = False
+                StateTextBox.Focus()
+
+            Case InStr(PostalCodeTextBox.Text.Trim(), "''")
+                MsgBox("Can not have two apostraphies in a row in the Postal code input field.")
+                validatedData = False
+                PostalCodeTextBox.Focus()
+
+
+        End Select
+
         'Validate information has been entered
-        If CompanyNameTextBox.Text = "" Then
+        If validatedData Then
 
-            MsgBox("Need to have a Company Name to save a contact.")
-
-        Else
+            MsgBox("Inside True")
 
             'Place data from input fields in the companiesAndEmployeesTables class.
             UpdateAllContactRelatedTablesFields()
@@ -295,9 +352,6 @@ Public Class Form1
 
                 'Add the contact to the database
                 allContactRelatedTables.AddNewContact(connString)
-
-                'Display the error that happened.
-                ErrorLabel.Text = "Error could not add as a new contact."
 
                 'Check if the CompanyName along with the LastName is in the database to confirm that it has been added.
                 If companiesAndEmployeesTables.CheckIfCompanyInDatabase(connString, CompanyNameTextBox.Text, LastNameTextBox.Text) Then
@@ -317,11 +371,7 @@ Public Class Form1
             Else 'In Editing mode
 
                 'Disable editing mode 
-                editingContactInfo = False
-                SaveAndExitModeButton.Visible = False
-                CancelButton.Visible = False
-                EnableEditButton.Visible = True
-                DeleteButton.Visible = True
+                DisableEditAddModeItems()
                 DisableEditingContactInfo()
 
                 'Update the all the tables used for a contact
@@ -352,6 +402,11 @@ Public Class Form1
 
             'Exit adding a new contact mode
             addingNewContact = False
+
+        Else
+
+            MsgBox("Inside False")
+
 
         End If
 
@@ -413,6 +468,7 @@ Public Class Form1
         SearchLabel.Visible = True
         SearchButton.Visible = True
         SearchTextBox.Visible = True
+        SearchTextBox.Focus()
     End Sub
 
     Private Sub DisableSearchItems()
@@ -490,9 +546,11 @@ Public Class Form1
         CompanyNameTextBox.ReadOnly = False
         LastNameTextBox.ReadOnly = False
         FirstNameTextBox.ReadOnly = False
-        'ContactTypeTextBox.ReadOnly = False
+        ContactTypeTextBox.ReadOnly = True
+        ContactTypeTextBox.Text = "Owner"
         PhoneNumberTextBox.ReadOnly = False
-        'PhoneTypeTextBox.ReadOnly = False
+        PhoneTypeTextBox.ReadOnly = True
+        PhoneTypeTextBox.Text = "Sales"
         Address1TextBox.ReadOnly = False
         Address2TextBox7.ReadOnly = False
         CityTextBox.ReadOnly = False
