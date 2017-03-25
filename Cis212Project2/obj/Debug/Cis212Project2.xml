@@ -37,11 +37,125 @@ Cis212Project2
   Looks up a localized resource of type System.Drawing.Bitmap.
 </summary>
 </member>
+<member name="T:Cis212Project2.AllContactRelatedTables">
+ <summary>
+ This class is the interface between the View and the Controller for the database.
+ Used with the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+ </summary>
+</member>
+<member name="M:Cis212Project2.AllContactRelatedTables.FetchSingleContactInclusiveData(System.String,System.Int32)">
+ <summary>
+ Get all the detailed contact information from  the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+ and place the information into the properties. This will select the infromaiton for the matching companyID.
+ </summary>
+ <param name="connectionString">String</param>
+ <param name="companyId">Integer</param>
+</member>
+<member name="M:Cis212Project2.AllContactRelatedTables.UpdateContactInformation(System.String)">
+ <summary>
+ Update the detailed contanct information in the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+ by each tables ID.
+ </summary>
+ <param name="connectionString">String</param>
+</member>
+<member name="M:Cis212Project2.AllContactRelatedTables.DeleteContact(System.String)">
+ <summary>
+ Delete a contact row of data for the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+ by each of the tables IDs.
+ </summary>
+ <param name="connectionString">String</param>
+</member>
+<member name="M:Cis212Project2.AllContactRelatedTables.AddNewContact(System.String)">
+ <summary>
+ Add the new contact information to the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables.
+ </summary>
+ <param name="connectionString"></param>
+</member>
+<member name="M:Cis212Project2.AllContactRelatedTables.ClearData">
+ <summary>
+ Method used to clear out the data from all of the properties.
+ </summary>
+</member>
+<member name="T:Cis212Project2.CompaniesAndEmployeesTables">
+ <summary>
+ This class is the interface between the View and the Controller for the database.
+ Used with the dbo.Companies and dbo.Employees tables.
+ </summary>
+</member>
+<member name="M:Cis212Project2.CompaniesAndEmployeesTables.FetchBrowseDataSet(System.String)">
+ <summary>
+ Gets the Lastname, FirstName, CompanyName and CompanyID and sorts by LastName
+ in the form oa a DataSet
+ </summary>
+ <param name="connString">String</param>
+</member>
+<member name="M:Cis212Project2.CompaniesAndEmployeesTables.FetchLastNameDataSet(System.String,System.String)">
+ <summary>
+ Searches for last name passed in and returns the Lastname, FirstName, CompanyName and CompanyID and sorted by LastName as a string.
+ </summary>
+ <param name="connString">String</param>
+ <param name="lastName">String</param>
+</member>
+<member name="M:Cis212Project2.CompaniesAndEmployeesTables.FetchCompanyNameDataSet(System.String,System.String)">
+ <summary>
+ Searches for the company name passed in and returns the Lastname, FirstName, CompanyName and CompanyID, sorted by LastName as a string.
+ </summary>
+ <param name="connString">String</param>
+ <param name="companyName">String</param>
+</member>
+<member name="M:Cis212Project2.CompaniesAndEmployeesTables.CheckIfCompanyInDatabase(System.String,System.String,System.String)">
+ <summary>
+ Searches by LastName and Company name to see if the record is in the database and returns true if so.
+ </summary>
+ <param name="connString">String</param>
+ <param name="companyName">String</param>
+ <param name="lastName">String</param>
+ <returns>Boolean</returns>
+</member>
+<member name="T:Cis212Project2.EmployeesTable">
+ <summary>
+ This class is the interface between the View and the Controller for the database.
+ It is used when data needs to be fetched from dbo.Employees table.
+ </summary>
+</member>
+<member name="M:Cis212Project2.EmployeesTable.CreateCount(System.String)">
+ <summary>
+ The SQL command used count the number of LastNames in the dbo.Employees table that is placed 
+ into the contactCount property.
+ </summary>
+ <param name="connString"></param>
+</member>
 <member name="T:Cis212Project2.DataBaseFetcher">
  <summary>
  Class to take SQL Commands and hook up to a database and return a value.
  These are generic and should work with any OleDataBase
  </summary>
+</member>
+<member name="M:Cis212Project2.DataBaseFetcher.getOleDataReader(System.String,System.Int32,System.String)">
+ <summary>
+ Uses a oleDataReader to fetch the data from a database and returns it as a string.
+ </summary>
+ <param name="queryString">String</param>
+ <param name="numberOfColums">String</param>
+ <param name="connString">String</param>
+ <returns></returns>
+</member>
+<member name="M:Cis212Project2.DataBaseFetcher.getOleDataSet(System.String,System.String,System.String)">
+ <summary>
+ Get the data from a database and return it as a Dataset.
+ </summary>
+ <param name="queryString">String</param>
+ <param name="TableName">String</param>
+ <param name="connString">String</param>
+ <returns>DataSet</returns>
+</member>
+<member name="M:Cis212Project2.DataBaseFetcher.IntegerScalarOleDbCommand(System.String,System.String)">
+ <summary>
+ Get the data from a database and return it as a Integer Scalar.
+ </summary>
+ <param name="queryString"></param>
+ <param name="connString"></param>
+ <returns></returns>
 </member>
 <member name="M:Cis212Project2.DataBaseFetcher.ObjectFoundOleDbCommand(System.String,System.String)">
  <summary>
@@ -61,7 +175,7 @@ Cis212Project2
 </member>
 <member name="T:Cis212Project2.Form1">
  <summary>
- Program launches from here and this controls all the users input and outpus
+ Program launches from here and this controls all the user's input and output.
  </summary>
 </member>
 <member name="M:Cis212Project2.Form1.Form1_Load(System.Object,System.EventArgs)">
@@ -80,7 +194,7 @@ Cis212Project2
 </member>
 <member name="M:Cis212Project2.Form1.SearchButtonOnControlPanel_Click(System.Object,System.EventArgs)">
  <summary>
- Searches for the type of seach chosen, with the value entered, and displays the results.
+ Searches for the type of search chosen, with the value entered, and displays the results.
  </summary>
  <param name="sender">Object</param>
  <param name="e">EventArgs</param>
@@ -122,12 +236,12 @@ Cis212Project2
 </member>
 <member name="M:Cis212Project2.Form1.EnableSeachItems">
  <summary>
- Enables items used when a seach it going to be done.
+ Enables items used when a search it going to be done.
  </summary>
 </member>
 <member name="M:Cis212Project2.Form1.DisableSearchItems">
  <summary>
- Disable items used when a seach is going to be done.
+ Disable items used when a search is going to be done.
  </summary>
 </member>
 <member name="M:Cis212Project2.Form1.EnableEditAddModeItems">
@@ -172,17 +286,17 @@ Cis212Project2
 </member>
 <member name="M:Cis212Project2.Form1.UpdateAllContactRelatedTextBoxes">
  <summary>
- Get the detail contact information from the allContactRelatedTables and place into the TextBoxes
+ Get the detail contact information from the allContactRelatedTables and place into the TextBoxes.
  </summary>
 </member>
 <member name="M:Cis212Project2.Form1.UpdateAllContactRelatedTablesFields">
  <summary>
-  Get the detail contact information from the TextBoxes and place into the allContactRelatedTables
+  Get the detail contact information from the TextBoxes and place into the allContactRelatedTables.
  </summary>
 </member>
 <member name="M:Cis212Project2.Form1.ClearAllcontactRelatedATablesInfo">
  <summary>
- Clears out all of the TextBoxes used for detail contact infromatin
+ Clears out all of the TextBoxes used for detail contact information.
  </summary>
 </member>
 </members>

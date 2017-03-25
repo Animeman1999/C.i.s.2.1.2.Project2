@@ -11,6 +11,9 @@ Imports System.Data.OleDb
 ''' </summary>
 Public Class DataBaseFetcher
 
+    'CONSTANTS
+    Private Const PROVIDER As String = " Provider=SQLOLEDB;"
+
 #Region "Properties"
 
     'Used to pass back last error message generated in this class
@@ -36,7 +39,7 @@ Public Class DataBaseFetcher
         Dim returnString(numberOfColums) As String
 
         _ErrorMessage = ""
-        connString += " Provider=SQLOLEDB;"
+        connString += PROVIDER
 
         Try
 
@@ -91,7 +94,7 @@ Public Class DataBaseFetcher
         Dim dataSet As DataSet = New DataSet()
 
         _ErrorMessage = ""
-        connString += " Provider=SQLOLEDB;"
+        connString += PROVIDER
 
         Try
 
@@ -133,7 +136,7 @@ Public Class DataBaseFetcher
         Dim oleDbCommand As OleDbCommand = Nothing
 
         _ErrorMessage = ""
-        connString += " Provider=SQLOLEDB;"
+        connString += PROVIDER
 
         Try
 
@@ -176,7 +179,7 @@ Public Class DataBaseFetcher
         Dim oleDbConnection As OleDbConnection = Nothing
         Dim oleDbCommand As OleDbCommand = Nothing
 
-        connString += " Provider=SQLOLEDB;"
+        connString += PROVIDER
 
         Try
 
@@ -211,7 +214,7 @@ Public Class DataBaseFetcher
     ''' <param name="connString"></param>
     Public Sub CreateOleDbCommand(ByVal queryString As String, ByVal connString As String)
         _ErrorMessage = ""
-        connString += " Provider=SQLOLEDB;"
+        connString += PROVIDER
 
         Try
 
