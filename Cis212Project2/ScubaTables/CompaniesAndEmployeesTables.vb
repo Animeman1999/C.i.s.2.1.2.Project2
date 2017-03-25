@@ -2,7 +2,7 @@
 'CIS 212 Project 2
 
 ''' <summary>
-''' This class is the interface between the View and the Controler for the database.
+''' This class is the interface between the View and the Controller for the database.
 ''' Used with the dbo.Companies and dbo.Employees tables.
 ''' </summary>
 Public Class CompaniesAndEmployeesTables

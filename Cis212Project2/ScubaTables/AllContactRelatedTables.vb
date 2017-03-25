@@ -2,7 +2,7 @@
 'CIS 212 Project 2
 
 ''' <summary>
-''' This class is the interface between the View and the Controler for the database.
+''' This class is the interface between the View and the Controller for the database.
 ''' Used with the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
 ''' </summary>
 Public Class AllContactRelatedTables

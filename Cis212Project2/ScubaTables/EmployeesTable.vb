@@ -2,12 +2,12 @@
 'CIS 212 Project 2
 
 ''' <summary>
-''' This class is the interface between the View and the Controler for the database.
+''' This class is the interface between the View and the Controller for the database.
 ''' It is used when data needs to be fetched from dbo.Employees table.
 ''' </summary>
 Public Class EmployeesTable
 
-    'The hook up to the database controler
+    'The hook up to the database controller
     Dim dataBaseFetcher As DataBaseFetcher = New DataBaseFetcher
 
     'PROPERTIES
@@ -28,4 +28,5 @@ Public Class EmployeesTable
         _ErrorMessage = dataBaseFetcher.ErrorMessage
 
     End Sub
+
 End Class

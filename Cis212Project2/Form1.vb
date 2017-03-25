@@ -2,7 +2,7 @@
 'CIS 212 Project 2
 
 ''' <summary>
-''' Program launches from here and this controls all the users input and outpus
+''' Program launches from here and this controls all the user's input and output.
 ''' </summary>
 Public Class Form1
 
@@ -54,7 +54,7 @@ Public Class Form1
     Private Sub ButtonsOnControlPanelGroupBox_Click(sender As Object, e As EventArgs) Handles BrowseListButton.Click, SearchByCompanyNameButton.Click,
                                                                                  SearchByLastNameButton.Click, AddNewCompanyButton.Click,
                                                                                  TotalNumberOfContactsButton.Click
-        'Holds the informattion that buttons was selected
+        'Holds the information of the buttons selected.
         Dim buttonSelected As Button = sender
 
         'Every event that can create an error, will have this property cleared before run.
@@ -70,7 +70,7 @@ Public Class Form1
         'Handles what happens by the button selected
         Select Case (buttonSelected.Name)
 
-            'Create a list of contacts to browes through
+            'Create a list of contacts to browse through
             Case BrowseListButton.Name
 
                 'Set up the view needed for the contacts and fetch the data
@@ -102,7 +102,7 @@ Public Class Form1
                 EnableSeachItems()
                 searchByChosen = SearchByType.LastName
 
-                'Load the items needed to add a new company contact, does not add the the contact yet.
+                'Load the items needed to add a new company contact, does not add the contact yet.
             Case AddNewCompanyButton.Name
 
                 'Temporary Boolean used if the form is in edit mode, to let the user choose if they wish to exit edit mode or not
@@ -140,7 +140,7 @@ Public Class Form1
     End Sub
 
     ''' <summary>
-    ''' Searches for the type of seach chosen, with the value entered, and displays the results.
+    ''' Searches for the type of search chosen, with the value entered, and displays the results.
     ''' </summary>
     ''' <param name="sender">Object</param>
     ''' <param name="e">EventArgs</param>
@@ -155,7 +155,7 @@ Public Class Form1
             DisableSearchItems()
             BrowseDataGridView.Visible = True
 
-            'Do the type of seach chosen. This style is used for future usability of adding other search types.
+            'Do the type of search chosen. This style is used for future usability of adding other search types.
             Select Case (searchByChosen)
 
                 'Search for the company name entered and display the results in the DataGridView.
@@ -272,54 +272,54 @@ Public Class Form1
         Dim validatedData As Boolean = True
 
         'Validate the data to make sure that there is something in the CompnayName field and that all
-        'fields do not have more than one apostrophry.
+        'fields do not have more than one apostrophe.
         Select Case (True)
             Case (CompanyNameTextBox.Text.Trim() = "")
                 MsgBox("Need to have a Company Name to save a contact.")
                 validatedData = False
 
             Case InStr(CompanyNameTextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the Company Name input field.")
+                MsgBox("Cannot have two apostrophes in a row in the Company Name input field.")
                 CompanyNameTextBox.Focus()
                 validatedData = False
 
             Case InStr(LastNameTextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the Last Name input field.")
+                MsgBox("Cannot have two apostrophes in a row in the Last Name input field.")
                 validatedData = False
                 LastNameTextBox.Focus()
 
             Case InStr(FirstNameTextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the First Name input field.")
+                MsgBox("Cannot have two apostrophes in a row in the First Name input field.")
                 validatedData = False
                 FirstNameTextBox.Focus()
 
             Case InStr(PhoneNumberTextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the Phonenumber input field.")
+                MsgBox("Cannot have two apostrophes in a row in the Phonenumber input field.")
                 validatedData = False
                 PhoneNumberTextBox.Focus()
 
             Case InStr(Address1TextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the Address 1 input field.")
+                MsgBox("Cannot have two apostrophes in a row in the Address 1 input field.")
                 validatedData = False
                 Address1TextBox.Focus()
 
             Case InStr(Address2TextBox7.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the Address 2 input field.")
+                MsgBox("Cannot have two apostrophes in a row in the Address 2 input field.")
                 validatedData = False
                 Address2TextBox7.Focus()
 
             Case InStr(CityTextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the City input field.")
+                MsgBox("Cannot have two apostrophes in a row in the City input field.")
                 validatedData = False
                 CityTextBox.Focus()
 
             Case InStr(StateTextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the State input field.")
+                MsgBox("Cannot have two apostrophes in a row in the State input field.")
                 validatedData = False
                 StateTextBox.Focus()
 
             Case InStr(PostalCodeTextBox.Text.Trim(), "''")
-                MsgBox("Can not have two apostraphies in a row in the Postal code input field.")
+                MsgBox("Cannot have two apostrophes in a row in the Postal code input field.")
                 validatedData = False
                 PostalCodeTextBox.Focus()
 
@@ -331,7 +331,7 @@ Public Class Form1
             'Place data from input fields in the companiesAndEmployeesTables class.
             UpdateAllContactRelatedTablesFields()
 
-            'Check if in Adding a new conact mode
+            'Check if in Adding a new contact mode
             If addingNewContactMode = True Then
 
                 'Add the contact to the database
@@ -348,7 +348,7 @@ Public Class Form1
 
                 Else
 
-                    ErrorLabel.Text += "aaaError could not add as a new contact."
+                    ErrorLabel.Text += "Error could not add as a new contact."
 
                 End If
 
@@ -401,7 +401,7 @@ Public Class Form1
     ''' <param name="e">EventArgs</param>
     Private Sub CancelButton_Click(sender As Object, e As EventArgs) Handles CancelButton.Click
 
-        'Clear out user infromation label
+        'Clear out user information label
         EditAddLabel.Text = ""
 
 
@@ -463,7 +463,7 @@ Public Class Form1
 #Region "DisplaySettingsMethods"
 
     ''' <summary>
-    ''' Enables items used when a seach it going to be done.
+    ''' Enables items used when a search it going to be done.
     ''' </summary>
     Private Sub EnableSeachItems()
 
@@ -475,7 +475,7 @@ Public Class Form1
     End Sub
 
     ''' <summary>
-    ''' Disable items used when a seach is going to be done.
+    ''' Disable items used when a search is going to be done.
     ''' </summary>
     Private Sub DisableSearchItems()
 
@@ -610,7 +610,7 @@ Public Class Form1
     End Sub
 
     ''' <summary>
-    ''' Get the detail contact information from the allContactRelatedTables and place into the TextBoxes
+    ''' Get the detail contact information from the allContactRelatedTables and place into the TextBoxes.
     ''' </summary>
     Private Sub UpdateAllContactRelatedTextBoxes()
 
@@ -629,7 +629,7 @@ Public Class Form1
     End Sub
 
     ''' <summary>
-    '''  Get the detail contact information from the TextBoxes and place into the allContactRelatedTables
+    '''  Get the detail contact information from the TextBoxes and place into the allContactRelatedTables.
     ''' </summary>
     Private Sub UpdateAllContactRelatedTablesFields()
 
@@ -648,7 +648,7 @@ Public Class Form1
     End Sub
 
     ''' <summary>
-    ''' Clears out all of the TextBoxes used for detail contact infromatin
+    ''' Clears out all of the TextBoxes used for detail contact information.
     ''' </summary>
     Private Sub ClearAllcontactRelatedATablesInfo()
 
