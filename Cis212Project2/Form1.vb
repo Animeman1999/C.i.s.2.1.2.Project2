@@ -558,6 +558,11 @@ Public Class Form1
 
     End Sub
 
+
+#End Region
+
+#Region "UpdateMultiVariableMethods"
+
     ''' <summary>
     ''' Enable textBox.Text fields to be eddited.
     ''' ContactTypeTextBox.Text and PhoneTypeTextBox.Text
@@ -583,6 +588,7 @@ Public Class Form1
 
     End Sub
 
+
     ''' <summary>
     ''' Disable textBox.Text fields to be eddited.
     ''' </summary>
@@ -602,10 +608,6 @@ Public Class Form1
         PostalCodeTextBox.ReadOnly = True
 
     End Sub
-
-#End Region
-
-#Region "UpdateMultiVariableMethods"
 
     ''' <summary>
     ''' Get the detail contact information from the allContactRelatedTables and place into the TextBoxes

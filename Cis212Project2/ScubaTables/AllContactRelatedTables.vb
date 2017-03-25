@@ -7,8 +7,18 @@
 ''' </summary>
 Public Class AllContactRelatedTables
 
+#Region "Variables"
+
+    'CONSTANTS
+
     Private COLUMN_NUMBER As Integer = 14
+
+    'WORKING VARIABLES
+
     Private databaseFetcher As DataBaseFetcher = New DataBaseFetcher
+
+    'BACKING FIELDS
+
     Private _contactData(COLUMN_NUMBER) As String
     Private _employeeID As String
     Private _phoneID As String
@@ -25,9 +35,17 @@ Public Class AllContactRelatedTables
     Private _city As String
     Private _state As String
     Private _postalCode As String
+
+#End Region
+
+#Region "Properties"
+
+    'Return last instance of an error from this class
     Public ReadOnly Property ErrorMessage As String
 
-
+    'All of the following properties will remove an apostorphie when there are two for get
+    'add a second apostrophie when thre is one for setting a value.  This is done to prevent SQL 
+    'errors in using apostrophies.
     Public Property companyName As String
         Get
             Return _companyName.Replace("''", "'")
@@ -120,10 +138,19 @@ Public Class AllContactRelatedTables
         End Set
     End Property
 
+#End Region
 
+#Region "PublicMethods"
+
+    ''' <summary>
+    ''' Get all the detailed contact information from  the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+    ''' and place the information into the properties. This will select the infromaiton for the matching companyID.
+    ''' </summary>
+    ''' <param name="connectionString">String</param>
+    ''' <param name="companyId">Integer</param>
     Public Sub FetchSingleContactInclusiveData(ByVal connectionString As String, ByVal companyId As Integer)
 
-        'Fetch the data, store it and get any error messages
+        'Fetch the data
         _ErrorMessage = ""
         _contactData = databaseFetcher.getOleDataReader($"SELECT CompanyName, LastName, FirstName, EmployeeTypes.Description, dbo.Phones.Phone, dbo.PhoneTypes.Description,
                                                         dbo.Addresses.Address1, Address2, City, State, PostalCode, EmployeeID, PhoneID, AddressID
@@ -133,6 +160,8 @@ Public Class AllContactRelatedTables
                                                         JOIN dbo.PhoneTypes ON PhoneTypes.PhoneTypeID = Phones.PhoneTypeID
                                                         JOIN dbo.Addresses ON Addresses.CompanyID = Companies.CompanyID
                                                         WHERE Companies.CompanyID = {companyId} ORDER BY LastName", COLUMN_NUMBER, connectionString)
+
+        'Store the fetched the data and any possible error.
         companyName = _contactData(0)
         lastName = _contactData(1)
         firstName = _contactData(2)
@@ -150,13 +179,18 @@ Public Class AllContactRelatedTables
         _companyID = companyId
 
         _ErrorMessage = databaseFetcher.ErrorMessage
+
     End Sub
 
+    ''' <summary>
+    ''' Update the detailed contanct information in the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+    ''' by each tables ID.
+    ''' </summary>
+    ''' <param name="connectionString">String</param>
     Public Sub UpdateContactInformation(ByVal connectionString As String)
 
-        'Fetch the data, store it and get any error messages
+        'Put the data into the databases and get any error messages
         _ErrorMessage = ""
-
         databaseFetcher.CreateOleDbCommand($"BEGIN TRY
 	                                            BEGIN TRANSACTION
 		                                            UPDATE dbo.Employees
@@ -183,9 +217,17 @@ Public Class AllContactRelatedTables
                                             END CATCH", connectionString)
 
         _ErrorMessage = databaseFetcher.ErrorMessage
+
     End Sub
 
+    ''' <summary>
+    ''' Delete a contact row of data for the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables
+    ''' by each of the tables IDs.
+    ''' </summary>
+    ''' <param name="connectionString">String</param>
     Public Sub DeleteContact(ByVal connectionString As String)
+
+        'Delete the data and fetch any errors.
         _ErrorMessage = ""
         databaseFetcher.CreateOleDbCommand($"BEGIN TRY
 	                                            BEGIN TRANSACTION
@@ -208,11 +250,18 @@ Public Class AllContactRelatedTables
                                             END CATCH", connectionString)
 
         _ErrorMessage = databaseFetcher.ErrorMessage
+
     End Sub
 
+    ''' <summary>
+    ''' Add the new contact information to the Companies, Employees, EmployeeTypes, Phones, and PhoneTypes tables.
+    ''' </summary>
+    ''' <param name="connectionString"></param>
     Public Sub AddNewContact(ByVal connectionString As String)
+
         _ErrorMessage = ""
 
+        'Inserting into the Company will autogenerate an ID that will be captured and used for the other tables.
         databaseFetcher.CreateOleDbCommand($"BEGIN TRY
 	                                        BEGIN TRANSACTION
 		                                        DECLARE @companyId INT
@@ -220,7 +269,6 @@ Public Class AllContactRelatedTables
 		                                        VALUES ('{_companyName}')
 		                                        SET	@companyId = @@Identity
 		
-
 		                                        INSERT INTO dbo.Employees
 		                                        VALUES (@companyId, 1, '{_firstName}', '{_lastName}')
 
@@ -241,7 +289,11 @@ Public Class AllContactRelatedTables
 
     End Sub
 
+    ''' <summary>
+    ''' Method used to clear out the data from all of the properties.
+    ''' </summary>
     Public Sub ClearData()
+
         companyName = ""
         lastName = ""
         firstName = ""
@@ -256,6 +308,10 @@ Public Class AllContactRelatedTables
         _phoneID = ""
         _addressID = ""
         _companyID = ""
+
     End Sub
+
+#End Region
+
 
 End Class
